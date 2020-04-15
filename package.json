@@ -22,7 +22,9 @@
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "husky": "^4.2.5",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
   },
   "keywords": [
     "gatsby"
@@ -43,5 +45,16 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
