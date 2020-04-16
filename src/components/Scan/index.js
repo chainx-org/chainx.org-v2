@@ -21,11 +21,19 @@ export const InnerSection = styled.main`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+
+    & > div:last-of-type {
+      margin-top: 20px;
+    }
   }
 
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
+
+    & > div {
+      flex: 1;
+    }
   }
 
   @media screen and (min-width: 1080px) {
@@ -36,6 +44,7 @@ export const InnerSection = styled.main`
 const Detail = styled.div`
   @media screen and (min-width: 768px) {
     width: 50%;
+    padding-left: 40px;
   }
 
   @media screen and (max-width: 768px) {
@@ -108,7 +117,9 @@ export default function() {
   return (
     <StyledSection>
       <InnerSection>
-        <Img fixed={data.scanImage.childImageSharp.fixed} />
+        <div>
+          <Img fixed={data.scanImage.childImageSharp.fixed} />
+        </div>
         <Detail>
           <h3>ChainX 区块浏览器</h3>
           <Separator />

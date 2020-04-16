@@ -18,6 +18,11 @@ const StyledSection = styled.section`
 const Detail = styled.div`
   @media screen and (min-width: 768px) {
     width: 50%;
+    padding-right: 40px;
+  }
+
+  @media screen and (max-width: 1080px) {
+    padding-left: 20px;
   }
 
   @media screen and (max-width: 768px) {
@@ -47,6 +52,7 @@ const Detail = styled.div`
       color: #000;
       letter-spacing: 0.12px;
       line-height: 28px;
+      text-align: justify;
     }
   }
 
@@ -106,7 +112,9 @@ export default function() {
           </dl>
           <PrimaryButton>开始使用</PrimaryButton>
         </Detail>
-        <Img fixed={data.walletImage.childImageSharp.fixed} />
+        <div style={{ textAlign: 'right' }}>
+          <Img fixed={data.walletImage.childImageSharp.fixed} />
+        </div>
       </InnerSection>
     </StyledSection>
   )
