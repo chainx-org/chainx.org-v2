@@ -5,10 +5,11 @@ import Layout from '../components/layout'
 import Image from '../components/image'
 import SEO from '../components/seo'
 import EcoSystem from '../components/EcoSystem'
+import Scan from '../components/Scan'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="ChainX" />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -16,6 +17,7 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link>
+    <Scan />
     <EcoSystem />
   </Layout>
 )
