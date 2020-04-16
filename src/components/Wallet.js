@@ -1,35 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { InnerSection } from './Scan'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { OutlineButton } from '@chainx/ui/dist'
+import { PrimaryButton } from '@chainx/ui/dist'
 
 const StyledSection = styled.section`
-  background: #3f3f3f;
+  background: #fafafa;
   display: flex;
   justify-content: space-around;
 
   @media screen and (max-width: 768px) {
     padding: 0 20px;
-  }
-`
-
-export const InnerSection = styled.main`
-  padding: 150px 0;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  @media screen and (min-width: 1080px) {
-    width: 1080px;
   }
 `
 
@@ -45,37 +27,32 @@ const Detail = styled.div`
   display: flex;
   flex-direction: column;
 
-  h3 {
-    font-size: 40px;
-    font-weight: 600;
-    color: #f6c94a;
-    letter-spacing: 0.2px;
-  }
-
   dl {
-    margin-top: 20px;
+    margin-top: 16px;
+    margin-bottom: 0;
 
     dt {
       margin-top: 20px;
       font-weight: 600;
       font-size: 20px;
-      color: #ffffff;
+      color: #000;
       letter-spacing: 0.1px;
     }
 
     dd {
       margin-top: 16px;
       margin-bottom: 0;
-      opacity: 0.7;
+      opacity: 0.56;
       font-size: 16px;
-      color: #ffffff;
-      letter-spacing: 0.08px;
+      color: #000;
+      letter-spacing: 0.12px;
       line-height: 28px;
     }
   }
 
-  .MuiButton-outlinedPrimary {
-    background: unset;
+  .MuiButton-containedPrimary {
+    margin-top: 40px;
+    width: 140px;
     font-size: 14px !important;
     padding: 12px 36px;
     border-radius: 28px;
@@ -86,8 +63,8 @@ const Detail = styled.div`
   }
 `
 
-const Separator = styled.hr`
-  background: rgba(255, 255, 255, 0.32);
+export const Separator = styled.hr`
+  background: rgba(0, 0, 0, 0.2);
   width: 100px;
   margin: 0;
 `
@@ -95,9 +72,9 @@ const Separator = styled.hr`
 export default function() {
   const data = useStaticQuery(graphql`
     query {
-      scanImage: file(relativePath: { eq: "chainx-scan.png" }) {
+      walletImage: file(relativePath: { eq: "chainx-wallet.png" }) {
         childImageSharp {
-          fixed(width: 388) {
+          fixed(width: 499) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -108,22 +85,28 @@ export default function() {
   return (
     <StyledSection>
       <InnerSection>
-        <Img fixed={data.scanImage.childImageSharp.fixed} />
         <Detail>
-          <h3>ChainX 区块浏览器</h3>
+          <h3>ChainX 去中心化钱包</h3>
           <Separator />
           <dl>
-            <dt>完整的链上数据</dt>
+            <dt>易于使用的界面</dt>
             <dd>
-              您可以使用区块浏览器查询和验证 ChainX 上任何一笔交易的详细数据。
+              简单直观的功能界面，符合用户使用习惯的操作流程，不断优化的交互体验。
             </dd>
-            <dt>同步更新</dt>
+            <dt>经验证的稳定性</dt>
             <dd>
-              ChainX 区块浏览器会实时同步链上数据，让您可以更快的获得交易信息。
+              自 2019年5月25日上线，已有 180+ 节点在 ChainX 稳定运行，为 ChainX
+              提供强大的计算性能。
+            </dd>
+            <dt>透明公开的数据</dt>
+            <dd>
+              使用 ChainX
+              区块浏览器查询所有链上数据，包括但不限于资产信息、节点信息、投票信息和交易信息。
             </dd>
           </dl>
-          <OutlineButton style={{ width: 140 }}>查看数据</OutlineButton>
+          <PrimaryButton>开始使用</PrimaryButton>
         </Detail>
+        <Img fixed={data.walletImage.childImageSharp.fixed} />
       </InnerSection>
     </StyledSection>
   )

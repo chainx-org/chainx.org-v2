@@ -22,10 +22,6 @@ const ButtonWrapper = styled.div`
     background: #3f3f3f !important;
     color: #ffffff !important;
     font-size: 14px !important;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif, Arial, 'Helvetica Neue', HelveticaNeue,
-      Helvetica, Microsoft YaHei, sans-serif !important;
     border-radius: 28px;
   }
 

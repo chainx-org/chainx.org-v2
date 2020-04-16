@@ -6,6 +6,7 @@ import Image from '../components/image'
 import SEO from '../components/seo'
 import EcoSystem from '../components/EcoSystem'
 import Scan from '../components/Scan'
+import Wallet from '../components/Wallet'
 
 const IndexPage = () => (
   <Layout>
@@ -17,6 +18,7 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link>
+    <Wallet />
     <Scan />
     <EcoSystem />
   </Layout>
