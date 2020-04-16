@@ -13,10 +13,21 @@ const StyledFooter = styled.footer`
   background: #222222;
 
   main {
-    width: 1080px;
-    padding: 60px 0;
+    @media screen and (max-width: 568px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 1080px) {
+      width: 1080px;
+    }
+
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
   }
 
   ul,
@@ -28,6 +39,22 @@ const StyledFooter = styled.footer`
 `
 
 const StyledSection = styled.section`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
+    padding-left: 20px;
+  }
+
+  @media screen and (min-width: 960px) {
+    width: 25%;
+  }
+
+  margin-top: 60px;
+
   & > header {
     opacity: 0.8;
     font-size: 14px;
@@ -60,11 +87,22 @@ const Separator = styled.hr`
 `
 
 const Bottom = styled.div`
-  width: 1080px;
+  @media screen and (max-width: 1080px) {
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  @media screen and (min-width: 1080px) {
+    width: 1080px;
+  }
+
+  max-width: 1080px;
   padding: 24px 0;
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 `
 
 const Rights = styled.div`
@@ -77,9 +115,8 @@ const Rights = styled.div`
 `
 
 const Contacts = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex: 1;
+  text-align: right;
 
   ol,
   li {
@@ -90,6 +127,7 @@ const Contacts = styled.div`
 
   ol {
     display: flex;
+    justify-content: flex-end;
   }
 
   li:not(:first-of-type) {
@@ -97,7 +135,7 @@ const Contacts = styled.div`
   }
 
   li:last-of-type {
-    margin-right: 100px;
+    margin-right: 20px;
   }
 
   a {
@@ -234,8 +272,8 @@ export default function() {
               </a>
             </li>
           </ol>
-          <Logo style={{ width: 112, height: 24 }} />
         </Contacts>
+        <Logo style={{ width: 112, height: 24 }} />
       </Bottom>
     </StyledFooter>
   )
