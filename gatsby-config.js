@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Crypto Asset Gateway for Polkadot Ecosystem`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    keywords: `ChainX, blockchain, polkadot, cross-chain, crosschain, substrate, asset mining,区块链,跨链,资产跨链, 资产挖矿,bitcoin, BTC, ethereum, ETH, ETC`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
