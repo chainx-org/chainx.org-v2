@@ -32,6 +32,7 @@ const InnerSection = styled.section`
 `
 
 const Title = styled.h3`
+  line-height: 56px;
   min-width: 204px;
   opacity: 0.72;
   font-weight: 600;
