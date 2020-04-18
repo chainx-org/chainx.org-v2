@@ -9,6 +9,10 @@
     Microsoft YaHei, sans-serif !important;
 }
 
+.MuiButton-label {
+  font-size: 14px !important;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
