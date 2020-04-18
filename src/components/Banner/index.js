@@ -6,7 +6,6 @@ import { BaseInner } from '../baseComponents'
 import { PrimaryButton } from '@chainx/ui'
 
 const StyledSection = styled.section`
-  background: #fafafa;
   display: flex;
   justify-content: space-around;
 
