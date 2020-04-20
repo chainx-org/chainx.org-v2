@@ -212,39 +212,64 @@ export default function() {
           </ul>
         </StyledSection>
         <StyledSection>
-          <header>白皮书</header>
+          <header>{$t('white_paper')}</header>
           <ul>
             <li>
-              <a href="https://dapps.chainx.org/">白皮书</a>
+              <a
+                target="_blank"
+                href="https://chainx-static.oss-cn-hangzhou.aliyuncs.com/chainx_cn.pdf"
+              >
+                白皮书
+              </a>
             </li>
             <li>
-              <a href="javascript:;">White Paper</a>
+              <a
+                target="_blank"
+                href="https://chainx-static.oss-cn-hangzhou.aliyuncs.com/chainx_en.pdf"
+              >
+                White Paper
+              </a>
             </li>
             <li>
-              <a href="javascript:;">Белая бумага</a>
+              <a
+                target="_blank"
+                href="https://chainx-static.oss-cn-hangzhou.aliyuncs.com/chainx_ru.pdf"
+              >
+                Белая бумага
+              </a>
             </li>
             <li>
-              <a href="javascript:;">giấy trắng</a>
+              <a
+                target="_blank"
+                href="https://chainx-static.oss-cn-hangzhou.aliyuncs.com/chainx_vi.pdf"
+              >
+                giấy trắng
+              </a>
             </li>
             <li>
-              <a href="javascript:;">Carta Bianca</a>
+              <a
+                target="_blank"
+                href="https://chainx-static.oss-cn-hangzhou.aliyuncs.com/chainx_it.pdf"
+              >
+                Carta Bianca
+              </a>
             </li>
           </ul>
         </StyledSection>
         <StyledSection>
-          <header>钱包使用帮助</header>
+          <header>{$t('manual')}</header>
           <ul>
             <li>
-              <a href="javascript:;">什么是 ChainX Signer？</a>
+              <a href="https://dapps.chainx.org/">什么是 ChainX Signer？</a>
             </li>
             <li>
-              <a href="javascript:;">如何跨链充值 BTC？</a>
+              <a href="https://dapps.chainx.org/">如何跨链充值 BTC？</a>
             </li>
             <li>
-              <a href="javascript:;">如何跨链锁仓 BTC？</a>
+              <a href="https://dapps.chainx.org/">如何跨链锁仓 BTC？</a>
             </li>
             <li>
-              <a href="javascript:;">帮助中心</a>
+              <a href="https://dapps.chainx.org/">帮助中心</a>
             </li>
           </ul>
         </StyledSection>

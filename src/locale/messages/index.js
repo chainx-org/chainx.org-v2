@@ -117,4 +117,8 @@ export default {
     en:
       "The system's decentralized exchange freely matches users' orders, which does not charge any forms of trading fee and saves user a lot of transaction cost.",
   },
+  manual: {
+    zh: '钱包使用帮助',
+    en: 'Manuals',
+  },
 }
