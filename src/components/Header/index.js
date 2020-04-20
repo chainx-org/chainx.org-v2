@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Logo from './chainx-header-logo.svg'
 import { BaseInner } from '../baseComponents'
 import LanguageIcon from './language.svg'
+import $t from '../../locale'
+import { getLocale, toggleLocale } from '../../locale'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -31,6 +33,10 @@ const InnerSection = styled(BaseInner)`
     line-height: 24px;
     cursor: pointer;
 
+    & > span {
+      margin-left: 8px;
+    }
+
     a {
       color: #000000;
       text-decoration: none;
@@ -42,36 +48,41 @@ const InnerSection = styled(BaseInner)`
   }
 `
 
-const Header = () => (
-  <StyledHeader>
-    <InnerSection>
-      <Logo height={32} width={148} />
-      <ul>
-        <li>社区</li>
-        <li>
-          <a href="https://dapps.chainx.org" target="_blank">
-            钱包
-          </a>
-        </li>
-        <li>
-          <a href="https://scan.chainx.org" target="_blank">
-            区块浏览器
-          </a>
-        </li>
-        <li>
-          <a href="https://stats.chainx.org/" target="_blank">
-            监控台
-          </a>
-        </li>
-        <li>白皮书</li>
-        <li>帮助</li>
-        <li>
-          <LanguageIcon />
-        </li>
-      </ul>
-    </InnerSection>
-  </StyledHeader>
-)
+const Header = () => {
+  const locale = getLocale()
+
+  return (
+    <StyledHeader>
+      <InnerSection>
+        <Logo height={32} width={148} />
+        <ul>
+          <li>{$t('community')}</li>
+          <li>
+            <a href="https://dapps.chainx.org" target="_blank">
+              {$t('wallet')}
+            </a>
+          </li>
+          <li>
+            <a href="https://scan.chainx.org" target="_blank">
+              {$t('explorer')}
+            </a>
+          </li>
+          <li>
+            <a href="https://stats.chainx.org/" target="_blank">
+              {$t('telemetry')}
+            </a>
+          </li>
+          <li>{$t('white_paper')}</li>
+          <li>{$t('help')}</li>
+          <li onClick={toggleLocale}>
+            <LanguageIcon />
+            <span>{locale === 'zh' ? 'English' : '中文'}</span>
+          </li>
+        </ul>
+      </InnerSection>
+    </StyledHeader>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

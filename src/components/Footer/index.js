@@ -5,6 +5,7 @@ import Twitter from './twitter.svg'
 import Telegram from './telegram.svg'
 import Github from './github.svg'
 import Email from './email.svg'
+import $t from '../../locale'
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -149,21 +150,29 @@ export default function() {
     <StyledFooter>
       <main>
         <StyledSection>
-          <header>产品</header>
+          <header>{$t('products')}</header>
           <ul>
             <li>
               <a href="https://dapps.chainx.org/" target="_blank">
-                钱包
+                {$t('wallet')}
               </a>
             </li>
             <li>
               <a href="https://scan.chainx.org/" target="_blank">
-                区块浏览器
+                {$t('explorer')}
               </a>
             </li>
             <li>
               <a href="https://stats.chainx.org/" target="_blank">
-                监控台
+                {$t('telemetry')}
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://github.com/chainx-org/chainx-signer/releases"
+              >
+                {$t('signer')}
               </a>
             </li>
             <li>
@@ -171,17 +180,17 @@ export default function() {
                 target="_blank"
                 href="https://chrome.google.com/webstore/detail/chainx-extension/dffjlgnecfafjfmkknpipapcbgajflge"
               >
-                钱包插件
+                {$t('extension')}
               </a>
             </li>
           </ul>
         </StyledSection>
         <StyledSection>
-          <header>社区</header>
+          <header>{$t('community')}</header>
           <ul>
             <li>
               <a href="https://dapps.chainx.org/" target="_blank">
-                社区
+                {$t('community')}
               </a>
             </li>
             <li>
@@ -189,7 +198,7 @@ export default function() {
                 target="_blank"
                 href="https://github.com/chainx-org/chainx/wiki/Join-ChainX-Mainnet"
               >
-                节点部署文档
+                {$t('deploy')}
               </a>
             </li>
             <li>
@@ -197,7 +206,7 @@ export default function() {
                 target="_blank"
                 href="https://github.com/chainx-org/chainx/wiki/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6"
               >
-                智能合约开发文档
+                {$t('contract')}
               </a>
             </li>
           </ul>

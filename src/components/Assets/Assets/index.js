@@ -5,6 +5,7 @@ import Xbtc from './xbtc.svg'
 import Lbtc from './lbtc.svg'
 import Sdot from './sdot.svg'
 import { request } from '../../../utils/request'
+import $t from '../../../locale'
 
 const InnerSection = styled.section`
   padding-bottom: 90px;
@@ -82,7 +83,7 @@ function Values({ power, value, valueText, token }) {
 
   return (
     <>
-      <Item text="算力占比" value={power && percent} />
+      <Item text={$t('mining_power')} value={power && percent} />
       <Item text={valueText} value={value && normalizeValue(value)} />
     </>
   )
@@ -131,7 +132,7 @@ export default function() {
         <Pcx />
         <h4>Polkadot ChainX</h4>
         <Values
-          valueText="发行量"
+          valueText={$t('issued')}
           power={getPower('PCX')}
           value={pcxValue}
           token="PCX"
@@ -141,7 +142,7 @@ export default function() {
         <Xbtc />
         <h4>Interchain BTC</h4>
         <Values
-          valueText="充值量"
+          valueText={$t('deposited')}
           power={getPower('X-BTC')}
           value={xbtcValue}
           token="X-BTC"
@@ -151,7 +152,7 @@ export default function() {
         <Lbtc />
         <h4>Lock-up BTC</h4>
         <Values
-          valueText="锁仓量"
+          valueText={$t('locked')}
           power={getPower('L-BTC')}
           value={lbtcValue}
           token="L-BTC"
@@ -161,7 +162,7 @@ export default function() {
         <Sdot />
         <h4>Shadow DOT</h4>
         <Values
-          valueText="映射量"
+          valueText={$t('mapped')}
           power={getPower('SDOT')}
           value={sdotValue}
           token="S-DOT"

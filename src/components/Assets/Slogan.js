@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import $t from '../../locale'
 
 const InnerSection = styled.section`
   display: flex;
@@ -52,13 +53,8 @@ const Detail = styled.p`
 export default function() {
   return (
     <InnerSection>
-      <Title>币值即权利</Title>
-      <Detail>
-        ChainX 根据用户跨链充值的 BTC、DOT、ETH、ERC20、EOS
-        等多种数字资产的市值衡量挖矿算力，没有
-        ICO和预挖，并尽力使节点规模化、平民化，使用 PoS
-        算法建立起首个可以长期博弈的区块链网络。
-      </Detail>
+      <Title>{$t('asset_power')}</Title>
+      <Detail>{$t('asset_power_desc')}</Detail>
     </InnerSection>
   )
 }

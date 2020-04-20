@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import CrossChainLogo from './cross-chain.svg'
 import NodeLogo from './node.svg'
 import FeeLogo from './fee.svg'
+import $t from '../../locale'
 
 const StyledSection = styled.section`
   background: #ffffff;
@@ -79,25 +80,18 @@ export default function() {
       <InnerSection>
         <Item>
           <CrossChainLogo />
-          <h4>资产跨链</h4>
-          <p>
-            真正去中⼼化的链间资产流通，采用多签合约和轻节点协议托管，任何人无法挪用跨链资产储备。
-          </p>
+          <h4>{$t('inter_chain_asset')}</h4>
+          <p>{$t('inter_chain_asset_desc')}</p>
         </Item>
         <Item>
           <NodeLogo />
-          <h4>1000+节点</h4>
-          <p>
-            ChainX 将逐步建立起史上最大规模的 PoS
-            网络，普通用户也可以成为验证节点，打破网络中心化垄断。
-          </p>
+          <h4>1000+{$t('node')}</h4>
+          <p>{$t('node_desc')}</p>
         </Item>
         <Item>
           <FeeLogo />
-          <h4>0 手续费</h4>
-          <p>
-            系统集成的去中心化交易所采⽤免费撮合模式，不收取任何形式的成交⼿续费，为⽤户节省⼤量交易成本。
-          </p>
+          <h4>{$t('zero_fee')}</h4>
+          <p>{$t('zero_fee_desc')}</p>
         </Item>
       </InnerSection>
     </StyledSection>
