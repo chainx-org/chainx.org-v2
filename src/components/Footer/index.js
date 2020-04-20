@@ -260,16 +260,24 @@ export default function() {
           <header>{$t('manual')}</header>
           <ul>
             <li>
-              <a href="https://dapps.chainx.org/">什么是 ChainX Signer？</a>
+              <a target="_blank" href="https://dapps.chainx.org/">
+                什么是 ChainX Signer？
+              </a>
             </li>
             <li>
-              <a href="https://dapps.chainx.org/">如何跨链充值 BTC？</a>
+              <a target="_blank" href="https://dapps.chainx.org/">
+                如何跨链充值 BTC？
+              </a>
             </li>
             <li>
-              <a href="https://dapps.chainx.org/">如何跨链锁仓 BTC？</a>
+              <a target="_blank" href="https://dapps.chainx.org/">
+                如何跨链锁仓 BTC？
+              </a>
             </li>
             <li>
-              <a href="https://dapps.chainx.org/">帮助中心</a>
+              <a target="_blank" href="https://dapps.chainx.org/">
+                帮助中心
+              </a>
             </li>
           </ul>
         </StyledSection>
