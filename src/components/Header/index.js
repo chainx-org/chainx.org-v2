@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import Logo from './logo.svg'
+import Logo from './chainx-header-logo.svg'
 import { BaseInner } from '../baseComponents'
 import LanguageIcon from './language.svg'
 
@@ -16,6 +16,11 @@ const InnerSection = styled(BaseInner)`
   li {
     list-style: none;
     margin: 0;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
   }
 
   li {
