@@ -10,7 +10,7 @@ export const InnerSection = styled.main`
   padding: 80px 0 100px;
 
   @media screen and (max-width: 1080px) {
-    padding: 0 20px;
+    padding: 80px 20px 100px;
   }
 
   @media screen and (min-width: 1080px) {
