@@ -52,9 +52,10 @@ const InnerSection = styled(BaseInner)`
 const Header = () => {
   const locale = getLocale()
   const url = locale === 'zh' ? zhWhitePaper : enWhitePaper
+  const isCommunityPage = window.location.pathname === '/community'
 
   return (
-    <StyledHeader>
+    <StyledHeader style={{ background: isCommunityPage ? '#FFF' : '' }}>
       <InnerSection>
         <a href="/">
           <Logo height={32} width={148} />

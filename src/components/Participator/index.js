@@ -56,7 +56,7 @@ export default function() {
         <CommunityTitle>ChainX 上的参与者</CommunityTitle>
         <Items>
           {actors.map(actor => (
-            <Item>
+            <Item key={actor.title}>
               <h4>{actor.title}</h4>
               <p>{actor.desc}</p>
             </Item>
