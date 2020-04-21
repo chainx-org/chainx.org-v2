@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import { PrimaryButton } from '@chainx/ui'
 
+export const BaseOuter = styled.section`
+  display: flex;
+  justify-content: space-around;
+`
+
 export const BaseInner = styled.main`
   @media screen and (max-width: 768px) {
     padding: 0 20px;
@@ -29,4 +34,13 @@ export const YellowButton = styled(PrimaryButton)`
 export const DarkButton = styled(YellowButton)`
   background: #3f3f3f !important;
   color: #ffffff !important;
+`
+
+export const CommunityTitle = styled.h3`
+  margin: 0;
+  opacity: 0.72;
+  font-weight: 600;
+  font-size: 36px;
+  color: #000000;
+  letter-spacing: 0.18px;
 `

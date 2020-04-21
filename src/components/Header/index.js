@@ -56,9 +56,13 @@ const Header = () => {
   return (
     <StyledHeader>
       <InnerSection>
-        <Logo height={32} width={148} />
+        <a href="/">
+          <Logo height={32} width={148} />
+        </a>
         <ul>
-          <li>{$t('community')}</li>
+          <li>
+            <a href="/community">{$t('community')}</a>
+          </li>
           <li>
             <a href="https://dapps.chainx.org" target="_blank">
               {$t('wallet')}
