@@ -6,6 +6,7 @@ import { BaseInner } from '../baseComponents'
 import LanguageIcon from './language.svg'
 import $t from '../../locale'
 import { getLocale, toggleLocale } from '../../locale'
+import { enWhitePaper, zhWhitePaper } from '../../constants'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -50,6 +51,7 @@ const InnerSection = styled(BaseInner)`
 
 const Header = () => {
   const locale = getLocale()
+  const url = locale === 'zh' ? zhWhitePaper : enWhitePaper
 
   return (
     <StyledHeader>
@@ -72,7 +74,11 @@ const Header = () => {
               {$t('telemetry')}
             </a>
           </li>
-          <li>{$t('white_paper')}</li>
+          <li>
+            <a target="_blank" href={url}>
+              {$t('white_paper')}
+            </a>
+          </li>
           <li>{$t('help')}</li>
           <li onClick={toggleLocale}>
             <LanguageIcon />

@@ -4,6 +4,7 @@ import { InnerSection } from './Scan'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import { PrimaryButton } from '@chainx/ui/dist'
+import $t from '../locale'
 
 const StyledSection = styled.section`
   background: #fafafa;
@@ -58,7 +59,7 @@ const Detail = styled.div`
 
   .MuiButton-containedPrimary {
     margin-top: 40px;
-    width: 140px;
+    width: 200px;
     font-size: 14px !important;
     padding: 12px 36px;
     border-radius: 28px;
@@ -92,25 +93,17 @@ export default function() {
     <StyledSection>
       <InnerSection>
         <Detail>
-          <h3>ChainX 去中心化钱包</h3>
+          <h3>{$t('chainx_wallet')}</h3>
           <Separator />
           <dl>
-            <dt>易于使用的界面</dt>
-            <dd>
-              简单直观的功能界面，符合用户使用习惯的操作流程，不断优化的交互体验。
-            </dd>
-            <dt>经验证的稳定性</dt>
-            <dd>
-              自 2019年5月25日上线，已有 180+ 节点在 ChainX 稳定运行，为 ChainX
-              提供强大的计算性能。
-            </dd>
-            <dt>透明公开的数据</dt>
-            <dd>
-              使用 ChainX
-              区块浏览器查询所有链上数据，包括但不限于资产信息、节点信息、投票信息和交易信息。
-            </dd>
+            <dt>{$t('wallet_easy')}</dt>
+            <dd>{$t('wallet_easy_detail')}</dd>
+            <dt>{$t('wallet_reliability')}</dt>
+            <dd>{$t('wallet_reliability_desc')}</dd>
+            <dt>{$t('wallet_open')}</dt>
+            <dd>{$t('wallet_open_desc')}</dd>
           </dl>
-          <PrimaryButton>开始使用</PrimaryButton>
+          <PrimaryButton>{$t('wallet_use')}</PrimaryButton>
         </Detail>
         <div style={{ textAlign: 'right' }}>
           <Img fixed={data.walletImage.childImageSharp.fixed} />

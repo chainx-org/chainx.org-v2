@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PrimaryButton } from '@chainx/ui/dist'
+import $t, { getLocale } from '../locale'
+import { enWhitePaper, zhWhitePaper } from '../constants'
 
 const StyledSection = styled.section`
   padding: 80px 0;
@@ -31,12 +33,17 @@ const ButtonWrapper = styled.div`
 `
 
 export default function() {
+  const locale = getLocale()
+  const url = locale === 'zh' ? zhWhitePaper : enWhitePaper
+
+  const open = () => window.open(`${url}#page=5`, '_blank')
+
   return (
     <StyledSection>
-      <h3>ChainX 发行的加密货币 PCX 总量 2100万枚</h3>
-      <h3>每两年发行量减半</h3>
+      <h3>{$t('ecosystem_issuance')}</h3>
+      <h3>{$t('ecosystem_halved')}</h3>
       <ButtonWrapper>
-        <PrimaryButton>查看经济系统</PrimaryButton>
+        <PrimaryButton onClick={open}>{$t('check_ecosystem')}</PrimaryButton>
       </ButtonWrapper>
     </StyledSection>
   )

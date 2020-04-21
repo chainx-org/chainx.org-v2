@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import { OutlineButton } from '@chainx/ui/dist'
+import $t from '../../locale'
 
 const StyledSection = styled.section`
   background: #3f3f3f;
@@ -121,19 +122,17 @@ export default function() {
           <Img fixed={data.scanImage.childImageSharp.fixed} />
         </div>
         <Detail>
-          <h3>ChainX 区块浏览器</h3>
+          <h3>{$t('chainx_explorer')}</h3>
           <Separator />
           <dl>
-            <dt>完整的链上数据</dt>
-            <dd>
-              您可以使用区块浏览器查询和验证 ChainX 上任何一笔交易的详细数据。
-            </dd>
-            <dt>同步更新</dt>
-            <dd>
-              ChainX 区块浏览器会实时同步链上数据，让您可以更快的获得交易信息。
-            </dd>
+            <dt>{$t('scan_data')}</dt>
+            <dd>{$t('scan_data_desc')}</dd>
+            <dt>{$t('scan_sync')}</dt>
+            <dd>{$t('scan_sync_desc')}</dd>
           </dl>
-          <OutlineButton style={{ width: 140 }}>查看数据</OutlineButton>
+          <OutlineButton style={{ width: 200 }}>
+            {$t('scan_view')}
+          </OutlineButton>
         </Detail>
       </InnerSection>
     </StyledSection>

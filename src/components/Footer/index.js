@@ -6,6 +6,7 @@ import Telegram from './telegram.svg'
 import Github from './github.svg'
 import Email from './email.svg'
 import $t from '../../locale'
+import { enWhitePaper, zhWhitePaper } from '../../constants'
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -212,21 +213,15 @@ export default function() {
           </ul>
         </StyledSection>
         <StyledSection>
-          <header>{$t('white_paper')}</header>
+          <header id="white-paper">{$t('white_paper')}</header>
           <ul>
             <li>
-              <a
-                target="_blank"
-                href="https://chainx-static.oss-cn-hangzhou.aliyuncs.com/chainx_cn.pdf"
-              >
+              <a target="_blank" href={zhWhitePaper}>
                 白皮书
               </a>
             </li>
             <li>
-              <a
-                target="_blank"
-                href="https://chainx-static.oss-cn-hangzhou.aliyuncs.com/chainx_en.pdf"
-              >
+              <a target="_blank" href={enWhitePaper}>
                 White Paper
               </a>
             </li>
@@ -266,17 +261,17 @@ export default function() {
             </li>
             <li>
               <a target="_blank" href="https://dapps.chainx.org/">
-                如何跨链充值 BTC？
+                {$t('how_deposit_btc')}
               </a>
             </li>
             <li>
               <a target="_blank" href="https://dapps.chainx.org/">
-                如何跨链锁仓 BTC？
+                {$t('how_lock_btc')}
               </a>
             </li>
             <li>
               <a target="_blank" href="https://dapps.chainx.org/">
-                帮助中心
+                {$t('help_center')}
               </a>
             </li>
           </ul>

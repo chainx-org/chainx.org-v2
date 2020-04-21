@@ -83,7 +83,7 @@ export default function() {
           <Title>{$t('connect_chains')}</Title>
           <Title>{$t('build_ecology')}</Title>
           <p>{$t('chainx_desc')}</p>
-          <PrimaryButton>加入 ChainX</PrimaryButton>
+          <PrimaryButton>{$t('join_chainx')}</PrimaryButton>
         </Detail>
         <div>
           <Img fixed={data.bannerImage.childImageSharp.fixed} />

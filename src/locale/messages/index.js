@@ -121,4 +121,95 @@ export default {
     zh: '钱包使用帮助',
     en: 'Manuals',
   },
+  chainx_explorer: {
+    zh: 'ChainX 区块浏览器',
+    en: 'ChainX Explorer',
+  },
+  chainx_wallet: {
+    zh: 'ChainX 去中心化钱包',
+    en: 'ChainX Wallet',
+  },
+  ecosystem_issuance: {
+    zh: 'ChainX 发行的加密货币 PCX 总量 2100万枚',
+    en: 'Total Amount of PCX will Be 21 Million',
+  },
+  ecosystem_halved: {
+    zh: '每两年发行量减半',
+    en: 'halved every two years.',
+  },
+  join_chainx: {
+    zh: '加入 ChainX',
+    en: 'Join ChainX',
+  },
+  check_ecosystem: {
+    zh: '查看经济系统',
+    en: 'Ecosystem',
+  },
+  wallet_easy: {
+    zh: '易于使用的界面',
+    en: 'Easy-to-use interface',
+  },
+  wallet_easy_detail: {
+    zh: '简单直观的功能界面，符合用户使用习惯的操作流程，不断优化的交互体验。',
+    en:
+      'Concise and straightforward function interface stands right in line with users’ operating habits to continuously optimize the interactive experience.',
+  },
+  wallet_reliability: {
+    zh: '经验证的稳定性',
+    en: 'Time-tested reliability',
+  },
+  wallet_reliability_desc: {
+    zh:
+      '自 2019年5月25日上线，已有 180+ 节点在 ChainX 稳定运行，为 ChainX 提供强大的计算性能。',
+    en:
+      'More than 180 nodes have been running steadily on ChainX since its launch on May 25, 2019, which highlights ChainX’s powerful computing performance.\n',
+  },
+  wallet_open: {
+    zh: '透明公开的数据',
+    en: 'Open and transparent data',
+  },
+  wallet_open_desc: {
+    zh:
+      '使用 ChainX 区块浏览器查询所有链上数据，包括但不限于资产信息、节点信息、投票信息和交易信息',
+    en:
+      'ChainX explorer stands ready to query all on-chain data, including but not limited to asset information, node information, voting information and transaction information.',
+  },
+  wallet_use: {
+    zh: '开始使用',
+    en: 'Start Now',
+  },
+  scan_data: {
+    zh: '完整的链上数据',
+    en: 'Complete Chain Data',
+  },
+  scan_data_desc: {
+    zh: '您可以使用区块浏览器查询和验证 ChainX 上任何一笔交易的详细数据。',
+    en:
+      'Details of every transaction that ever took place on ChainX can be queried and verified by the Block Browser.',
+  },
+  scan_sync: {
+    zh: '同步更新',
+    en: 'Real-time Update',
+  },
+  scan_sync_desc: {
+    zh: 'ChainX 区块浏览器会实时同步链上数据，让您可以更快的获得交易信息。',
+    en:
+      'ChainX Block Browser updates real-time data on the chain, enabling you to access the latest transaction information.\n',
+  },
+  scan_view: {
+    zh: '查看数据',
+    en: 'View More',
+  },
+  how_deposit_btc: {
+    zh: '如何跨链充值 BTC？',
+    en: 'How to deposit BTC?',
+  },
+  how_lock_btc: {
+    zh: '如何跨链锁仓 BTC？',
+    en: 'How to lock BTC?',
+  },
+  help_center: {
+    zh: '帮助中心',
+    en: 'Help',
+  },
 }
