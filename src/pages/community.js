@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Contract from '../components/Contract'
+import DeployNode from '../components/DeployNode'
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <SEO title="ChainX" />
+    <DeployNode />
+    <Contract />
   </Layout>
 )
 
