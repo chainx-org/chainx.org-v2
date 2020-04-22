@@ -118,8 +118,6 @@ export default function() {
     },
   ]
 
-  console.log(items)
-
   return (
     <OuterSection>
       <InnerSection>
@@ -131,7 +129,7 @@ export default function() {
         <Items>
           {items.map(item => {
             return (
-              <Item>
+              <Item key={item.title}>
                 <Img fixed={item.img.childImageSharp.fixed} />
                 <div>
                   <h4>{item.title}</h4>
