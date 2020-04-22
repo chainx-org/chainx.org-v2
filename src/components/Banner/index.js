@@ -9,15 +9,14 @@ import $t from '../../locale'
 const StyledSection = styled.section`
   display: flex;
   justify-content: space-around;
+  padding: 130px 0;
 
   @media screen and (max-width: 1080px) {
-    padding: 0 20px;
+    padding: 130px 20px;
   }
 `
 
 export const InnerSection = styled(BaseInner)`
-  padding: 130px 0;
-
   @media screen and (min-width: 1080px) {
     & > div:last-of-type {
       margin-left: 37px;
