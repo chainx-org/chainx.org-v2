@@ -74,14 +74,11 @@ const MenuToggle = styled.div`
     margin-right: 20px;
     display: inline-flex;
     align-items: center;
+    cursor: pointer;
 
     & > span {
       margin-left: 5px;
     }
-  }
-
-  & > span:last-of-type {
-    cursor: pointer;
   }
 
   @media screen and (min-width: 768px) {
@@ -186,7 +183,7 @@ const Header = () => {
             <span>{locale === 'zh' ? 'English' : '中文'}</span>
           </span>
           <span onClick={() => setShowMenu(!showMenu)}>
-            <CatalogIcon width={24} height={24} />
+            <CatalogIcon width={16} height={16} />
           </span>
         </MenuToggle>
       </InnerSection>
