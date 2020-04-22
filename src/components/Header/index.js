@@ -14,6 +14,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-around;
   position: relative;
+  z-index: 2;
 `
 
 const InnerSection = styled(BaseInner)`
@@ -79,6 +80,10 @@ const MenuToggle = styled.div`
     }
   }
 
+  & > span:last-of-type {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -103,7 +108,7 @@ const Menu = styled.div`
   }
 
   li {
-    padding: 0 20px;
+    padding: 3px 20px;
     &:hover {
       background: #f5f6f7;
     }
@@ -116,6 +121,8 @@ const Menu = styled.div`
     color: #000000;
     letter-spacing: 0.12px;
     line-height: 20px;
+    display: inline-block;
+    width: 100%;
   }
 
   @media screen and (min-width: 768px) {
