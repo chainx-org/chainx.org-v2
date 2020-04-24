@@ -82,7 +82,15 @@ export default function() {
           <Title>{$t('connect_chains')}</Title>
           <Title>{$t('build_ecology')}</Title>
           <p>{$t('chainx_desc')}</p>
-          <PrimaryButton>{$t('join_chainx')}</PrimaryButton>
+          <PrimaryButton
+            onClick={() =>
+              open(
+                'https://github.com/chainx-org/chainx/wiki/Join-ChainX-Mainnet'
+              )
+            }
+          >
+            {$t('join_chainx')}
+          </PrimaryButton>
         </Detail>
         <div>
           <Img fixed={data.bannerImage.childImageSharp.fixed} />
