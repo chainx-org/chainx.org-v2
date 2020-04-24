@@ -7,6 +7,7 @@ import DeployNode from '../components/DeployNode'
 import Participator from '../components/Participator'
 import Opreturn from '../components/Opreturn'
 import News from '../components/News'
+import Apps from '../components/Apps'
 
 const SecondPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const SecondPage = () => (
     <News />
     <Participator />
     <Opreturn />
+    <Apps />
     <DeployNode />
     <Contract />
   </Layout>
