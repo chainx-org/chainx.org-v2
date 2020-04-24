@@ -130,7 +130,10 @@ export default function() {
             <dt>{$t('scan_sync')}</dt>
             <dd>{$t('scan_sync_desc')}</dd>
           </dl>
-          <OutlineButton style={{ width: 200 }}>
+          <OutlineButton
+            onClick={() => open('https://scan.chainx.org/')}
+            style={{ width: 200 }}
+          >
             {$t('scan_view')}
           </OutlineButton>
         </Detail>

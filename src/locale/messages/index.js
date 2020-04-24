@@ -1,4 +1,8 @@
 export default {
+  home: {
+    zh: '首页',
+    en: 'Home',
+  },
   community: {
     zh: '社区',
     en: 'Community',

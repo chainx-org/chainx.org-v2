@@ -149,7 +149,11 @@ const Header = () => {
         </a>
         <ul>
           <li>
-            <a href="/community">{$t('community')}</a>
+            {isCommunityPage ? (
+              <a href="/">{$t('home')}</a>
+            ) : (
+              <a href="/community">{$t('community')}</a>
+            )}
           </li>
           <li>
             <a href="https://dapps.chainx.org" target="_blank">

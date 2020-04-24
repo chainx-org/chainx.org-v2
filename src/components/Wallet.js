@@ -103,7 +103,9 @@ export default function() {
             <dt>{$t('wallet_open')}</dt>
             <dd>{$t('wallet_open_desc')}</dd>
           </dl>
-          <PrimaryButton>{$t('wallet_use')}</PrimaryButton>
+          <PrimaryButton onClick={() => open('https://dapps.chainx.org/')}>
+            {$t('wallet_use')}
+          </PrimaryButton>
         </Detail>
         <div style={{ textAlign: 'right' }}>
           <Img fixed={data.walletImage.childImageSharp.fixed} />
