@@ -8,6 +8,7 @@ import Wallet from '../components/Wallet'
 import Properties from '../components/Properties'
 import Assets from '../components/Assets'
 import Banner from '../components/Banner'
+import RoadMap from '../components/RoadMap'
 
 const IndexPage = () => (
   <Layout>
@@ -18,6 +19,7 @@ const IndexPage = () => (
     <Wallet />
     <Scan />
     <EcoSystem />
+    <RoadMap />
   </Layout>
 )
 
