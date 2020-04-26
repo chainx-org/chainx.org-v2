@@ -3,20 +3,28 @@ import * as format from 'string-template'
 
 const key = 'locale'
 
-const defaultLang = (window.navigator.language || '').startsWith('zh')
-  ? 'zh'
-  : 'en'
+let defaultLang = 'en'
+if (typeof window !== `undefined`) {
+  defaultLang = (window.navigator.language || '').startsWith('zh') ? 'zh' : 'en'
+}
 
-let nowLocale = window.localStorage.getItem(key) || defaultLang
+let nowLocale = defaultLang
+if (typeof window !== `undefined`) {
+  nowLocale = window.localStorage.getItem(key) || defaultLang
+}
 
 function setLocale(locale = 'zh') {
   nowLocale = locale
-  window.localStorage.setItem(key, locale)
+  if (typeof window !== `undefined`) {
+    window.localStorage.setItem(key, locale)
+  }
 }
 
 export function toggleLocale() {
   setLocale(nowLocale === 'zh' ? 'en' : 'zh')
-  window.location.reload()
+  if (typeof window !== `undefined`) {
+    window.location.reload()
+  }
 }
 
 export function getLocale() {

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import Logo from './chainx-header-logo.svg'
 import { BaseInner } from '../baseComponents'
@@ -130,7 +130,11 @@ const Menu = styled.div`
 const Header = () => {
   const locale = getLocale()
   const url = locale === 'zh' ? zhWhitePaper : enWhitePaper
-  const isCommunityPage = window.location.pathname === '/community'
+  const [isCommunityPage, setIsCommunityPage] = useState(false)
+
+  useEffect(() => {
+    setIsCommunityPage(window.location.pathname === '/community')
+  }, [])
 
   const [showMenu, setShowMenu] = useState(false)
   const refMenu = useRef(null)
