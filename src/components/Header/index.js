@@ -133,7 +133,9 @@ const Header = () => {
   const [isCommunityPage, setIsCommunityPage] = useState(false)
 
   useEffect(() => {
-    setIsCommunityPage(window.location.pathname === '/community')
+    setIsCommunityPage(
+      (window.location.pathname || '').startsWith('/community')
+    )
   }, [])
 
   const [showMenu, setShowMenu] = useState(false)
