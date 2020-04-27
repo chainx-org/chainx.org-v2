@@ -3,7 +3,7 @@ import * as format from 'string-template'
 
 const key = 'locale'
 
-let defaultLang = 'en'
+let defaultLang = 'zh'
 if (typeof window !== `undefined`) {
   defaultLang = (window.navigator.language || '').startsWith('zh') ? 'zh' : 'en'
 }
