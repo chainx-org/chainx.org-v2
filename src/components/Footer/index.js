@@ -25,6 +25,12 @@ export const InnerSection = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+  @media screen and (max-width:768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 `
 export const Detail = styled.div`
   margin: 0;
@@ -50,7 +56,14 @@ export const Botlogo = styled.div`
     text-decoration: none;
     margin-left: 36px;
   }
-
+  @media screen and (max-width: 539px) {
+    .logoicon {
+      margin-left: 5px;
+    }
+    .imgicon {
+      padding: 0 6px;
+    }
+  }
 `
 
 export default function () {

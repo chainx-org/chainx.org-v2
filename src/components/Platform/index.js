@@ -17,9 +17,9 @@ const InnerSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 100px 0;
-  // @media screen and (max-width: 550px){
-  //   padding: 50px 0 20px;
-  // }
+  @media screen and (max-width: 767px){
+    padding: 50px 30px 50px;
+  }
   position: relative;
   &:before {
     position: absolute;
@@ -39,21 +39,21 @@ const InnerSection = styled.div`
   }
 `
 const Item = styled.div`
-  @media screen and (min-width:1280px){
-    width: 1280px;
-  }
+  // @media screen and (min-width:1280px){
+  //   width: 1280px;
+  // }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // @media screen and (max-width:768px){
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   &.picCon {
-  //     display: flex;
-  //     flex-direction: column-reverse;
-  //   }
-  // }
+  @media screen and (max-width: 1023px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &.picCon {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
 `
 
 const BitPic = styled.div`
@@ -78,6 +78,12 @@ const BitPic = styled.div`
   background: url(${bitplat});
   background-size: cover;
   margin: 0 240px;
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    margin: 0 60px;
+  }
+  @media screen and (max-width: 1023px){
+    margin: 60px 0;
+  }
 `
 const NumPic = styled.div`
   // @media screen and (min-width:770px) and (max-width:1080px){
@@ -101,9 +107,12 @@ const NumPic = styled.div`
   background: url(${numplat});
   background-size: cover;
   margin: 120px 240px;
-  // @media screen and (max-width:1080px){
-  //   margin: 0;
-  // }
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    margin: 100px 60px;
+  }
+  @media screen and (max-width: 1023px){
+    margin: 60px 0;
+  }
 `
 const PadPic = styled.div`
   // @media screen and (min-width:770px) and (max-width:1080px){
@@ -127,6 +136,12 @@ const PadPic = styled.div`
   background: url(${padplat});
   background-size: cover;
   margin: 0 240px;
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    margin: 0 60px;
+  }
+  @media screen and (max-width: 1023px){
+    margin: 60px 0;
+  }
 `
 
 const PlatMain = styled.div`
@@ -158,6 +173,12 @@ const PlatCon = styled.p`
   color: #5C5C5C;
   margin-bottom: 16px;
   @media screen and (min-width:1280px){
+    width: 580px;
+  }
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    width: 500px;
+  }
+  @media screen and (min-width: 768px) and (max-width:1023px){
     width: 580px;
   }
 `

@@ -9,22 +9,24 @@ const OuterSection = styled.section`
 
 const InnerSection = styled.main`
   padding: 60px 0 200px;
-
-  // @media screen and (min-width: 860px) {
-  //   margin: 0 20px;
-  //   width: 100%;
-  // }
-
-  // @media screen and (min-width: 1080px) {
-  //   margin: unset;
-  //   width: 1080px;
-  // }
+  @media screen and (max-width: 768px) {
+    padding: 60px 0;
+  }
 `
 
 const  Gradualhr = styled.div`
   width: 1280px;
   height: 2px;
   background-image: linear-gradient(-63deg, rgba(246,201,74,0.10) 0%, #F6C94A 55%, rgba(246,201,74,0.20) 95%);
+  @media screen and (min-width: 900px) and (max-width: 1023px) {
+    width: 800px;
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    width: 900px;
+  }
+  @media screen and (min-width: 1280px) and (max-width: 1300px) {
+    width: 1180px;
+  }
 `
 
 const Title = styled.div`
@@ -35,18 +37,12 @@ const Title = styled.div`
   margin-bottom: 80px;
 `
 
-const Detail = styled.div`
-  margin-top: 36px;
-`
-
 const Horizontal = styled.div`
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
-
-  // @media screen and (max-width: 859px) {
-  //   display: none;
-  // }
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
 `
 const HorizontalList = styled.div`
   display: flex;
@@ -63,6 +59,12 @@ const HorizontalItem = styled.div`
   position: relative;
   padding: 0 0 21px 18px;
   margin-left: 20px;
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    width: 260px;
+  }
+  @media screen and (min-width: 900px) and (max-width: 1023px) {
+    width: 200px;
+  }
   &:before {
     content: '';
     width: 2px;
@@ -90,8 +92,8 @@ const HorizontalItem = styled.div`
     border: 2px solid #FFFFFF;
     display: inline-block;
     position: absolute;
-    bottom: -9px;
-    left: -7px;
+    bottom: -6px;
+    left: -5px;
   }
   .tit {
     font-size: 20px;
@@ -111,8 +113,23 @@ const HorizontalItems = styled.div`
   position: relative;
   padding: 21px 0 0 18px;
   margin-left: 210px;
-  &:nth-child(1) {
-    margin-left: 230px;
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    width: 140px;
+    margin-left: 140px;
+    &:nth-child(1) {
+      margin-left: 160px;
+    }
+  }
+  @media screen and (min-width: 900px) and (max-width: 1023px) {
+    margin-left: 40px;
+    &:nth-child(1) {
+      margin-left: 120px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    &:nth-child(1) {
+      margin-left: 230px;
+    }
   }
   &:before {
     content: '';
@@ -148,8 +165,8 @@ const HorizontalItems = styled.div`
       border: 2px solid #FFFFFF;
       display: inline-block;
       position: absolute;
-      top: -30px;
-      left: -25px;
+      top: -28px;
+      left: -23px;
     }
   }
   .txt {
@@ -159,58 +176,125 @@ const HorizontalItems = styled.div`
   }
 `
 
-const Vertical = styled(Detail)`
+const Vertical = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  @media screen and (min-width: 860px) {
+  @media screen and (min-width: 900px) {
     display: none;
   }
 `
-
-const VerticalItem = styled.div`
-  display: flex;
-  h5 {
-    margin: 0;
-  }
-
-  & > h5 {
-    max-width: 80px;
-  }
-
-  & > .detail {
-    p {
-      max-width: 268px;
-      margin: 10px 0 0;
-      opacity: 0.72;
-      font-weight: lighter;
-      font-size: 14px;
-      color: #000000;
-      letter-spacing: 0.12px;
-      line-height: 24px;
-    }
-  }
-`
-
-const VerticalSeparator = styled.div`
-  border-left: 2px solid #f6c94a;
+const VerticalList = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 3px 0 17px;
-  padding-bottom: 200px;
+`
+const VerticalLists = styled.div`
+  display: flex;
+  flex-direction: column;
 
-  &::before {
-    content: '\\A';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #f6c94a;
-    display: inline-block;
+`
+const VerticalItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 18px 21px;
+  &:nth-child(1) {
+    margin: 20px 0 80px;
+  }
+  &:nth-child(2) {
+    margin: 20px 0 120px;
+  }
+  &:nth-child(3) {
+    margin: 20px 0 80px;
+  }
+  position: relative;
+  .tit {
+    font-size: 20px;
+    color: #E2B534;
+    margin-bottom: 8px;
     position: relative;
-    left: -7px;
+    &:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-image: linear-gradient(45deg, #FEF6E0 0%, #F6C94A 100%);
+      border: 2px solid #FFFFFF;
+      display: inline-block;
+      position: absolute;
+      top: -23px;
+      right: -28px;
+    }
+  }
+  .txt {
+    font-size: 15px;
+    color: #5C5C5C;
+    margin: 0;
+  }
+  &:before {
+    content: '';
+    width: 112px;
+    height: 2px;
+    background-image: linear-gradient(-63deg, rgba(246,201,74,0.10) 0%, #F6C94A 100%);
+    display: inline-block;
+    position: absolute;
+    top: 0;
   }
 `
+const VerticalItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 21px;
+  position: relative;
+  &:nth-child(1) {
+    margin-top: 140px;
+  }
+  &:nth-child(2) {
+    margin-top: 140px;
+  }
+  &:nth-child(3) {
+    margin-top: 102px;
+  }
+  &:before {
+    content: '';
+    width: 112px;
+    height: 2px;
+    background-image: linear-gradient(-63deg, #F6C94A 5%, rgba(246,201,74,0.20) 95%);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  .tit {
+    font-size: 20px;
+    color: #E2B534;
+    margin-bottom: 8px;
+    position: relative;
+    &:before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-image: linear-gradient(45deg, #FEF6E0 0%, #F6C94A 100%);
+      border: 2px solid #FFFFFF;
+      display: inline-block;
+      position: absolute;
+      top: -23px;
+      left: -28px;
+    }
+  }
+  .txt {
+    font-size: 15px;
+    color: #5C5C5C;
+    margin: 0;
+  }
+`
+const Gradualshr = styled.div`
+  width: 2px;
+  height: 730px;
+  background-image: linear-gradient(-63deg, rgba(246,201,74,0.10) 0%, #F6C94A 55%, rgba(246,201,74,0.20) 95%);
+  
+`
+
 
 
 export default function() {
@@ -221,18 +305,18 @@ export default function() {
         <Horizontal className="horizontal">
           <HorizontalList>
             <HorizontalItem>
-              <div className="tit">2019年5月</div>
+              <div className="tit">2019年05月</div>
               <p className="txt">ChainX 1.0 上线</p>
               <p className="txt">X-BTC 1.0 上线</p>
             </HorizontalItem>
             <HorizontalItem>
-              <div className="tit">2021年01</div>
+              <div className="tit">2021年01月</div>
               <p className="txt">X-BTC 2.0 上线</p>
               <p className="txt">Kusama 插槽竞拍</p>
               <p className="txt">Polkadot 插槽竞拍</p>
             </HorizontalItem>
             <HorizontalItem>
-              <div className="tit">2021年03</div>
+              <div className="tit">2021年03月</div>
               <p className="txt">X-BTC 4.0 上线</p>
               <p className="txt">X-BTC 流通至 Ethereum</p>
             </HorizontalItem>
@@ -244,53 +328,55 @@ export default function() {
               <p className="txt">ChainX 2.0 上线</p>
             </HorizontalItems>
             <HorizontalItems>
-              <div className="tit">2021年02</div>
+              <div className="tit">2021年02月</div>
               <p className="txt">X-BTC 3.0 上线</p>
               <p className="txt">X-BTC 衍生品上线</p>
               <p className="txt">X-BTC 流通至 Polkadot</p>
             </HorizontalItems>
             <HorizontalItems>
-              <div className="tit">2022年01</div>
+              <div className="tit">2022年01月</div>
               <p className="txt">波卡二级中继链上线</p>
             </HorizontalItems>
           </HorizontalLists>
         </Horizontal>
 
-        {/* <Vertical>
-          <VerticalItem>
-            <h5>2019年5月</h5>
-            <VerticalSeparator />
-            <div className="detail">
-              <h5>单链系统</h5>
-              <p>
-                作为独⽴链运行并发行系统币
-                PCX，逐步开发目前主流链的转接桥，进行跨链资产整合，让更广泛的用户能够陆续参与跨链挖矿。
-              </p>
-            </div>
-          </VerticalItem>
-          <VerticalItem>
-            <h5>2019年Q4 Polkadot 发布 v1 后上线</h5>
-            <VerticalSeparator />
-            <div className="detail">
-              <h5>双链系统</h5>
-              <p>
-                ChainX 将新增一条转接桥链作为 Polkadot的平行链，完成与 Polkadot
-                资产的互通，并将持续支持社区开发各类 DApp。
-              </p>
-            </div>
-          </VerticalItem>
-          <VerticalItem>
-            <h5>2020年 Polkadot 发布 v2 后上线</h5>
-            <VerticalSeparator />
-            <div className="detail">
-              <h5>多链系统</h5>
-              <p>
-                ChainX 将拆分为多链架构，作为 Polkadot的第二层中继⽹络运行。
-                Polkadot 专注于底层消息跨链，ChainX 专注于实现其内部的资产跨链。
-              </p>
-            </div>
-          </VerticalItem>
-        </Vertical> */}
+        <Vertical className="vertical">
+          <VerticalList>
+            <VerticalItem>
+              <div className="tit">2019年05月</div>
+              <p className="txt">ChainX 1.0 上线</p>
+              <p className="txt">X-BTC 1.0 上线</p>
+            </VerticalItem>
+            <VerticalItem>
+              <div className="tit">2021年01月</div>
+              <p className="txt">X-BTC 2.0 上线</p>
+              <p className="txt">Kusama 插槽竞拍</p>
+              <p className="txt">Polkadot 插槽竞拍</p>
+            </VerticalItem>
+            <VerticalItem>
+              <div className="tit">2021年03月</div>
+              <p className="txt">X-BTC 4.0 上线</p>
+              <p className="txt">X-BTC 流通至 Ethereum</p>
+            </VerticalItem>
+          </VerticalList>
+          <Gradualshr />
+          <VerticalLists>
+            <VerticalItems>
+              <div className="tit">2020年11月</div>
+              <p className="txt">ChainX 2.0 上线</p>
+            </VerticalItems>
+            <VerticalItems>
+              <div className="tit">2021年02月</div>
+              <p className="txt">X-BTC 3.0 上线</p>
+              <p className="txt">X-BTC 衍生品上线</p>
+              <p className="txt">X-BTC 流通至 Polkadot</p>
+            </VerticalItems>
+            <VerticalItems>
+              <div className="tit">2022年01月</div>
+              <p className="txt">波卡二级中继链上线</p>
+            </VerticalItems>
+          </VerticalLists>
+        </Vertical>
       </InnerSection>
     </OuterSection>
   )

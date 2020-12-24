@@ -77,12 +77,12 @@ const NavList = styled.ul`
   li a {
     text-decoration: none;
     font-size: 16px;
-    color: #282828;
+    color: rgba(40,40,40,1);
     text-align: center;
     line-height: 16px;
     padding-bottom: 6px;
     &:hover {
-      color: #111111;
+      color: rgba(40,40,40,.8);
     }
   }
   li {
@@ -121,7 +121,7 @@ const Menu = styled.div`
   border: 1px solid #dce0e2;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  width: 280px;
+  width: 130px;
   position: absolute;
   top: 66px;
   right: 30px;
@@ -129,6 +129,7 @@ const Menu = styled.div`
   ul, li {
     list-style: none;
     margin: 0;
+    padding: 10px 0;
   }
   ul li a {
     text-decoration: none;
@@ -137,10 +138,9 @@ const Menu = styled.div`
   li {
     text-align: center;
     &:hover {
-      background: #199acc;
-      opacity: 0.5;
+      background: rgba(246,201,74,.9);
       a {
-        color: #ffffff;
+        color: #282828;
       } 
     }
   }
@@ -155,7 +155,7 @@ const Menu = styled.div`
         color: #969696;
       }
       .active {
-        color: #111111;
+        color: #282828;
       }
     }
   }
@@ -258,11 +258,34 @@ export default function Header() {
       {showMenu && (
         <Menu ref={refMenu}>
         <ul>
-          <li className="camp">
-            <a href="/" className="txt">Substrate {intl.formatMessage({ id: "Entrepreneur Camp" })}</a>
+          <li className="tit">
+            <a href="/" className="txt">
+            公告
+            </a>
           </li>
-          <li className="comm">
-            <a href="https://polkaworld.org" target="_blank" rel="noreferrer" className="txt">PolkaWorld {intl.formatMessage({ id: "Community" })}</a>
+          <li className="tit">
+            <a href="/" className="txt">
+            钱包
+            </a>
+          </li>
+          <li className="tit">
+            <a href="/" className="txt">
+            区块浏览器
+            </a>
+          </li><li className="tit">
+            <a href="/" className="txt">
+            监控台
+            </a>
+          </li>
+          <li className="tit">
+            <a href="/" className="txt">
+            白皮书
+            </a>
+          </li>
+          <li className="tit">
+            <a href="https://polkaworld.org" target="_blank" rel="noreferrer" className="txt">
+              帮助
+            </a>
           </li>
           <li className="langtab">
             <LanguageSwitcher />

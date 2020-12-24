@@ -15,6 +15,9 @@ const InnerSection = styled.main`
   justify-content: center;
   align-items: center;
   padding: 100px 0;
+  @media screen and (max-width:767px){
+    padding: 100px 30px;
+  }
   position: relative;
   &:before {
     position: absolute;
@@ -40,6 +43,15 @@ const ItemTit = styled.div`
   flex-direction: column;
   align-items: center;
   background-image: linear-gradient(-45deg, #CBCBCB 0%, #F9DA82 100%);
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    padding: 70px 151px 80px;
+  }
+  @media screen and (min-width:1280px) and (max-width:1300px){
+    padding: 70px 161px 80px;
+  }
+  @media screen and (max-width:1023px){
+    padding: 50px 70px 80px;
+  }
 `
 
 const  EconTit = styled.div`
@@ -50,8 +62,17 @@ const  EconTit = styled.div`
   margin-bottom: 24px;
 `
 const Classtit = styled.p`
-  @media screen and (min-width:1000px){
+  @media screen and (min-width:1280px){
     width: 960px;
+  }
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    width: 600px;
+  }
+  @media screen and (min-width:1280px) and (max-width:1300px){
+    width: 890px;
+  }
+  @media screen and (min-width:768px) and (max-width:1023px){
+    width: 500px;
   }
   font-size: 16px;
   color: #282828;
@@ -64,12 +85,13 @@ const  Linkbtn = styled.a`
   font-size: 14px;
   color: #FFFFFF;
   text-align: center;
-  background: #282828;
+  background: rgba(40,40,40,1);
   border-radius: 6px;
   padding: 12px 30px;
   &:hover {
     text-decoration: none;
     color: #FFFFFF;
+    background: rgba(40,40,40,.8);
   }
 `
 
@@ -77,7 +99,7 @@ const Apps = styled.main`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: nowrap;
-  @media screen and (max-width:1000px){
+  @media screen and (max-width:1023px){
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -90,7 +112,9 @@ const ItemSys = styled.div`
   flex-direction: column;
   align-items: center;
   background: #F9F9F9;
-
+  @media screen and (min-width:1280px) and (max-width:1300px){
+    padding: 50px 58px 80px;
+  }
   // @media screen and (min-width:1200px){
   //   width: 500px;
   //   height: 315px;
@@ -121,7 +145,18 @@ const  SysCon = styled.p`
   color: #5C5C5C;
   text-align: center;
   margin-bottom: 40px;
-  width: 500px;
+  @media screen and (min-width:1300px){
+    width: 500px;
+  }
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    width: 310px;
+  }
+  @media screen and (min-width:1280px) and (max-width:1300px){
+    width: 490px;
+  }
+  @media screen and (min-width:768px) and (max-width:1023px){
+    width: 500px;
+  }
 `
 
 const  Linkbtns = styled.a`
@@ -135,6 +170,7 @@ const  Linkbtns = styled.a`
   &:hover {
     text-decoration: none;
     color: #282828;
+    background: #F6C94A;
   }
 `
 
@@ -144,6 +180,9 @@ const Item = styled.div`
   flex-direction: column;
   align-items: center;
   background: #EFEFEF;
+  @media screen and (min-width:1280px) and (max-width:1300px){
+    padding: 50px 58px 80px;
+  }
 `
 
 
