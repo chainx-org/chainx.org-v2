@@ -1,87 +1,117 @@
-import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
+import jquery from 'jquery'
+import Logoen from "./ChainXLogo.svg"
+import CatalogIcon from "./catalog.svg"
 import styled from 'styled-components'
-import Logo from './chainx-header-logo.svg'
-import { BaseInner } from '../baseComponents'
-import LanguageIcon from './language.svg'
-import $t from '../../locale'
-import { getLocale, toggleLocale } from '../../locale'
-import { enWhitePaper, zhWhitePaper } from '../../constants'
-import CatalogIcon from './catalog.svg'
-import useOutsideClick from '../../utils/useClickOutside'
+import useOutsideClick from './useClickOutside'
+import LanguageSwitcher from "./LanguageSwitcher"
 
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-around;
-  position: relative;
-  z-index: 2;
+  height: 80px;
+  // line-height: 50px;
+  width: 100%;
+  background: #ffffff;
+  position: absolute;
+  z-index: 100;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+
+  &.head_white {
+    background: #FFFFFF;
+    position: fixed;
+  }
 `
 
-const InnerSection = styled(BaseInner)`
-  @media screen and (max-width: 1080px) {
+const InnerSection = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  div a {
     display: flex;
-    width: 100%;
+  }
+  @media screen and (min-width:1280px) {
+    display: flex;
+    width: 1280px;
     justify-content: space-between;
-    padding: 36px 20px 0;
   }
-
-  padding-top: 36px;
-  ul,
-  li {
-    list-style: none;
-    margin: 0;
-  }
-
   ul {
     display: flex;
     align-items: center;
-  }
-
-  li {
-    display: inline-block;
-    opacity: 0.72;
-    font-size: 14px;
-    color: #000000;
-    line-height: 24px;
-    cursor: pointer;
-
-    & > span {
-      margin-left: 8px;
-    }
-
-    a {
-      color: #000000;
-      text-decoration: none;
-    }
-
-    &:not(:first-of-type) {
-      margin-left: 40px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    padding: 36px 20px 0;
-    & > ul {
+    @media screen and (max-width:760px) {
       display: none;
     }
+  }
+`
+const NavList = styled.ul`
+  list-style: none;
+  margin: 0;
+  .tit, .langtab {
+    margin: 0 16px;
+    .active {
+      color: #282828;
+    }
+  }
+  .langtab {
+    cursor: pointer;
+    .lang {
+      margin: 0 12px;
+      color: #969696;
+    }
+    .pitchon {
+      color: #969696;
+    }
+    span:hover {
+      color: #282828;
+    }
+    .active {
+      color: #282828;
+    }
+  }
+  li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #282828;
+    text-align: center;
+    line-height: 16px;
+    padding-bottom: 6px;
+    &:hover {
+      color: #111111;
+    }
+  }
+  li {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 16px;
+    cursor: pointer;
+    margin: 0;
   }
 `
 
 const MenuToggle = styled.div`
   display: inline-flex;
   align-items: center;
-  & > span {
-    margin-right: 20px;
+  span svg {
+    width: 28px;
+    height: 16px;
+    g g {
+      fill: #333333;
+    }
+  }
+  & > a {
+    text-decoration: none;
+    margin-left: 30px;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-
-    & > span {
-      margin-left: 5px;
-    }
   }
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     display: none;
   }
 `
@@ -91,52 +121,51 @@ const Menu = styled.div`
   border: 1px solid #dce0e2;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  width: 150px;
-  padding: 10px 0;
-
+  width: 280px;
   position: absolute;
   top: 66px;
-  right: 20px;
-
-  ul,
-  li {
+  right: 30px;
+  z-index: 100;
+  ul, li {
     list-style: none;
     margin: 0;
   }
-
+  ul li a {
+    text-decoration: none;
+    color: #969696;
+  }
   li {
-    padding: 3px 20px;
+    text-align: center;
     &:hover {
-      background: #f5f6f7;
+      background: #199acc;
+      opacity: 0.5;
+      a {
+        color: #ffffff;
+      } 
     }
   }
-
-  a {
-    text-decoration: none;
-    opacity: 0.72;
-    font-size: 14px;
-    color: #000000;
-    letter-spacing: 0.12px;
-    line-height: 20px;
-    display: inline-block;
-    width: 100%;
+  ul {
+    .langtab {
+      cursor: pointer;
+      .lang {
+        margin: 0 12px;
+        color: #969696;
+      }
+      .pitchon {
+        color: #969696;
+      }
+      .active {
+        color: #111111;
+      }
+    }
   }
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     display: none;
   }
 `
 
-const Header = () => {
-  const locale = getLocale()
-  const url = locale === 'zh' ? zhWhitePaper : enWhitePaper
-  const [isCommunityPage, setIsCommunityPage] = useState(false)
+export default function Header() {
 
-  useEffect(() => {
-    setIsCommunityPage(
-      (window.location.pathname || '').startsWith('/community')
-    )
-  }, [])
 
   const [showMenu, setShowMenu] = useState(false)
   const refMenu = useRef(null)
@@ -147,100 +176,100 @@ const Header = () => {
     }
   })
 
+  useEffect(()=>{
+
+    jquery(document).on("mousewheel DOMMouseScroll", function (event) {
+      const delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  
+                  (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1));             
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      if (scrollTop === 0) {
+        jquery(".wrap_head").removeClass("head_white").css({"top":"0"}).fadeIn();
+      } else if(scrollTop > 0 && scrollTop < 160)  {
+        jquery(".wrap_head").css({"top":"0"}).addClass("head_white");
+      } else if(delta < 0 && scrollTop > 160) {
+        jquery(".wrap_head").css({"top":"-80px"});
+      } else if(delta > 0) {
+        jquery(".wrap_head").css({"top":"0"}).addClass("head_white");
+      }
+    });
+   
+    jquery(function(){
+      const clientWidth = document.body.clientWidth
+      if(clientWidth<760) {
+        jquery(".wrappers").removeClass("wrap_head");
+      } else {
+        jquery(".wrappers").addClass("wrap_head");
+      }
+    })
+  })
+
+  const intl = useIntl()
+
   return (
-    <StyledHeader style={{ background: isCommunityPage ? '#FFF' : '' }}>
+    <StyledHeader className="wrap_head wrappers">
       <InnerSection>
-        <a href="/">
-          <Logo height={32} width={148} />
-        </a>
-        <ul>
-          <li>
-            {isCommunityPage ? (
-              <a href="/">{$t('home')}</a>
-            ) : (
-              <a href="/community">{$t('community')}</a>
-            )}
-          </li>
-          <li>
-            <a href="https://dapps.chainx.org" target="_blank">
-              {$t('wallet')}
+        <div className="logoicon">
+          <a href="/" >
+            <div>
+              <Logoen/>
+            </div>  
+          </a>
+        </div>
+        <NavList className="navlists">
+          <li className="tit">
+            <a href="/" className="txt">
+            公告
             </a>
           </li>
-          <li>
-            <a href="https://scan.chainx.org" target="_blank">
-              {$t('explorer')}
+          <li className="tit">
+            <a href="/" className="txt">
+            钱包
             </a>
           </li>
-          <li>
-            <a href="https://stats.chainx.org/" target="_blank">
-              {$t('telemetry')}
+          <li className="tit">
+            <a href="/" className="txt">
+            区块浏览器
+            </a>
+          </li><li className="tit">
+            <a href="/" className="txt">
+            监控台
             </a>
           </li>
-          <li>
-            <a target="_blank" href={url}>
-              {$t('white_paper')}
+          <li className="tit">
+            <a href="/" className="txt">
+            白皮书
             </a>
           </li>
-          <li>{$t('help')}</li>
-          <li onClick={toggleLocale}>
-            <LanguageIcon />
-            <span>{locale === 'zh' ? 'English' : '中文'}</span>
+          <li className="tit">
+            <a href="https://polkaworld.org" target="_blank" rel="noreferrer" className="txt">
+              帮助
+            </a>
           </li>
-        </ul>
+          <li className="langtab">
+            <LanguageSwitcher />
+          </li>
+        </NavList>
         <MenuToggle>
-          <span onClick={toggleLocale}>
-            <LanguageIcon width={16} height={16} />
-            <span>{locale === 'zh' ? 'English' : '中文'}</span>
-          </span>
           <span onClick={() => setShowMenu(!showMenu)}>
-            <CatalogIcon width={16} height={16} />
+            <CatalogIcon />
           </span>
         </MenuToggle>
       </InnerSection>
       {showMenu && (
         <Menu ref={refMenu}>
-          <ul>
-            <li>
-              <a href="/community">{$t('community')}</a>
-            </li>
-            <li>
-              <a href="https://dapps.chainx.org" target="_blank">
-                {$t('wallet')}
-              </a>
-            </li>
-            <li>
-              <a href="https://scan.chainx.org" target="_blank">
-                {$t('explorer')}
-              </a>
-            </li>
-            <li>
-              <a href="https://stats.chainx.org/" target="_blank">
-                {$t('telemetry')}
-              </a>
-            </li>
-            <li>
-              <a target="_blank" href={url}>
-                {$t('white_paper')}
-              </a>
-            </li>
-            <li>
-              <a href="https://dapps.chainx.org" target="_blank">
-                {$t('help')}
-              </a>
-            </li>
-          </ul>
+        <ul>
+          <li className="camp">
+            <a href="/" className="txt">Substrate {intl.formatMessage({ id: "Entrepreneur Camp" })}</a>
+          </li>
+          <li className="comm">
+            <a href="https://polkaworld.org" target="_blank" rel="noreferrer" className="txt">PolkaWorld {intl.formatMessage({ id: "Community" })}</a>
+          </li>
+          <li className="langtab">
+            <LanguageSwitcher />
+          </li>
+        </ul>
         </Menu>
       )}
     </StyledHeader>
   )
 }
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header

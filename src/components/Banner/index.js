@@ -1,99 +1,79 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
-import { BaseInner } from '../baseComponents'
-import { PrimaryButton } from '@chainx/ui'
-import $t from '../../locale'
+import Bannerlogo from './banner-logo.png'
 
 const StyledSection = styled.section`
   display: flex;
   justify-content: space-around;
-  padding: 130px 0;
+  padding: 180px 0 52px;
 
-  @media screen and (max-width: 1080px) {
-    padding: 130px 20px;
-  }
 `
 
-export const InnerSection = styled(BaseInner)`
-  @media screen and (min-width: 1080px) {
-    & > div:last-of-type {
-      margin-left: 37px;
-    }
-  }
-
-  @media screen and (max-width: 1080px) {
-    & > div:last-of-type {
-      margin-top: 30px;
-    }
-  }
+export const InnerSection = styled.main`
+  display: flex;
+  justify-content: space-around;
 `
 
 const Detail = styled.div`
-  p {
-    margin-top: 30px;
-    opacity: 0.56;
-    font-size: 16px;
-    color: #000000;
-    letter-spacing: 0.12px;
-    line-height: 28px;
-  }
-
-  .MuiButton-containedPrimary {
-    margin-top: 40px;
-    width: 160px;
-    font-size: 14px !important;
-    padding: 12px 36px;
-    border-radius: 28px;
-
-    span {
-      line-height: 1;
-    }
-  }
+  // p {
+  //   margin-top: 30px;
+  //   opacity: 0.56;
+  //   font-size: 16px;
+  //   color: #000000;
+  //   letter-spacing: 0.12px;
+  //   line-height: 28px;
+  // }
 `
 
-const Title = styled.h2`
-  margin: 0;
-  opacity: 0.72;
-  font-weight: 600;
-  font-size: 50px;
-  color: #000000;
-  line-height: 68px;
+const Title = styled.div`
+  font-size: 48px;
+  color: #282828;
+  font-weight: bold;
+  
+`
+
+const Contents = styled.p`
+  width: 620px;
+  font-size: 18px;
+  color: #5C5C5C;
+  line-height: 30px;
+  margin: 24px 0 40px;
+` 
+
+const Linkbtn = styled.a`
+  text-decoration: none;
+  font-size: 16px;
+  color: #282828;
+  background: #F6C94A;
+  border-radius: 6px;
+  padding: 10px 40px;
+  &:hover {
+    text-decoration: none;
+    color: #282828;
+  }
+` 
+
+const Bannerbgpic = styled.p`
+  width: 400px;
+  height: 440px;
+  background: url(${Bannerlogo});
+  background-size: cover;
+  margin: 0 0 0 137px;
 `
 
 export default function() {
-  const data = useStaticQuery(graphql`
-    query {
-      bannerImage: file(relativePath: { eq: "banner-logo.png" }) {
-        childImageSharp {
-          fixed(width: 400) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
 
   return (
     <StyledSection>
       <InnerSection>
         <Detail>
-          <Title>{$t('connect_chains')}</Title>
-          <Title>{$t('build_ecology')}</Title>
-          <p>{$t('chainx_desc')}</p>
-          <PrimaryButton
-            onClick={() =>
-              open(
-                'https://github.com/chainx-org/chainx/wiki/Join-ChainX-Mainnet'
-              )
-            }
-          >
-            {$t('join_chainx')}
-          </PrimaryButton>
+          <Title>打破链间壁垒，</Title>
+          <Title>促进加密资产流动</Title>
+          <Contents>ChainX 是波卡生态最早上线的项目，致力于 BTCLayer2 拓展、数字资产网关及波卡二级中继链的开发研究，以实现跨链资产互通，引领比特币 Cross-Defi 新方向。</Contents>
+          <Linkbtn href="/">白皮书</Linkbtn>
         </Detail>
         <div>
-          <Img fixed={data.bannerImage.childImageSharp.fixed} />
+          <Bannerbgpic />
         </div>
       </InnerSection>
     </StyledSection>
