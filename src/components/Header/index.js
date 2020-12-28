@@ -25,7 +25,9 @@ const StyledHeader = styled.header`
   &.head_white {
     background: #FFFFFF;
     position: fixed;
+    border-bottom: 1px solid #adadad;
   }
+  
 `
 
 const InnerSection = styled.div`
@@ -241,7 +243,7 @@ export default function Header() {
             </a>
           </li>
           <li className="tit">
-            <a href="https://polkaworld.org" target="_blank" rel="noreferrer" className="txt">
+            <a href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
               帮助
             </a>
           </li>
@@ -283,7 +285,7 @@ export default function Header() {
             </a>
           </li>
           <li className="tit">
-            <a href="https://polkaworld.org" target="_blank" rel="noreferrer" className="txt">
+            <a href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
               帮助
             </a>
           </li>

@@ -197,6 +197,9 @@ const VerticalItem = styled.div`
   flex-direction: column;
   align-items: flex-end;
   padding: 18px 21px;
+  @media screen and (max-width: 375px) {
+    padding: 16px 8px;
+  }
   &:nth-child(1) {
     margin: 20px 0 80px;
   }
@@ -222,7 +225,7 @@ const VerticalItem = styled.div`
       display: inline-block;
       position: absolute;
       top: -23px;
-      right: -28px;
+      right: -15px;
     }
   }
   .txt {
@@ -245,6 +248,9 @@ const VerticalItems = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 18px 21px;
+  @media screen and (max-width: 375px) {
+    padding: 16px 8px;
+  }
   position: relative;
   &:nth-child(1) {
     margin-top: 140px;
@@ -279,7 +285,7 @@ const VerticalItems = styled.div`
       display: inline-block;
       position: absolute;
       top: -23px;
-      left: -28px;
+      left: -15px;
     }
   }
   .txt {

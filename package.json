@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@chainx/ui": "^0.1.4",
+    "animate.css": "^4.1.1",
     "babel-plugin-styled-components": "^1.11.1",
     "bootstrap": "^4.5.0",
     "gatsby": "^2.24.66",
