@@ -56,6 +56,9 @@ const NavList = styled.ul`
   margin: 0;
   .tit, .langtab {
     margin: 0 16px;
+    @media screen and (min-width:760px) and (max-width:820px) {
+      margin: 0 10px;
+    }
     .active {
       color: #282828;
     }
@@ -202,7 +205,8 @@ export default function Header() {
       } else {
         jquery(".wrappers").addClass("wrap_head");
       }
-    })
+    });
+
   })
 
   const intl = useIntl()
@@ -220,31 +224,32 @@ export default function Header() {
         <NavList className="navlists">
           <li className="tit">
             <a href="/" className="txt">
-            公告
+            {intl.formatMessage({ id: "notice" })}
             </a>
           </li>
           <li className="tit">
             <a href="/" className="txt">
-            钱包
+            {intl.formatMessage({ id: "wallet" })}
             </a>
           </li>
           <li className="tit">
             <a href="/" className="txt">
-            区块浏览器
-            </a>
-          </li><li className="tit">
-            <a href="/" className="txt">
-            监控台
+            {intl.formatMessage({ id: "browser" })}
             </a>
           </li>
           <li className="tit">
             <a href="/" className="txt">
-            白皮书
+            {intl.formatMessage({ id: "monitoring" })}
+            </a>
+          </li>
+          <li className="tit">
+            <a href="/" className="txt">
+            {intl.formatMessage({ id: "White Paper" })}
             </a>
           </li>
           <li className="tit">
             <a href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
-              帮助
+            {intl.formatMessage({ id: "help" })}
             </a>
           </li>
           <li className="langtab">
@@ -262,31 +267,32 @@ export default function Header() {
         <ul>
           <li className="tit">
             <a href="/" className="txt">
-            公告
+            {intl.formatMessage({ id: "notice" })}
             </a>
           </li>
           <li className="tit">
             <a href="/" className="txt">
-            钱包
+            {intl.formatMessage({ id: "wallet" })}
             </a>
           </li>
           <li className="tit">
             <a href="/" className="txt">
-            区块浏览器
-            </a>
-          </li><li className="tit">
-            <a href="/" className="txt">
-            监控台
+            {intl.formatMessage({ id: "browser" })}
             </a>
           </li>
           <li className="tit">
             <a href="/" className="txt">
-            白皮书
+            {intl.formatMessage({ id: "monitoring" })}
+            </a>
+          </li>
+          <li className="tit">
+            <a href="/" className="txt">
+            {intl.formatMessage({ id: "White Paper" })}
             </a>
           </li>
           <li className="tit">
             <a href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
-              帮助
+            {intl.formatMessage({ id: "help" })}
             </a>
           </li>
           <li className="langtab">

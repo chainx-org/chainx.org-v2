@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import bitplat from './bitplat.png'
 import numplat from './numplat.png'
 import padplat from './padplat.png'
+import jquery from 'jquery'
 
 const PlatSection = styled.section`
   display: flex;
@@ -39,9 +41,15 @@ const InnerSection = styled.div`
   }
 `
 const Item = styled.div`
-  // @media screen and (min-width:1280px){
-  //   width: 1280px;
-  // }
+  .ani2 {
+    animation-delay: 0.3s;
+  }
+  .ani3 {
+    animation-delay: 0.6s;
+  }
+  .ani4 {
+    animation-delay: 1.2s;
+  }
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,22 +65,6 @@ const Item = styled.div`
 `
 
 const BitPic = styled.div`
-  // @media screen and (min-width:770px) and (max-width:1080px){
-  //   width: 300px;
-  //   height: 200px;
-  // }
-  // @media screen and (min-width:520px) and (max-width:750px){
-  //   width: 500px;
-  //   height: 400px;
-  // }
-  // @media screen and (min-width:380px) and (max-width:520px){
-  //   width: 360px;
-  //   height: 260px;
-  // }
-  // @media screen and (max-width:380px){
-  //   width: 300px;
-  //   height: 200px;
-  // }
   width: 200px;
   height: 200px;
   background: url(${bitplat});
@@ -86,22 +78,6 @@ const BitPic = styled.div`
   }
 `
 const NumPic = styled.div`
-  // @media screen and (min-width:770px) and (max-width:1080px){
-  //   width: 300px;
-  //   height: 200px;
-  // }
-  // @media screen and (min-width:520px) and (max-width:750px){
-  //   width: 500px;
-  //   height: 400px;
-  // }
-  // @media screen and (min-width:380px) and (max-width:520px){
-  //   width: 360px;
-  //   height: 260px;
-  // }
-  // @media screen and (max-width:380px){
-  //   width: 300px;
-  //   height: 200px;
-  // }
   width: 200px;
   height: 200px;
   background: url(${numplat});
@@ -113,24 +89,27 @@ const NumPic = styled.div`
   @media screen and (max-width: 1023px){
     margin: 60px 0;
   }
+  visibility: hidden;
+  &.ShowAnimation_show {
+    animation: show 1.1s ease 0.3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes show {
+    0% {
+        pointer-events: none;
+        visibility: visible;
+        opacity: 0;
+        transform: translate3d(0, 60%, 0);
+    }
+    100% {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+  }
 `
 const PadPic = styled.div`
-  // @media screen and (min-width:770px) and (max-width:1080px){
-  //   width: 300px;
-  //   height: 200px;
-  // }
-  // @media screen and (min-width:520px) and (max-width:750px){
-  //   width: 500px;
-  //   height: 400px;
-  // }
-  // @media screen and (min-width:380px) and (max-width:520px){
-  //   width: 360px;
-  //   height: 260px;
-  // }
-  // @media screen and (max-width:380px){
-  //   width: 300px;
-  //   height: 200px;
-  // }
   width: 200px;
   height: 200px;
   background: url(${padplat});
@@ -142,27 +121,60 @@ const PadPic = styled.div`
   @media screen and (max-width: 1023px){
     margin: 60px 0;
   }
+  visibility: hidden;
+  &.ShowAnimation_show {
+    animation: show 1.1s ease 0.3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes show {
+    0% {
+        pointer-events: none;
+        visibility: visible;
+        opacity: 0;
+        transform: translate3d(0, 60%, 0);
+    }
+    100% {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+  }
 `
 
 const PlatMain = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // @media screen and (min-width:1280px){
-  //   margin: 0 0 0 240px;
-  // }
-  // @media screen and (min-width:750px) and (max-width:1080px){
-  //   padding: 30px;
-  // }
-  // @media screen and (max-width:750px){
-  //   padding: 30px;
-  // }
+  &.anishow2, .anishow3 {
+    visibility: hidden;
+  }
+  &.ShowAnimation_show {
+    animation: show 1.1s ease;
+    animation-fill-mode: forwards;
+  }
+  @keyframes show {
+    0% {
+        pointer-events: none;
+        visibility: visible;
+        opacity: 0;
+        transform: translate3d(0, 60%, 0);
+    }
+    100% {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+  }
+
 `
 
 const PlatTit = styled.div`
   font-size: 30px;
   color: #282828;
   margin-bottom: 20px;
+  line-height: 30px;
   @media screen and (min-width: 1280px){
     width: 560px;
   }
@@ -184,32 +196,60 @@ const PlatCon = styled.p`
 `
 
 export default function() {
+
+  const intl = useIntl()
   
+  useEffect(()=>{
+
+    jquery(document).on("mousewheel DOMMouseScroll", function (event) {
+      const delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  
+                  (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1));             
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      let wind = document.documentElement.clientHeight || document.body.clientHeight;
+      let ani2 = jquery(".ani2").offset().top;
+      let ani3 = jquery(".ani3").offset().top;
+      let ani4 = jquery(".ani4").offset().top;
+      if((scrollTop+wind) > ani2  && delta < 0) {
+        jquery(".ani2").addClass("animate__fadeInUp");
+      }
+      if ((scrollTop+wind) > ani3 && delta < 0) {
+        jquery(".anishow2").addClass("ShowAnimation_show")
+        jquery(".anihidden2").addClass("ShowAnimation_show")
+      } 
+      if ((scrollTop+wind) > ani4 && delta < 0) {
+        jquery(".anishow3").addClass("ShowAnimation_show")
+        jquery(".anihidden3").addClass("ShowAnimation_show")
+      } 
+    });
+  })
+ 
+
   return (
     <PlatSection>
-      <InnerSection>
-        <Item>
-          <PlatMain>
-            <PlatTit>比特币衍生平台</PlatTit>
-            <PlatCon>ChainX 将成为比特币最大的 Layer2 金融衍生平台，逐步上线比特币期货、期权、合成资产及互换协议等衍生品。旨在促进比特币价值流动、丰富比特币金融衍生及完善比特币投资对冲工具。</PlatCon>
+      <InnerSection className="platforms">
+        <Item key="amache2" className="ani2 animate__animated animate__fadeInUp">
+          <PlatMain className="anishow1">
+            <PlatTit>{intl.formatMessage({ id: "Bitcoin financial platform" })}</PlatTit>
+            <PlatCon>{intl.formatMessage({ id: "Bitcoin, with its market value reaching 470 billion U.S. dollars, holds the key to the digital currency world and leads towards deeper blockchain breakthroughs, which indicates that Bitcoin is being re-recognized as a payment method, perhaps only a tip of the iceberg in terms of its full potential." })}</PlatCon>
+            <PlatCon>{intl.formatMessage({ id: "ChainX committed to the research on the expansion of Bitcoin’s Layer2 financial platform strives to promote Bitcoin’s value flow, enrich its financial derivatives and improve the hedging tools." })}</PlatCon>
           </PlatMain>
-          <BitPic />
+          <BitPic className="anihidden1" />
         </Item>
-        <Item className="picCon">
-          <NumPic /> 
-          <PlatMain>
-            <PlatTit>数字资产网关</PlatTit>
-            <PlatCon>ChainX 加密资产网关主要由去中心化 BTC 资产托管方案和镜像资产跨链两部分组成。</PlatCon>
-            <PlatCon>用户通过充值抵押 BTC 来获得 X-BTC，再使用 X-BTC 交易其他加密货币的合成资产，实现所有加密货币同链交易的场景。</PlatCon>
+        <Item className="picCon ani3">
+          <NumPic className="anihidden2" /> 
+          <PlatMain className="anishow2">
+            <PlatTit>{intl.formatMessage({ id: "Digital asset gateway" })}</PlatTit>
+            <PlatCon>{intl.formatMessage({ id: "ChainX asset gateway is composed of two parts: decentralized Bitcoin trusteeship and inter-chain asset mirroring." })}</PlatCon>
+            <PlatCon>{intl.formatMessage({ id: "Users deposit and collateralize bitcoins for X-BTC which is used in transactions with synthetic assets of other cryptocurrencies, so that all sorts of cryptos can be exchanged and traded on the same chain." })}</PlatCon>
           </PlatMain>
         </Item>
-        <Item>
-          <PlatMain>
-            <PlatTit>波卡二级中继链</PlatTit>
-            <PlatCon>Polkadot 平行链可以使用不同类型的区块链底层技术进行开发，中继链负责全网的共享安全共识和平行链的跨链交易转发。中继链本身不包含任何应用，应用均在平行链上进行开发和部署。</PlatCon>
-            <PlatCon> ChainX 将在 Polkadot v2 版本发布以后，拆分为多链架构，作为 Polkadot 的第二层网络运行。</PlatCon>
+        <Item className="ani4">
+          <PlatMain className="anishow3">
+            <PlatTit>{intl.formatMessage({ id: "Polkadot second-layer relay chain" })}</PlatTit>
+            <PlatCon>{intl.formatMessage({ id: "Parachains are developed using different types of blockchain technology, and relay chains are responsible for safeguarding the network’s co-sharing consensus and facilitating inter-chain transactions among parachains. Relay chain itself does not deploy any applications. It is parachains that develop and deploy applications." })}</PlatCon>
+            <PlatCon>{intl.formatMessage({ id: "Polkadot focusing on efficient inter-chain connection within its ecosystem advances the entire blockchain development to a new level and looks set to usher in blockchain 3.0. ChainX will run as the second-layer network to Polkadot after it releases the 2.0 version." })}</PlatCon>
           </PlatMain>
-          <PadPic />
+          <PadPic className="anihidden3" />
         </Item>
       </InnerSection>
     </PlatSection>

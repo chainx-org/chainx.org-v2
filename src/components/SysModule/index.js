@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import jquery from 'jquery'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -26,22 +27,36 @@ const Apps = styled.main`
 `
 
 const Item = styled.div`
-  // @media screen and (max-width:750px){
-  //   margin: 80px 0 0;
-  // }
-  &.ani1 {
-    // animation-duration: 2s !important;
-    // animation-delay: 1s;
-    // animation-iteration-count : infinite;
+  visibility: hidden;
+  &.ShowAnimation_show {
+    animation: show 1.1s ease;
+    animation-fill-mode: forwards;
   }
-  &.ani2 {
+  @keyframes show {
+    0% {
+        pointer-events: none;
+        visibility: visible;
+        opacity: 0;
+        transform: translate3d(0, 60%, 0);
+    }
+    100% {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+  }
+  &.ani7 {
     animation-delay: 0.3s;
   }
-  &.ani3 {
+  &.ani8 {
     animation-delay: 0.6s;
   }
-  &.ani4 {
+  &.ani9 {
     animation-delay: 0.9s;
+  }
+  &.ani10 {
+    animation-delay: 1.2s;
   }
   margin: 0 30px;
   display: inline-flex;
@@ -121,45 +136,41 @@ export default function() {
       const delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  
                   (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1));             
       let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
-      if(scrollTop > 1260 && scrollTop < 2620)  {
-        jquery(".ani1").addClass("animate__fadeInUp");
-        jquery(".ani2").addClass("animate__fadeInUp");
-        jquery(".ani3").addClass("animate__fadeInUp");
-        jquery(".ani4").addClass("animate__fadeInUp");
-        console.log(scrollTop)
-      } else {
-        jquery(".ani1").removeClass("animate__fadeInUp");
-        jquery(".ani2").removeClass("animate__fadeInUp");
-        jquery(".ani3").removeClass("animate__fadeInUp");
-        jquery(".ani4").removeClass("animate__fadeInUp");
-      }
+      let windo = document.documentElement.clientHeight || document.body.clientHeight;
+      const sysmodules = jquery(".sysmodules").offset().top;
+      if((scrollTop+windo) > sysmodules && delta < 0) {
+        jquery(".ani7").addClass("ShowAnimation_show");
+        jquery(".ani8").addClass("ShowAnimation_show");
+        jquery(".ani9").addClass("ShowAnimation_show");
+        jquery(".ani10").addClass("ShowAnimation_show");
+      } 
     });
    
   })
-
+  const intl = useIntl()
   return (
     <OuterSection>
-      <InnerSection>
+      <InnerSection className="sysmodules">
         <Apps>
-          <Item key="amache1" className="ani1 animate__animated " >
+          <Item className="ani7">
             <Img fixed={Pcxmodule.childImageSharp.fixed} />
-            <h5>PCX 模块</h5>
-            <p>基于原生资产 PCX 的运作程序。包含 PCX 质押挖矿，支付手续费，参与链上治理，发放跨链挖矿奖励，用于 BTC 金融衍生抵押等。</p>
+            <h5>{intl.formatMessage({ id: "PCX moudle" })}</h5>
+            <p>{intl.formatMessage({ id: "an operating program based on the native token PCX, it mainly includes functions performed by PCX such as staking, paying fees, on-chain governance, distributing inter-chain mining rewards, and backing Bitcoin financial derivatives. PCX is related to most programs running on ChainX." })}</p>
           </Item>
-          <Item key="amache2" className="ani2  animate__animated" >
+          <Item className="ani8">
             <Img fixed={Dexmodule.childImageSharp.fixed} />
-            <h5>DEX 模块</h5>
-            <p>在 ChainX 链上发生的不同资产之间的交易。促进异链资产快速流通且能最大化的节省交易费用。</p>
+            <h5>{intl.formatMessage({ id: "DEX Moudle" })}</h5>
+            <p>{intl.formatMessage({ id: "A cross-asset transaction module, it promotes circulation of assets on different chains while minimizing transaction costs." })}</p>
           </Item>
-          <Item key="amache3" className="ani3  animate__animated" >
+          <Item className="ani9">
             <Img fixed={Acrosschain.childImageSharp.fixed} />
-            <h5>跨链模块</h5>
-            <p>异链资产及 X-Token 在进入或者转出 ChainX 网络时用到的模块。包括跨链交易验证系统，链上铸币程序，信托程序以及 X-Token 充提程序等。</p>
+            <h5>{intl.formatMessage({ id: "Inter-chain module" })}</h5>
+            <p>{intl.formatMessage({ id: "an entering or exiting module for different chain assets and X-Token, it mainly includes an inter-chain transaction verification system, on-chain mintage program, trusteeship program, and deposit and withdrawal program for X-Token." })}</p>
           </Item>
-          <Item key="amache4" className="ani4  animate__animated" >
+          <Item className="ani10">
             <Img fixed={Relaymodule.childImageSharp.fixed} />
-            <h5>中继模块</h5>
-            <p>ChainX 网络与外界各原链传递信息及辅助验证的主要窗口。包含更新原链信息程序，原链监听程序及 ChainX 跨链信息收集传递程序等。</p>
+            <h5>{intl.formatMessage({ id: "Relay module" })}</h5>
+            <p>{intl.formatMessage({ id: "a window of information exchange and verification between ChainX and outside chains, it mainly includes chain information update program, chain monitor program, and inter-chain information collection and transmission program." })}</p>
           </Item>
         </Apps>
       </InnerSection>

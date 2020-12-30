@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
+import jquery from 'jquery'
 
 const OuterSection = styled.section`
   display: flex;
@@ -59,6 +61,20 @@ const HorizontalItem = styled.div`
   position: relative;
   padding: 0 0 21px 18px;
   margin-left: 20px;
+  visibility: hidden;
+  &.ShowAnimation_show {
+    animation: show 1s ease;
+    animation-fill-mode: forwards;
+  }
+  &.ani15 {
+    animation-delay: 0.2s;
+  }
+  &.ani16 {
+    animation-delay: 0.6s;
+  }
+  &.ani17 {
+    animation-delay: 1.0s;
+  }
   @media screen and (min-width: 1024px) and (max-width: 1280px) {
     width: 260px;
   }
@@ -105,17 +121,42 @@ const HorizontalItem = styled.div`
     color: #5C5C5C;
     margin: 0;
   }
-  
+  @keyframes show {
+    0% {
+        pointer-events: none;
+        visibility: visible;
+        opacity: 0;
+        transform: translate3d(0, 60%, 0);
+    }
+    100% {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+  }
 `
 
 const HorizontalItems = styled.div`
-  width: 192px;
+  width: 388px;
   position: relative;
   padding: 21px 0 0 18px;
-  margin-left: 210px;
+  visibility: hidden;
+  &.ShowAnimation_show {
+    animation: show 1s ease;
+    animation-fill-mode: forwards;
+  }
+  &.ani18 {
+    animation-delay: 0.4s;
+  }
+  &.ani19 {
+    animation-delay: 0.8s;
+  }
+  &.ani20 {
+    animation-delay: 1.2s;
+  }
   @media screen and (min-width: 1024px) and (max-width: 1280px) {
-    width: 140px;
-    margin-left: 140px;
+    width: 280px;
     &:nth-child(1) {
       margin-left: 160px;
     }
@@ -174,6 +215,20 @@ const HorizontalItems = styled.div`
     color: #5C5C5C;
     margin: 0;
   }
+  @keyframes show {
+    0% {
+        pointer-events: none;
+        visibility: visible;
+        opacity: 0;
+        transform: translate3d(0, 60%, 0);
+    }
+    100% {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+  }
 `
 
 const Vertical = styled.div`
@@ -225,7 +280,27 @@ const VerticalItem = styled.div`
       display: inline-block;
       position: absolute;
       top: -23px;
-      right: -15px;
+      right: -28px;
+    }
+  }
+  @media screen and (max-width: 413px) {
+    .tit {
+      font-size: 20px;
+      color: #E2B534;
+      margin-bottom: 8px;
+      position: relative;
+      &:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-image: linear-gradient(45deg, #FEF6E0 0%, #F6C94A 100%);
+        border: 2px solid #FFFFFF;
+        display: inline-block;
+        position: absolute;
+        top: -23px;
+        right: -15px;
+      }
     }
   }
   .txt {
@@ -285,7 +360,27 @@ const VerticalItems = styled.div`
       display: inline-block;
       position: absolute;
       top: -23px;
-      left: -15px;
+      left: -28px;
+    }
+  }
+  @media screen and (max-width: 413px) {
+    .tit {
+      font-size: 20px;
+      color: #E2B534;
+      margin-bottom: 8px;
+      position: relative;
+      &:before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-image: linear-gradient(45deg, #FEF6E0 0%, #F6C94A 100%);
+        border: 2px solid #FFFFFF;
+        display: inline-block;
+        position: absolute;
+        top: -23px;
+        left: -15px;
+      }
     }
   }
   .txt {
@@ -304,44 +399,65 @@ const Gradualshr = styled.div`
 
 
 export default function() {
+
+  useEffect(()=>{
+
+    jquery(document).on("mousewheel DOMMouseScroll", function (event) {
+      const delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  
+                  (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1));             
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      let windss = document.documentElement.clientHeight || document.body.clientHeight;
+      let horizontals = jquery(".horizontal").offset().top;
+      if((scrollTop+windss) > horizontals  && delta < 0) {
+        jquery(".ani15").addClass("ShowAnimation_show");
+        jquery(".ani16").addClass("ShowAnimation_show");
+        jquery(".ani17").addClass("ShowAnimation_show");
+        jquery(".ani18").addClass("ShowAnimation_show");
+        jquery(".ani19").addClass("ShowAnimation_show");
+        jquery(".ani20").addClass("ShowAnimation_show");
+      } 
+    });
+   
+  })
+  const intl = useIntl()
   return (
     <OuterSection>
       <InnerSection>
-        <Title>路线图</Title>
+        <Title>{intl.formatMessage({ id: "Roadmap" })}</Title>
         <Horizontal className="horizontal">
           <HorizontalList>
-            <HorizontalItem>
-              <div className="tit">2019年05月</div>
-              <p className="txt">ChainX 1.0 上线</p>
-              <p className="txt">X-BTC 1.0 上线</p>
+            <HorizontalItem className="ani15">
+              <div className="tit">{intl.formatMessage({ id: "May 2019" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "ChainX 1.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 1.0 was launched" })}</p>
             </HorizontalItem>
-            <HorizontalItem>
-              <div className="tit">2021年01月</div>
-              <p className="txt">X-BTC 2.0 上线</p>
-              <p className="txt">Kusama 插槽竞拍</p>
-              <p className="txt">Polkadot 插槽竞拍</p>
+            <HorizontalItem className="ani16">
+              <div className="tit">{intl.formatMessage({ id: "January 2021" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 2.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "Kusama slot auction" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "Polkadot slot auction" })}</p>
             </HorizontalItem>
-            <HorizontalItem>
-              <div className="tit">2021年03月</div>
-              <p className="txt">X-BTC 4.0 上线</p>
-              <p className="txt">X-BTC 流通至 Ethereum</p>
+            <HorizontalItem className="ani17">
+              <div className="tit">{intl.formatMessage({ id: "March 2021" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 4.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Ethereum" })}</p>
             </HorizontalItem>
           </HorizontalList>
           <Gradualhr />
           <HorizontalLists>
-            <HorizontalItems>
-              <div className="tit">2020年11月</div>
-              <p className="txt">ChainX 2.0 上线</p>
+            <HorizontalItems className="ani18">
+              <div className="tit">{intl.formatMessage({ id: "November 2020" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "ChainX 2.0 was released" })}</p>
             </HorizontalItems>
-            <HorizontalItems>
-              <div className="tit">2021年02月</div>
-              <p className="txt">X-BTC 3.0 上线</p>
-              <p className="txt">X-BTC 衍生品上线</p>
-              <p className="txt">X-BTC 流通至 Polkadot</p>
+            <HorizontalItems className="ani19">
+              <div className="tit">{intl.formatMessage({ id: "February 2021" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 3.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC derivatives came online" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Polkadot" })}</p>
             </HorizontalItems>
-            <HorizontalItems>
-              <div className="tit">2022年01月</div>
-              <p className="txt">波卡二级中继链上线</p>
+            <HorizontalItems className="ani20">
+              <div className="tit">{intl.formatMessage({ id: "January 2022" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "Polkadot second-layer relay chain online" })}</p>
             </HorizontalItems>
           </HorizontalLists>
         </Horizontal>
@@ -349,37 +465,37 @@ export default function() {
         <Vertical className="vertical">
           <VerticalList>
             <VerticalItem>
-              <div className="tit">2019年05月</div>
-              <p className="txt">ChainX 1.0 上线</p>
-              <p className="txt">X-BTC 1.0 上线</p>
+              <div className="tit">{intl.formatMessage({ id: "May 2019" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "ChainX 1.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 1.0 was launched" })}</p>
             </VerticalItem>
             <VerticalItem>
-              <div className="tit">2021年01月</div>
-              <p className="txt">X-BTC 2.0 上线</p>
-              <p className="txt">Kusama 插槽竞拍</p>
-              <p className="txt">Polkadot 插槽竞拍</p>
+              <div className="tit">{intl.formatMessage({ id: "January 2021" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 2.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "Kusama slot auction" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "Polkadot slot auction" })}</p>
             </VerticalItem>
             <VerticalItem>
-              <div className="tit">2021年03月</div>
-              <p className="txt">X-BTC 4.0 上线</p>
-              <p className="txt">X-BTC 流通至 Ethereum</p>
+              <div className="tit">{intl.formatMessage({ id: "March 2021" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 4.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Ethereum" })}</p>
             </VerticalItem>
           </VerticalList>
           <Gradualshr />
           <VerticalLists>
             <VerticalItems>
-              <div className="tit">2020年11月</div>
-              <p className="txt">ChainX 2.0 上线</p>
+              <div className="tit">{intl.formatMessage({ id: "November 2020" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "ChainX 2.0 was released" })}</p>
             </VerticalItems>
             <VerticalItems>
-              <div className="tit">2021年02月</div>
-              <p className="txt">X-BTC 3.0 上线</p>
-              <p className="txt">X-BTC 衍生品上线</p>
-              <p className="txt">X-BTC 流通至 Polkadot</p>
+              <div className="tit">{intl.formatMessage({ id: "February 2021" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC 3.0 was launched" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC derivatives came online" })}</p>
+              <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Polkadot" })}</p>
             </VerticalItems>
             <VerticalItems>
-              <div className="tit">2022年01月</div>
-              <p className="txt">波卡二级中继链上线</p>
+              <div className="tit">{intl.formatMessage({ id: "January 2022" })}</div>
+              <p className="txt">{intl.formatMessage({ id: "Polkadot second-layer relay chain online" })}</p>
             </VerticalItems>
           </VerticalLists>
         </Vertical>

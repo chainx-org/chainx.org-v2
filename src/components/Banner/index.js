@@ -1,11 +1,13 @@
 import React from 'react'
+import { useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import Bannerlogo from './banner-logo.png'
+
 
 const StyledSection = styled.section`
   display: flex;
   justify-content: space-around;
-  padding: 180px 0 52px;
+  padding: 160px 0 52px;
 
 `
 
@@ -27,13 +29,17 @@ export const InnerSection = styled.main`
 `
 
 const Detail = styled.div`
-  margin-bottom: 20px;
+  margin: 20px 0;
 `
 
 const Title = styled.div`
   font-size: 48px;
   color: #282828;
   font-weight: bold;
+  line-height: 48px;
+  p {
+    margin: 0;
+  }
   @media screen and (max-width: 539px) {
     font-size: 38px;
   }
@@ -92,16 +98,20 @@ const Bannerbgpic = styled.p`
 
 export default function() {
 
+  const intl = useIntl()
+
   return (
     <StyledSection>
       <InnerSection>
-        <Detail>
-          <Title>打造比特币的</Title>
-          <Title>layer2 金融平台</Title>
-          <Contents>ChainX 是波卡生态最早上线的项目，致力于 BTCLayer2 拓展、数字资产网关及波卡二级中继链的开发研究，以实现跨链资产互通，引领比特币 Cross-Defi 新方向。</Contents>
-          <Linkbtn href="/">白皮书</Linkbtn>
+        <Detail key="amache" className="ani animate__animated animate__fadeInLeft">
+          <Title>
+            <p>{intl.formatMessage({ id: "The Layer2 financial" })}</p>
+            <p>{intl.formatMessage({ id: "platform for Bitcoin" })}</p>
+          </Title>
+          <Contents>{intl.formatMessage({ id: "ChainX, the earliest launched project in polkadot ecosystem,ChainX is committed to the research and application of Bitcoin layer 2 expansion, digital asset gateway and Polkadot second-layer relay chain,To realize cross-chain asset exchange, leading the new direction of Bitcoin Cross-DEFi." })}</Contents>
+          <Linkbtn href="/">{intl.formatMessage({ id: "White Paper" })}</Linkbtn>
         </Detail>
-        <div className="bglogo">
+        <div key="amache1" className="bglogo ani1 animate__animated animate__fadeInRight" >
           <Bannerbgpic />
         </div>
       </InnerSection>

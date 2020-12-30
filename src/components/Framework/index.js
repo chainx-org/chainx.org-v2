@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import Sysframework from './sysframework.png'
+import jquery from 'jquery'
 
 const StyledSection = styled.section`
   display: flex;
@@ -27,6 +29,34 @@ export const InnerSection = styled.main`
   }
   @media screen and (max-width: 375px) {
     padding: 70px 10px;
+  }
+  .ani21 {
+    visibility: hidden;
+    &.ShowAnimation_show {
+      animation: show 1.1s ease;
+      animation-fill-mode: forwards;
+    }
+  }
+  .ani22 {
+    visibility: hidden;
+    &.ShowAnimation_show {
+      animation: show 1.1s ease 0.3s;
+      animation-fill-mode: forwards;
+    }
+  }
+  @keyframes show {
+    0% {
+        pointer-events: none;
+        visibility: visible;
+        opacity: 0;
+        transform: translate3d(0, 60%, 0);
+    }
+    100% {
+        pointer-events: inherit;
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
   }
 `
 
@@ -93,15 +123,32 @@ const Sysbgpic = styled.p`
 
 export default function() {
 
+  useEffect(()=>{
+
+    jquery(document).on("mousewheel DOMMouseScroll", function (event) {
+      const delta = (event.originalEvent.wheelDelta && (event.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  
+                  (event.originalEvent.detail && (event.originalEvent.detail > 0 ? -1 : 1));             
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      let winds = document.documentElement.clientHeight || document.body.clientHeight;
+      const frameworks = jquery(".frameworks").offset().top;
+      if((scrollTop+winds)> frameworks && delta < 0)  {
+        jquery(".ani21").addClass("ShowAnimation_show")
+        jquery(".ani22").addClass("ShowAnimation_show")
+      }
+    });
+   
+  })
+  const intl = useIntl()
+
   return (
     <StyledSection>
-      <InnerSection>
-        <div>
+      <InnerSection className="frameworks">
+        <div className="ani21">
           <Sysbgpic />
         </div>
-        <Detail>
-          <Title>系统架构</Title>
-          <Contents>ChainX 2.0 建立在通用基础链框架 Substrate 2.0 之上，实现了混合 PoS 共识、链上理事会治理、Wasm 虚拟机、智能合约原生执行、高效轻客户端协议、Off-chain worker、多重签名等功能，同时与 Polkadot 网络具有高度兼容性。</Contents>
+        <Detail className="ani22">
+          <Title>{intl.formatMessage({ id: "system architecture" })}</Title>
+          <Contents>{intl.formatMessage({ id: "ChainX 2.0 combines and coordinates various functions like hybrid PoS consensus, on-chain council governance, Wasm virtual machine, native execution of smart contracts, efficient light-client protocol, Off-chain worker, and multi-signature, what’s more it is highly compatible with Polkadot." })}</Contents>
         </Detail>
       </InnerSection>
     </StyledSection>
