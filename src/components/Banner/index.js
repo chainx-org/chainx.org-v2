@@ -38,7 +38,7 @@ const Title = styled.div`
   font-weight: bold;
   line-height: 48px;
   p {
-    margin: 0;
+    margin-bottom: 20px;
   }
   @media screen and (max-width: 539px) {
     font-size: 38px;
@@ -50,7 +50,7 @@ const Contents = styled.p`
   font-size: 18px;
   color: #5C5C5C;
   line-height: 30px;
-  margin: 24px 0 40px;
+  margin: 4px 0 40px;
   @media screen and (min-width: 1024px) and (max-width: 1280px) {
     width: 400px;
   }

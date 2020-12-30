@@ -142,6 +142,9 @@ const HorizontalItems = styled.div`
   position: relative;
   padding: 21px 0 0 18px;
   visibility: hidden;
+  &:nth-child(3) {
+    width: 200px;
+  }
   &.ShowAnimation_show {
     animation: show 1s ease;
     animation-fill-mode: forwards;
