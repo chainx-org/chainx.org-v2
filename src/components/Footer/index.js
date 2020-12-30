@@ -166,11 +166,11 @@ export default function () {
     }
   `)
 
-  const [emails,setEmails] = useState()
+  const [emails,setEmails] = useState("hi@chainx.org")
   const [copied,setCopied] = useState(false)
 
   useEffect(()=>{
-    setEmails("11234567890")
+    setEmails("hi@chainx.org")
   },[])
 
   useEffect(()=>{

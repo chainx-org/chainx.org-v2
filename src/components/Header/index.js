@@ -233,7 +233,7 @@ export default function Header() {
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt">
+            <a href="https://scan.chainx.org/" className="txt">
             {intl.formatMessage({ id: "browser" })}
             </a>
           </li>
@@ -276,7 +276,7 @@ export default function Header() {
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt">
+            <a href="https://scan.chainx.org/" className="txt">
             {intl.formatMessage({ id: "browser" })}
             </a>
           </li>
