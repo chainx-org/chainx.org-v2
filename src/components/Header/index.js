@@ -25,7 +25,7 @@ const StyledHeader = styled.header`
   &.head_white {
     background: #FFFFFF;
     position: fixed;
-    border-bottom: 1px solid #adadad;
+    border-bottom: 1px solid #EFEFEF;
   }
   
 `
@@ -38,9 +38,24 @@ const InnerSection = styled.div`
   div a {
     display: flex;
   }
-  @media screen and (min-width:1280px) {
+  @media screen and (min-width:1400px) {
     display: flex;
     width: 1280px;
+    justify-content: space-between;
+  }
+  @media screen and (min-width:1200px) and (max-width:1399px) {
+    display: flex;
+    width: 1080px;
+    justify-content: space-between;
+  }
+  @media screen and (min-width:1024px) and (max-width:1199px) {
+    display: flex;
+    width: 950px;
+    justify-content: space-between;
+  }
+  @media screen and (min-width:900px) and (max-width:1023px) {
+    display: flex;
+    width: 800px;
     justify-content: space-between;
   }
   ul {
@@ -223,27 +238,22 @@ export default function Header() {
         </div>
         <NavList className="navlists">
           <li className="tit">
-            <a href="/" className="txt">
-            {intl.formatMessage({ id: "notice" })}
-            </a>
-          </li>
-          <li className="tit">
-            <a href="/" className="txt">
+            <a href="https://dapps.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "wallet" })}
             </a>
           </li>
           <li className="tit">
-            <a href="https://scan.chainx.org/" className="txt">
+            <a href="https://scan.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "browser" })}
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt">
+            <a href="https://stats.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "monitoring" })}
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt">
+            <a href="/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "White Paper" })}
             </a>
           </li>
@@ -266,27 +276,22 @@ export default function Header() {
         <Menu ref={refMenu}>
         <ul>
           <li className="tit">
-            <a href="/" className="txt">
-            {intl.formatMessage({ id: "notice" })}
-            </a>
-          </li>
-          <li className="tit">
-            <a href="/" className="txt">
+            <a href="https://dapps.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "wallet" })}
             </a>
           </li>
           <li className="tit">
-            <a href="https://scan.chainx.org/" className="txt">
+            <a href="https://scan.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "browser" })}
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt">
+            <a href="https://stats.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "monitoring" })}
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt">
+            <a href="/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "White Paper" })}
             </a>
           </li>

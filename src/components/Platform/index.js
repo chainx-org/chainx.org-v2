@@ -53,7 +53,7 @@ const Item = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media screen and (max-width: 1023px){
+  @media screen and (max-width: 899px){
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,10 +70,16 @@ const BitPic = styled.div`
   background: url(${bitplat});
   background-size: cover;
   margin: 0 240px;
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1024px) and (max-width:1200px){
     margin: 0 60px;
   }
-  @media screen and (max-width: 1023px){
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    margin: 0 130px;
+  }
+  @media screen and (min-width: 900px) and (max-width:1023px){
+    margin: 60px 50px;
+  }
+  @media screen and (max-width: 899px){
     margin: 60px 0;
   }
 `
@@ -83,10 +89,16 @@ const NumPic = styled.div`
   background: url(${numplat});
   background-size: cover;
   margin: 120px 240px;
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1024px) and (max-width:1200px){
     margin: 100px 60px;
   }
-  @media screen and (max-width: 1023px){
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    margin: 100px 130px;
+  }
+  @media screen and (min-width: 900px) and (max-width:1023px){
+    margin: 60px 50px;
+  }
+  @media screen and (max-width: 899px){
     margin: 60px 0;
   }
   visibility: hidden;
@@ -115,10 +127,16 @@ const PadPic = styled.div`
   background: url(${padplat});
   background-size: cover;
   margin: 0 240px;
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1024px) and (max-width:1200px){
     margin: 0 60px;
   }
-  @media screen and (max-width: 1023px){
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    margin: 0 130px;
+  }
+  @media screen and (min-width: 900px) and (max-width:1023px){
+    margin: 60px 50px;
+  }
+  @media screen and (max-width: 899px){
     margin: 60px 0;
   }
   visibility: hidden;
@@ -175,7 +193,7 @@ const PlatTit = styled.div`
   color: #282828;
   margin-bottom: 20px;
   line-height: 30px;
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1300px){
     width: 560px;
   }
 `
@@ -184,14 +202,14 @@ const PlatCon = styled.p`
   font-size: 16px;
   color: #5C5C5C;
   margin-bottom: 16px;
-  @media screen and (min-width:1280px){
+  @media screen and (min-width:1024px){
     width: 580px;
   }
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width: 900px) and (max-width:1023px){
     width: 500px;
   }
-  @media screen and (min-width: 768px) and (max-width:1023px){
-    width: 580px;
+  @media screen and (min-width: 768px) and (max-width:899px){
+    width: 620px;
   }
 `
 

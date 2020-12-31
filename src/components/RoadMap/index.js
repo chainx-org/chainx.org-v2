@@ -23,11 +23,11 @@ const  Gradualhr = styled.div`
   @media screen and (min-width: 900px) and (max-width: 1023px) {
     width: 800px;
   }
-  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+  @media screen and (min-width: 1024px) and (max-width: 1200px) {
     width: 900px;
   }
-  @media screen and (min-width: 1280px) and (max-width: 1300px) {
-    width: 1180px;
+  @media screen and (min-width: 1200px) and (max-width: 1400px) {
+    width: 1000px;
   }
 `
 
@@ -63,7 +63,7 @@ const HorizontalItem = styled.div`
   margin-left: 20px;
   visibility: hidden;
   &.ShowAnimation_show {
-    animation: show 1s ease;
+    animation: show 0.8s ease;
     animation-fill-mode: forwards;
   }
   &.ani15 {
@@ -75,7 +75,7 @@ const HorizontalItem = styled.div`
   &.ani17 {
     animation-delay: 1.0s;
   }
-  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+  @media screen and (min-width: 1024px) and (max-width: 1400px) {
     width: 260px;
   }
   @media screen and (min-width: 900px) and (max-width: 1023px) {
@@ -146,7 +146,7 @@ const HorizontalItems = styled.div`
     width: 200px;
   }
   &.ShowAnimation_show {
-    animation: show 1s ease;
+    animation: show 0.8s ease;
     animation-fill-mode: forwards;
   }
   &.ani18 {
@@ -158,8 +158,14 @@ const HorizontalItems = styled.div`
   &.ani20 {
     animation-delay: 1.2s;
   }
-  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+  @media screen and (min-width: 1024px) and (max-width: 1200px) {
     width: 280px;
+    &:nth-child(1) {
+      margin-left: 160px;
+    }
+  }
+  @media screen and (min-width: 1200px) and (max-width: 1400px) {
+    width: 288px;
     &:nth-child(1) {
       margin-left: 160px;
     }
@@ -169,8 +175,9 @@ const HorizontalItems = styled.div`
     &:nth-child(1) {
       margin-left: 120px;
     }
+    width: 192px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1400px) {
     &:nth-child(1) {
       margin-left: 230px;
     }
@@ -435,13 +442,13 @@ export default function() {
               <p className="txt">{intl.formatMessage({ id: "X-BTC 1.0 was launched" })}</p>
             </HorizontalItem>
             <HorizontalItem className="ani16">
-              <div className="tit">{intl.formatMessage({ id: "January 2021" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q1 2021" })}</div>
               <p className="txt">{intl.formatMessage({ id: "X-BTC 2.0 was launched" })}</p>
               <p className="txt">{intl.formatMessage({ id: "Kusama slot auction" })}</p>
               <p className="txt">{intl.formatMessage({ id: "Polkadot slot auction" })}</p>
             </HorizontalItem>
             <HorizontalItem className="ani17">
-              <div className="tit">{intl.formatMessage({ id: "March 2021" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q3 2021" })}</div>
               <p className="txt">{intl.formatMessage({ id: "X-BTC 4.0 was launched" })}</p>
               <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Ethereum" })}</p>
             </HorizontalItem>
@@ -453,13 +460,13 @@ export default function() {
               <p className="txt">{intl.formatMessage({ id: "ChainX 2.0 was released" })}</p>
             </HorizontalItems>
             <HorizontalItems className="ani19">
-              <div className="tit">{intl.formatMessage({ id: "February 2021" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q2 2021" })}</div>
               <p className="txt">{intl.formatMessage({ id: "X-BTC 3.0 was launched" })}</p>
               <p className="txt">{intl.formatMessage({ id: "X-BTC derivatives came online" })}</p>
               <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Polkadot" })}</p>
             </HorizontalItems>
             <HorizontalItems className="ani20">
-              <div className="tit">{intl.formatMessage({ id: "January 2022" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q1 2022" })}</div>
               <p className="txt">{intl.formatMessage({ id: "Polkadot second-layer relay chain online" })}</p>
             </HorizontalItems>
           </HorizontalLists>
@@ -473,13 +480,13 @@ export default function() {
               <p className="txt">{intl.formatMessage({ id: "X-BTC 1.0 was launched" })}</p>
             </VerticalItem>
             <VerticalItem>
-              <div className="tit">{intl.formatMessage({ id: "January 2021" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q1 2021" })}</div>
               <p className="txt">{intl.formatMessage({ id: "X-BTC 2.0 was launched" })}</p>
               <p className="txt">{intl.formatMessage({ id: "Kusama slot auction" })}</p>
               <p className="txt">{intl.formatMessage({ id: "Polkadot slot auction" })}</p>
             </VerticalItem>
             <VerticalItem>
-              <div className="tit">{intl.formatMessage({ id: "March 2021" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q3 2021" })}</div>
               <p className="txt">{intl.formatMessage({ id: "X-BTC 4.0 was launched" })}</p>
               <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Ethereum" })}</p>
             </VerticalItem>
@@ -491,13 +498,13 @@ export default function() {
               <p className="txt">{intl.formatMessage({ id: "ChainX 2.0 was released" })}</p>
             </VerticalItems>
             <VerticalItems>
-              <div className="tit">{intl.formatMessage({ id: "February 2021" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q2 2021" })}</div>
               <p className="txt">{intl.formatMessage({ id: "X-BTC 3.0 was launched" })}</p>
               <p className="txt">{intl.formatMessage({ id: "X-BTC derivatives came online" })}</p>
               <p className="txt">{intl.formatMessage({ id: "X-BTC is circulated to Polkadot" })}</p>
             </VerticalItems>
             <VerticalItems>
-              <div className="tit">{intl.formatMessage({ id: "January 2022" })}</div>
+              <div className="tit">{intl.formatMessage({ id: "Q1 2022" })}</div>
               <p className="txt">{intl.formatMessage({ id: "Polkadot second-layer relay chain online" })}</p>
             </VerticalItems>
           </VerticalLists>

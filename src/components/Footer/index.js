@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import { useIntl } from "gatsby-plugin-intl"
 import Logo from "./ChainXLogoWhite.svg"
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Wechats from './wechat.png'
@@ -22,10 +21,25 @@ export const InnerSection = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  @media screen and (min-width:1280px) {
+  @media screen and (min-width:1400px) {
     width: 1280px;
     justify-content: space-between;
     align-items: center;
+  }
+  @media screen and (min-width:1200px) and (max-width:1399px) {
+    width: 1080px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media screen and (min-width:1024px) and (max-width:1199px) {
+    display: flex;
+    width: 950px;
+    justify-content: space-between;
+  }
+  @media screen and (min-width:900px) and (max-width:1023px) {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
   }
   @media screen and (max-width:768px) {
     display: flex;
@@ -77,8 +91,12 @@ export const Botlogo = styled.div`
     padding: 0 12px;
     display: flex;
     align-items: center;
+    opacity: 0.7;
     img {
       margin: 0;
+    }
+    &:hover { 
+      opacity:1;
     }
   }
   .iconwechats {
@@ -116,8 +134,6 @@ export const Chatcode = styled.div`
 `
 
 export default function () {
- 
-  const intl = useIntl()
 
   const { twitter, medium, telegram, wechat, github, email } = useStaticQuery(graphql`
     query {
@@ -188,7 +204,7 @@ export default function () {
         </Detail>
         <Botlogo >
           <div className="imgicon">
-            <a href="https://twitter.com/chainx_org" target="_blank">
+            <a href="https://twitter.com/chainx_org" target="_blank" rel="noreferrer">
               <Img fixed={twitter.childImageSharp.fixed} />
             </a>
           </div>
@@ -199,17 +215,17 @@ export default function () {
             <Chatcode className="codes" />
           </div>
           <div className="imgicon">
-            <a href="https://chainx-org.medium.com/" target="_blank">
+            <a href="https://chainx-org.medium.com/" target="_blank" rel="noreferrer">
               <Img fixed={medium.childImageSharp.fixed} />
             </a>
           </div>
           <div className="imgicon">
-            <a href="https://t.me/chainx_org" target="_blank">
+            <a href="https://t.me/chainx_org" target="_blank" rel="noreferrer">
               <Img fixed={telegram.childImageSharp.fixed} />
             </a>
           </div>
           <div className="imgicon">
-            <a href="https://github.com/chainx-org/ChainX" target="_blank">
+            <a href="https://github.com/chainx-org/ChainX" target="_blank" rel="noreferrer">
               <Img fixed={github.childImageSharp.fixed} />
             </a>
           </div>

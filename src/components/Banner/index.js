@@ -14,7 +14,11 @@ const StyledSection = styled.section`
 export const InnerSection = styled.main`
   display: flex;
   justify-content: space-around;
-  @media screen and (max-width: 1023px) {
+  align-items: center;
+  @media screen and (min-width: 1400px) {
+    align-items: center;
+  }
+  @media screen and (max-width: 899px) {
     display: flex;
     flex-direction: column;
   }
@@ -36,12 +40,29 @@ const Title = styled.div`
   font-size: 48px;
   color: #282828;
   font-weight: bold;
-  line-height: 48px;
+  line-height: 70px;
+  margin-top: 30px;
   p {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    @media screen and (min-width: 1024px) and (max-width: 1200px) {
+      width: 470px;
+      font-size: 42px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 899px) {
+      width: 530px;
+    }
+    @media screen and (min-width: 900px) and (max-width: 1023px) {
+      width: 396px;
+      font-size: 26px;
+      line-height: 46px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 530px;
+    }
   }
   @media screen and (max-width: 539px) {
-    font-size: 38px;
+    font-size: 26px;
+    line-height: 46px;
   }
   
 `
@@ -51,13 +72,16 @@ const Contents = styled.p`
   color: #5C5C5C;
   line-height: 30px;
   margin: 4px 0 40px;
-  @media screen and (min-width: 1024px) and (max-width: 1280px) {
-    width: 400px;
+  @media screen and (min-width: 1024px) and (max-width: 1200px) {
+    width: 470px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (min-width: 768px) and (max-width: 899px) {
     width: 620px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 900px) and (max-width: 1023px) {
+    width: 376px;
+  }
+  @media screen and (min-width: 1200px) {
     width: 620px;
   }
 ` 
@@ -68,7 +92,7 @@ const Linkbtn = styled.a`
   color: #282828;
   background: rgba(246,201,74,1);
   border-radius: 6px;
-  padding: 10px 40px;
+  padding: 13px 40px;
   &:hover {
     text-decoration: none;
     color: #282828;
@@ -81,14 +105,22 @@ const Bannerbgpic = styled.p`
   height: 440px;
   background: url(${Bannerlogo});
   background-size: cover;
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (min-width: 768px) and (max-width: 899px) {
     margin: 0 0 0 137px;
   }
-  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+  @media screen and (min-width: 900px) and (max-width: 1023px) {
+    margin: 0;
+    width: 360px;
+    height: 396px;
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1200px) {
     margin: 0 0 0 30px;
   }
-  @media screen and (min-width: 1280px) {
-    margin: 0 0 0 137px;
+  @media screen and (min-width: 1200px) and (max-width: 1399px) {
+    margin: 0;
+  }
+  @media screen and (min-width: 1400px) {
+    margin: 0 0 0 90px;
   }
   @media screen and (max-width: 539px) {
     width: 300px;
@@ -105,8 +137,8 @@ export default function() {
       <InnerSection>
         <Detail key="amache" className="ani animate__animated animate__fadeInLeft">
           <Title>
-            <p>{intl.formatMessage({ id: "The Layer2 financial" })}</p>
-            <p>{intl.formatMessage({ id: "platform for Bitcoin" })}</p>
+            <p>{intl.formatMessage({ id: "POS version of BTC economic model" })}</p>
+            <p>{intl.formatMessage({ id: "tens of thousands of cryptocurrencies cross-chain BTC Layer2 derivative platform" })}</p>
           </Title>
           <Contents>{intl.formatMessage({ id: "ChainX, the earliest launched project in polkadot ecosystem,ChainX is committed to the research and application of Bitcoin layer 2 expansion, digital asset gateway and Polkadot second-layer relay chain,To realize cross-chain asset exchange, leading the new direction of Bitcoin Cross-DEFi." })}</Contents>
           <Linkbtn href="/">{intl.formatMessage({ id: "White Paper" })}</Linkbtn>

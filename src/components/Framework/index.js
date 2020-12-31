@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { useIntl } from "gatsby-plugin-intl"
+import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import Sysframework from './sysframework.png'
+import Enframework from './enframework.png'
 import jquery from 'jquery'
 
 const StyledSection = styled.section`
@@ -23,6 +24,12 @@ export const InnerSection = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  @media screen and (min-width:900px) and (max-width:1023px) {
+    padding: 50px 60px;
+  }
+  @media screen and (min-width:768px) and (max-width:899px) {
+    padding: 50px 35px;
   }
   @media screen and (min-width:375px) and (max-width:539px){
     padding: 70px 30px;
@@ -62,11 +69,11 @@ export const InnerSection = styled.main`
 
 const Detail = styled.div`
   margin-left: 120px;
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1024px) and (max-width:1200px){
     margin-left: 60px;
   }
-  @media screen and (min-width:1280px) and (max-width:1295px){
-    margin-left: 106px;
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    margin-left: 10px;
   }
   @media screen and (max-width:1023px){
     margin: 60px 0 0;
@@ -84,16 +91,22 @@ const Contents = styled.p`
   color: #5C5C5C;
   line-height: 30px;
   margin: 20px 0 0;
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1024px) and (max-width:1200px){
     width: 360px;
   }
-  @media screen and (min-width:768px) and (max-width:1023px){
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    width: 450px;
+  }
+  @media screen and (min-width:900px) and (max-width:1023px){
+    width: 664px;
+  }
+  @media screen and (min-width:768px) and (max-width:899px) {
     width: 480px;
   }
   @media screen and (min-width: 540px) and (max-width:767px){
     width: 360px;
   }
-  @media screen and (min-width:1280px){
+  @media screen and (min-width:1400px){
     width: 480px;
   }
   @media screen and (max-width: 375px) {
@@ -107,12 +120,56 @@ const Sysbgpic = styled.p`
   background: url(${Sysframework});
   background-size: cover;
   margin: 0;
-  @media screen and (min-width:1024px) and (max-width:1280px){
-    width: 402px;
+  @media screen and (min-width:1024px) and (max-width:1200px){
+    width: 400px;
     height: 200px;
   }
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    width: 500px;
+    height: 250px;
+  }
+  @media screen and (min-width:900px) and (max-width:1023px) {
+    width: 680px;
+    height: 340px;
+  }
+  @media screen and (min-width: 768px) and (max-width:899px){
+    width: 550px;
+    height: 275px;
+  }
   @media screen and (min-width: 540px) and (max-width:767px){
-    width: 402px;
+    width: 400px;
+    height: 200px;
+  }
+  @media screen and (max-width: 539px) {
+    width: 300px;
+    height: 150px;
+  }
+`
+
+const Enbgpic = styled.p`
+  width: 600px;
+  height: 300px;
+  background: url(${Enframework});
+  background-size: cover;
+  margin: 0;
+  @media screen and (min-width:1024px) and (max-width:1200px){
+    width: 400px;
+    height: 200px;
+  }
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    width: 500px;
+    height: 250px;
+  }
+  @media screen and (min-width:900px) and (max-width:1023px) {
+    width: 680px;
+    height: 340px;
+  }
+  @media screen and (min-width: 768px) and (max-width:899px){
+    width: 550px;
+    height: 275px;
+  }
+  @media screen and (min-width: 540px) and (max-width:767px){
+    width: 400px;
     height: 200px;
   }
   @media screen and (max-width: 539px) {
@@ -143,9 +200,18 @@ export default function() {
   return (
     <StyledSection>
       <InnerSection className="frameworks">
-        <div className="ani21">
-          <Sysbgpic />
-        </div>
+        <IntlContextConsumer>
+          {({ languages, language: currentLocale }) => (
+            <div className="ani21">
+              <div style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>
+                <Sysbgpic />
+              </div> 
+              <div style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>
+                <Enbgpic />
+              </div> 
+            </div>
+          )}
+        </IntlContextConsumer>
         <Detail className="ani22">
           <Title>{intl.formatMessage({ id: "system architecture" })}</Title>
           <Contents>{intl.formatMessage({ id: "ChainX 2.0 combines and coordinates various functions like hybrid PoS consensus, on-chain council governance, Wasm virtual machine, native execution of smart contracts, efficient light-client protocol, Off-chain worker, and multi-signature, what’s more it is highly compatible with Polkadot." })}</Contents>

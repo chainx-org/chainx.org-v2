@@ -16,13 +16,14 @@ const InnerSection = styled.main`
   padding: 0 0 100px;
 `
 
-const Apps = styled.main`
+const Apps = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: nowrap;
-  @media screen and (max-width:1280px){
+  @media screen and (max-width:1300px){
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 `
 
@@ -63,7 +64,7 @@ const Item = styled.div`
   flex-direction: column;
   align-items: center;
  
-  @media screen and (min-width:1280px){
+  @media screen and (min-width:1400px){
     &:nth-child(1) {
       margin: 0 30px 0 0;
     }
@@ -71,8 +72,11 @@ const Item = styled.div`
       margin: 0 0 0 30px;
     }
   }
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1200px) and (max-width:1399px){
     margin: 0 20px;
+  }
+  @media screen and (min-width:1024px) and (max-width:1199px){
+    margin: 0 10px;
   }
   h5{
     font-size: 20px;
@@ -86,11 +90,11 @@ const Item = styled.div`
     text-align: center;
     line-height: 24px;
     width: 276px;
-    @media screen and (min-width:1024px) and (max-width:1280px){
-      width: 196px;
+    @media screen and (min-width:1024px) and (max-width:1200px){
+      width: 205px;
     }
-    @media screen and (min-width:1280px) and (max-width:1295px){
-      width: 270px;
+    @media screen and (min-width:1200px) and (max-width:1400px){
+      width: 220px;
     }
   }
 `

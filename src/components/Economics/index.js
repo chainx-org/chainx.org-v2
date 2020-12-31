@@ -45,14 +45,20 @@ const ItemTit = styled.div`
   flex-direction: column;
   align-items: center;
   background-image: linear-gradient(-45deg, #CBCBCB 0%, #F9DA82 100%);
-  @media screen and (min-width:1024px) and (max-width:1280px){
-    padding: 70px 151px 80px;
+  @media screen and (min-width:1024px) and (max-width:1200px){
+    padding: 70px 150px 80px;
   }
-  @media screen and (min-width:1280px) and (max-width:1300px){
-    padding: 70px 161px 80px;
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    padding: 70px 75px 80px;
   }
-  @media screen and (max-width:1023px){
+  @media screen and (max-width:767px){
     padding: 50px 70px 80px;
+  }
+  @media screen and (min-width:900px) and (max-width:1023px){
+    padding: 50px 60px 70px;
+  }
+  @media screen and (min-width:768px) and (max-width:899px){
+    padding: 50px 60px 70px;
   }
   @media screen and (max-width:414px){
     padding: 50px 25px 80px;
@@ -91,13 +97,16 @@ const Classtit = styled.p`
   @media screen and (min-width:1280px){
     width: 960px;
   }
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1024px) and (max-width:1200px){
     width: 600px;
   }
-  @media screen and (min-width:1280px) and (max-width:1300px){
+  @media screen and (min-width:1200px) and (max-width:1400px){
     width: 890px;
   }
-  @media screen and (min-width:768px) and (max-width:1023px){
+  @media screen and (min-width:900px) and (max-width:1023px){
+    width: 680px;
+  }
+  @media screen and (min-width:768px) and (max-width:899px){
     width: 500px;
   }
   font-size: 16px;
@@ -138,8 +147,11 @@ const ItemSys = styled.div`
   flex-direction: column;
   align-items: center;
   background: #F9F9F9;
-  @media screen and (min-width:1280px) and (max-width:1300px){
+  @media screen and (min-width:1200px) and (max-width:1400px){
     padding: 50px 58px 80px;
+  }
+  @media screen and (min-width:768px) and (max-width:899px){
+    padding: 50px 60px 60px;
   }
   @media screen and (max-width:414px){
     padding: 50px 27px 80px;
@@ -180,16 +192,19 @@ const  SysCon = styled.p`
   color: #5C5C5C;
   text-align: center;
   margin-bottom: 40px;
-  @media screen and (min-width:1300px){
+  @media screen and (min-width:1400px){
     width: 500px;
   }
-  @media screen and (min-width:1024px) and (max-width:1280px){
+  @media screen and (min-width:1024px) and (max-width:1200px){
     width: 310px;
   }
-  @media screen and (min-width:1280px) and (max-width:1300px){
-    width: 490px;
+  @media screen and (min-width:1200px) and (max-width:1400px){
+    width: 404px;
   }
-  @media screen and (min-width:768px) and (max-width:1023px){
+  @media screen and (min-width:900px) and (max-width:1023px){
+    width: 660px;
+  }
+  @media screen and (min-width:768px) and (max-width:899px){
     width: 500px;
   }
 `
@@ -215,8 +230,11 @@ const Item = styled.div`
   flex-direction: column;
   align-items: center;
   background: #EFEFEF;
-  @media screen and (min-width:1280px) and (max-width:1300px){
+  @media screen and (min-width:1200px) and (max-width:1400px){
     padding: 50px 58px 80px;
+  }
+  @media screen and (min-width:768px) and (max-width:899px){
+    padding: 50px 60px 60px;
   }
   @media screen and (max-width:414px){
     padding: 50px 23px 80px;
