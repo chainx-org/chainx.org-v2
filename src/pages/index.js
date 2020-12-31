@@ -8,7 +8,7 @@ import Platform from "../components/Platform"
 import Framework from "../components/Framework"
 import SysModule from "../components/SysModule"
 import Economics from "../components/Economics"
-import RoadMap from "../components/RoadMap"
+import RoadMaps from "../components/RoadMaps"
 import Footer from "../components/Footer"
 
 
@@ -25,7 +25,7 @@ class CampPage extends React.Component  {
       <Framework />
       <SysModule />
       <Economics />
-      <RoadMap />
+      <RoadMaps />
       <Footer />
     </Layout>
     )

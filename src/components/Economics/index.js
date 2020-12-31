@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
-import { useIntl } from "gatsby-plugin-intl"
+import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import jquery from 'jquery'
+import ChainXWhitePaper from './ChainXWhitePaper.pdf'
+import ChainX from './ChainX.pdf'
 
 const OuterSection = styled.section`
   display: flex;
@@ -29,14 +31,14 @@ const InnerSection = styled.main`
     background: #F6C94A;
     content: "";
   }
-  &:after {
-    position: absolute;
-    bottom: 0;
-    width: 100px;
-    height: 3px;
-    background: #F6C94A;
-    content: "";
-  }
+  // &:after {
+  //   position: absolute;
+  //   bottom: 0;
+  //   width: 100px;
+  //   height: 3px;
+  //   background: #F6C94A;
+  //   content: "";
+  // }
 `
 
 const ItemTit = styled.div`
@@ -311,20 +313,53 @@ export default function() {
         <ItemTit className="ani11">
           <EconTit>{intl.formatMessage({ id: "Economic system" })}</EconTit>
           <Classtit>{intl.formatMessage({ id: "The cryptocurrency PCX (P stands for Polkadot) issued by ChainX has 21 million supply in total. In the initial dividend round or the first 210,000 cycles, 50 PCXs are distributed as rewards in each cycle, and 25 PCXs for the second round. 20% of the issuance in the initial round which accounts for 10% of the total goes to the founding team for ongoing development and all the subsequent issuance goes to the community." })}</Classtit>
-          <Linkbtn href="/">{intl.formatMessage({ id: "Detail" })}</Linkbtn>
+          <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div className="paperlink">
+                  <Linkbtn style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
+                    查看详情
+                  </Linkbtn>
+                  <Linkbtn style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
+                    Detail
+                  </Linkbtn>
+                </div>
+              )}
+            </IntlContextConsumer>
         </ItemTit>
         <Apps>
           <ItemSys className="ani12">
             <Img fixed={consensus.childImageSharp.fixed} />
             <SysTit>{intl.formatMessage({ id: "Consensus algorithm" })}</SysTit>
             <SysCon>{intl.formatMessage({ id: "ChainX adopts the 'Babe+Grandpa' hybrid consensus, Polkadot's brand-new mechanism whose most notable feature is to separate block confirmation from block generation with Babe module generating blocks every 6 seconds and Grandpa making the final confirmation." })}</SysCon>
-            <Linkbtns href="/">{intl.formatMessage({ id: "Detail" })}</Linkbtns>
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div className="paperlinks">
+                  <Linkbtns style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
+                    查看详情
+                  </Linkbtns>
+                  <Linkbtns style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
+                    Detail
+                  </Linkbtns>
+                </div>
+              )}
+            </IntlContextConsumer>
           </ItemSys>
           <Item className="ani13">
             <Img fixed={community.childImageSharp.fixed} />
             <SysTit>{intl.formatMessage({ id: "Community autonomy" })}</SysTit>
             <SysCon>{intl.formatMessage({ id: "ricameral governance structure is adopted by ChainX at the advice of Polkadot for better decentralized community governance, including Referendum Chamber, Council and Technical Committee. In addition to the three, X-Association and Treasury are introduced to enrich the framework of community autonomy." })}</SysCon>
-            <Linkbtns href="/">{intl.formatMessage({ id: "Detail" })}</Linkbtns>
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div className="paperlinks">
+                  <Linkbtns style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
+                    查看详情
+                  </Linkbtns>
+                  <Linkbtns style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
+                    Detail
+                  </Linkbtns>
+                </div>
+              )}
+            </IntlContextConsumer>
           </Item>
         </Apps>
       </InnerSection>

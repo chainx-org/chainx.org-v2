@@ -23,14 +23,14 @@ const InnerSection = styled.div`
     padding: 50px 30px 50px;
   }
   position: relative;
-  &:before {
-    position: absolute;
-    top: 0;
-    width: 100px;
-    height: 3px;
-    background: #F6C94A;
-    content: "";
-  }
+  // &:before {
+  //   position: absolute;
+  //   top: 0;
+  //   width: 100px;
+  //   height: 3px;
+  //   background: #F6C94A;
+  //   content: "";
+  // }
   &:after {
     position: absolute;
     bottom: 0;

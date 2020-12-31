@@ -13,7 +13,7 @@ export const StyledFooter = styled.footer`
   height: 80px;
   font-size: 14px;
   color: #8E8E8E;
-  background: #282828;
+  background: #000000;
 `
 
 export const InnerSection = styled.div`

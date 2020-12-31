@@ -1,22 +1,25 @@
 import React from 'react'
-import { useIntl } from "gatsby-plugin-intl"
+import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import Bannerlogo from './banner-logo.png'
+import BannerLogo from './bannerlogo.png'
+import ChainXWhitePaper from './ChainXWhitePaper.pdf'
+import ChainX from './ChainX.pdf'
 
 
 const StyledSection = styled.section`
   display: flex;
   justify-content: space-around;
-  padding: 160px 0 52px;
-
+  padding: 180px 0 0;
+  background-image: linear-gradient(180deg, #000000 0%, #101010 66%, #2D2D2D 81%, #000000 100%);
 `
 
 export const InnerSection = styled.main`
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: end;
   @media screen and (min-width: 1400px) {
-    align-items: center;
+    align-items: end;
   }
   @media screen and (max-width: 899px) {
     display: flex;
@@ -33,15 +36,20 @@ export const InnerSection = styled.main`
 `
 
 const Detail = styled.div`
-  margin: 20px 0;
+  @media screen and (min-width: 1400px) {
+    margin: 60px 0 20px;
+  }
+  @media screen and (min-width: 1200px) and (max-width: 1399px) {
+    margin: 10px 0 20px;
+  }
 `
 
 const Title = styled.div`
   font-size: 48px;
-  color: #282828;
+  color: #FFFFFF;
   font-weight: bold;
   line-height: 70px;
-  margin-top: 30px;
+  margin-bottom: 20px;
   p {
     margin-bottom: 0px;
     @media screen and (min-width: 1024px) and (max-width: 1200px) {
@@ -57,7 +65,7 @@ const Title = styled.div`
       line-height: 46px;
     }
     @media screen and (min-width: 1200px) {
-      width: 530px;
+      width: 630px;
     }
   }
   @media screen and (max-width: 539px) {
@@ -69,7 +77,7 @@ const Title = styled.div`
 
 const Contents = styled.p`
   font-size: 18px;
-  color: #5C5C5C;
+  color: #FFFFFF;
   line-height: 30px;
   margin: 4px 0 40px;
   @media screen and (min-width: 1024px) and (max-width: 1200px) {
@@ -92,39 +100,53 @@ const Linkbtn = styled.a`
   color: #282828;
   background: rgba(246,201,74,1);
   border-radius: 6px;
-  padding: 13px 40px;
+  text-align: center;
   &:hover {
     text-decoration: none;
     color: #282828;
     background: rgba(246,201,74,.8);
   }
+  &.txtzh {
+    width: 128px;
+    height: 44px;
+    line-height: 44px;
+  }
+  &.txten {
+    width: 172px;
+    height: 44px;
+    line-height: 44px;
+  }
 ` 
 
 const Bannerbgpic = styled.p`
-  width: 400px;
-  height: 440px;
-  background: url(${Bannerlogo});
+  width: 429px;
+  height: 588px;
+  background: url(${BannerLogo});
   background-size: cover;
   @media screen and (min-width: 768px) and (max-width: 899px) {
     margin: 0 0 0 137px;
+    width: 286px;
+    height: 392px;
   }
   @media screen and (min-width: 900px) and (max-width: 1023px) {
     margin: 0;
-    width: 360px;
-    height: 396px;
+    width: 215px;
+    height: 294px;
   }
-  @media screen and (min-width: 1024px) and (max-width: 1200px) {
+  @media screen and (min-width: 1024px) and (max-width: 1199px) {
     margin: 0 0 0 30px;
   }
   @media screen and (min-width: 1200px) and (max-width: 1399px) {
-    margin: 0;
+    margin: 0 0 0 50px;
+    width: 286px;
+    height: 392px;
   }
   @media screen and (min-width: 1400px) {
     margin: 0 0 0 90px;
   }
   @media screen and (max-width: 539px) {
-    width: 300px;
-    height: 330px;
+    width: 320px;
+    height: 346px;
   }
 `
 
@@ -136,12 +158,31 @@ export default function() {
     <StyledSection>
       <InnerSection>
         <Detail key="amache" className="ani animate__animated animate__fadeInLeft">
-          <Title>
-            <p>{intl.formatMessage({ id: "POS version of BTC economic model" })}</p>
-            <p>{intl.formatMessage({ id: "tens of thousands of cryptocurrencies cross-chain BTC Layer2 derivative platform" })}</p>
-          </Title>
+          <IntlContextConsumer>
+            {({ languages, language: currentLocale }) => (
+              <Title>
+                <div style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>
+                  <p>让比特币更具价值</p>
+                </div> 
+                <div style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>
+                  <p>Make bitcoin more valuable</p>
+                </div> 
+              </Title>
+            )}
+          </IntlContextConsumer>
           <Contents>{intl.formatMessage({ id: "ChainX, the earliest launched project in polkadot ecosystem,ChainX is committed to the research and application of Bitcoin layer 2 expansion, digital asset gateway and Polkadot second-layer relay chain,To realize cross-chain asset exchange, leading the new direction of Bitcoin Cross-DEFi." })}</Contents>
-          <Linkbtn href="/">{intl.formatMessage({ id: "White Paper" })}</Linkbtn>
+          <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div className="paperlink">
+                  <Linkbtn style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt txtzh" target="_blank" rel="noreferrer">
+                  白皮书
+                  </Linkbtn>
+                  <Linkbtn style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt txten" target="_blank" rel="noreferrer">
+                    White Paper
+                  </Linkbtn>
+                </div>
+              )}
+            </IntlContextConsumer>
         </Detail>
         <div key="amache1" className="bglogo ani1 animate__animated animate__fadeInRight" >
           <Bannerbgpic />

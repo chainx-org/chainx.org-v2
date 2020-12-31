@@ -2,10 +2,13 @@ import React, { useRef, useState, useEffect } from 'react'
 import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import jquery from 'jquery'
 import Logoen from "./ChainXLogo.svg"
+import ChainxLogo from "./ChainXLogoWhite.svg"
 import CatalogIcon from "./catalog.svg"
 import styled from 'styled-components'
 import useOutsideClick from './useClickOutside'
 import LanguageSwitcher from "./LanguageSwitcher"
+import ChainXWhitePaper from './ChainXWhitePaper.pdf'
+import ChainX from './ChainX.pdf'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -13,7 +16,7 @@ const StyledHeader = styled.header`
   height: 80px;
   // line-height: 50px;
   width: 100%;
-  background: #ffffff;
+  background: #000000;
   position: absolute;
   z-index: 100;
   transition: all 0.3s linear;
@@ -23,9 +26,9 @@ const StyledHeader = styled.header`
   -o-transition: all 0.3s linear;
 
   &.head_white {
-    background: #FFFFFF;
+    background: #000000;
     position: fixed;
-    border-bottom: 1px solid #EFEFEF;
+    // border-bottom: 1px solid #EFEFEF;
   }
   
 `
@@ -75,7 +78,7 @@ const NavList = styled.ul`
       margin: 0 10px;
     }
     .active {
-      color: #282828;
+      color: #ffffff;
     }
   }
   .langtab {
@@ -88,21 +91,20 @@ const NavList = styled.ul`
       color: #969696;
     }
     span:hover {
-      color: #282828;
+      color: #ffffff;
     }
     .active {
-      color: #282828;
+      color: #ffffff;
     }
   }
   li a {
     text-decoration: none;
     font-size: 16px;
-    color: rgba(40,40,40,1);
+    color: rgba(255,255,255,0.8);
     text-align: center;
     line-height: 16px;
-    padding-bottom: 6px;
     &:hover {
-      color: rgba(40,40,40,.8);
+      color: rgba(255,255,255,1);
     }
   }
   li {
@@ -232,7 +234,7 @@ export default function Header() {
         <div className="logoicon">
           <a href="/" >
             <div>
-              <Logoen/>
+              <ChainxLogo />
             </div>  
           </a>
         </div>
@@ -248,14 +250,23 @@ export default function Header() {
             </a>
           </li>
           <li className="tit">
-            <a href="https://stats.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+            <a href="http://telemetry.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "monitoring" })}
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt" target="_blank" rel="noreferrer">
-            {intl.formatMessage({ id: "White Paper" })}
-            </a>
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <a>
+                  <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
+                  白皮书
+                  </a>
+                  <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
+                    White Paper
+                  </a>
+                </a>
+              )}
+            </IntlContextConsumer>
           </li>
           <li className="tit">
             <a href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
@@ -286,14 +297,23 @@ export default function Header() {
             </a>
           </li>
           <li className="tit">
-            <a href="https://stats.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+            <a href="http://telemetry.chainx.org/" className="txt" target="_blank" rel="noreferrer">
             {intl.formatMessage({ id: "monitoring" })}
             </a>
           </li>
           <li className="tit">
-            <a href="/" className="txt" target="_blank" rel="noreferrer">
-            {intl.formatMessage({ id: "White Paper" })}
-            </a>
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <a>
+                  <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
+                  白皮书
+                  </a>
+                  <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
+                    White Paper
+                  </a>
+                </a>
+              )}
+            </IntlContextConsumer>
           </li>
           <li className="tit">
             <a href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
