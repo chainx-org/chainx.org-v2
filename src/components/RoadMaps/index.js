@@ -30,7 +30,7 @@ const Details = styled.div`
   background-size: cover;
   @media screen and (min-width: 1400px) {
     width: 1060px;
-    height: 1344px;
+    height: 1360px;
   }
   @media screen and (min-width: 1200px) and (max-width: 1399px) {
     width: 1060px;
@@ -38,27 +38,27 @@ const Details = styled.div`
   }
   @media screen and (min-width: 1024px) and (max-width: 1199px) {
     width: 954px;
-    height: 1210px;
+    height: 1224px;
   }
   @media screen and (min-width: 900px) and (max-width: 1023px) {
     width: 795px;
-    height: 1008px;
+    height: 1020px;
   }
   @media screen and (min-width: 768px) and (max-width: 899px) {
     width: 530px;
-    height: 672px;
+    height: 680px;
   }
   @media screen and (min-width: 540px) and (max-width: 767px) {
     width: 530px;
-    height: 672px;
+    height: 680px;
   }
   @media screen and (min-width: 376px) and (max-width: 539px) {
     width: 265px;
-    height: 336px;
+    height: 340px;
   }
   @media screen and (max-width: 375px) {
     width: 265px;
-    height: 336px;
+    height: 340px;
   }
 `
 
@@ -68,7 +68,7 @@ const Detailss = styled.div`
   background: url(${Roadmapeden});
   background-size: cover;
   @media screen and (min-width: 1400px) {
-    width: 1060px;
+    width: 1000px;
     height: 1344px;
   }
   @media screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -77,27 +77,27 @@ const Detailss = styled.div`
   }
   @media screen and (min-width: 1024px) and (max-width: 1199px) {
     width: 900px;
-    height: 1210px;
+    height: 1152px;
   }
   @media screen and (min-width: 900px) and (max-width: 1023px) {
     width: 750px;
-    height: 1008px;
+    height: 854px;
   }
   @media screen and (min-width: 768px) and (max-width: 899px) {
     width: 500px;
-    height: 672px;
+    height: 640px;
   }
   @media screen and (min-width: 540px) and (max-width: 767px) {
     width: 500px;
-    height: 672px;
+    height: 640px;
   }
   @media screen and (min-width: 376px) and (max-width: 539px) {
     width: 250px;
-    height: 336px;
+    height: 320px;
   }
   @media screen and (max-width: 375px) {
     width: 250px;
-    height: 336px;
+    height: 320px;
   }
 `
 
