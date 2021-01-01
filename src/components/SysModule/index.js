@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useIntl } from "gatsby-plugin-intl"
+import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import jquery from 'jquery'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -158,22 +158,36 @@ export default function() {
         <Apps>
           <Item className="ani7">
             <Img fixed={Pcxmodule.childImageSharp.fixed} />
-            <h5>{intl.formatMessage({ id: "PCX moudle" })}</h5>
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div>
+                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>PCX 模块</h5>
+                  <h5 style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>PCX module</h5>
+                </div>
+              )}
+            </IntlContextConsumer>
             <p>{intl.formatMessage({ id: "an operating program based on the native token PCX, it mainly includes functions performed by PCX such as staking, paying fees, on-chain governance, distributing inter-chain mining rewards, and backing Bitcoin financial derivatives. PCX is related to most programs running on ChainX." })}</p>
           </Item>
           <Item className="ani8">
             <Img fixed={Dexmodule.childImageSharp.fixed} />
-            <h5>{intl.formatMessage({ id: "DEX Moudle" })}</h5>
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div>
+                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>PCX 模块</h5>
+                  <h5 style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>PCX module</h5>
+                </div>
+              )}
+            </IntlContextConsumer>
             <p>{intl.formatMessage({ id: "A cross-asset transaction module, it promotes circulation of assets on different chains while minimizing transaction costs." })}</p>
           </Item>
           <Item className="ani9">
             <Img fixed={Acrosschain.childImageSharp.fixed} />
-            <h5>{intl.formatMessage({ id: "Inter-chain module" })}</h5>
+            <div><h5>{intl.formatMessage({ id: "Inter-chain module" })}</h5></div>            
             <p>{intl.formatMessage({ id: "an entering or exiting module for different chain assets and X-Token, it mainly includes an inter-chain transaction verification system, on-chain mintage program, trusteeship program, and deposit and withdrawal program for X-Token." })}</p>
           </Item>
           <Item className="ani10">
             <Img fixed={Relaymodule.childImageSharp.fixed} />
-            <h5>{intl.formatMessage({ id: "Relay module" })}</h5>
+            <div><h5>{intl.formatMessage({ id: "Relay module" })}</h5></div>
             <p>{intl.formatMessage({ id: "a window of information exchange and verification between ChainX and outside chains, it mainly includes chain information update program, chain monitor program, and inter-chain information collection and transmission program." })}</p>
           </Item>
         </Apps>
