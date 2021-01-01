@@ -42,6 +42,9 @@ const Detail = styled.div`
   @media screen and (min-width: 1200px) and (max-width: 1399px) {
     margin: 10px 0 20px;
   }
+  .paperlink {
+    margin-bottom: 30px;
+  }
 `
 
 const Title = styled.div`
