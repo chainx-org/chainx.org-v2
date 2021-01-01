@@ -239,6 +239,26 @@ export default function() {
         jquery(".anihidden3").addClass("ShowAnimation_show")
       } 
     });
+
+    jquery(document).on("touchmove", function (event) {           
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      let wind = document.documentElement.clientHeight || document.body.clientHeight;
+      let ani2 = jquery(".ani2").offset().top;
+      let ani3 = jquery(".ani3").offset().top;
+      let ani4 = jquery(".ani4").offset().top;
+      if((scrollTop+wind) > ani2) {
+        jquery(".ani2").addClass("animate__fadeInUp");
+      }
+      if ((scrollTop+wind) > ani3) {
+        jquery(".anishow2").addClass("ShowAnimation_show")
+        jquery(".anihidden2").addClass("ShowAnimation_show")
+      } 
+      if ((scrollTop+wind) > ani4) {
+        jquery(".anishow3").addClass("ShowAnimation_show")
+        jquery(".anihidden3").addClass("ShowAnimation_show")
+      } 
+    });
+
   })
  
 

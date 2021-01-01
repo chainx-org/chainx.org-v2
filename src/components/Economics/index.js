@@ -303,6 +303,21 @@ export default function() {
         jquery(".ani13").addClass("ShowAnimation_show");
       } 
     });
+
+    jquery(document).on("touchmove", function (event) {          
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      const ani11 = jquery(".ani11").offset().top;
+      const ani12 = jquery(".ani12").offset().top;
+      let windsd = document.documentElement.clientHeight || document.body.clientHeight;
+      if((scrollTop+windsd)> ani11)  {
+        jquery(".ani11").addClass("ShowAnimation_show");
+      } 
+      if((scrollTop+windsd)> ani12)  {
+        jquery(".ani12").addClass("ShowAnimation_show");
+        jquery(".ani13").addClass("ShowAnimation_show");
+      } 
+    });
+
   })
 
   const intl = useIntl()

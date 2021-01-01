@@ -123,7 +123,7 @@ const MenuToggle = styled.div`
     width: 28px;
     height: 16px;
     g g {
-      fill: #333333;
+      fill: #fff;
     }
   }
   & > a {

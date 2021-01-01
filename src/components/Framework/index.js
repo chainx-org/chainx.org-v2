@@ -193,7 +193,17 @@ export default function() {
         jquery(".ani22").addClass("ShowAnimation_show")
       }
     });
-   
+
+    jquery(document).on("touchmove", function (event) {          
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      let winds = document.documentElement.clientHeight || document.body.clientHeight;
+      const frameworks = jquery(".frameworks").offset().top;
+      if((scrollTop+winds)> frameworks)  {
+        jquery(".ani21").addClass("ShowAnimation_show")
+        jquery(".ani22").addClass("ShowAnimation_show")
+      }
+    });
+
   })
   const intl = useIntl()
 

@@ -149,7 +149,18 @@ export default function() {
         jquery(".ani10").addClass("ShowAnimation_show");
       } 
     });
-   
+
+    jquery(document).on("touchmove", function (event) {
+      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+      let windo = document.documentElement.clientHeight || document.body.clientHeight;
+      const sysmodules = jquery(".sysmodules").offset().top;
+      if((scrollTop+windo) > sysmodules) {
+        jquery(".ani7").addClass("ShowAnimation_show");
+        jquery(".ani8").addClass("ShowAnimation_show");
+        jquery(".ani9").addClass("ShowAnimation_show");
+        jquery(".ani10").addClass("ShowAnimation_show");
+      } 
+    });
   })
   const intl = useIntl()
   return (
