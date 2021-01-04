@@ -172,7 +172,7 @@ export default function() {
             <IntlContextConsumer>
               {({ languages, language: currentLocale }) => (
                 <div>
-                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>PCX 模块</h5>
+                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>PCX模块</h5>
                   <h5 style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>PCX module</h5>
                 </div>
               )}
@@ -184,8 +184,8 @@ export default function() {
             <IntlContextConsumer>
               {({ languages, language: currentLocale }) => (
                 <div>
-                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>PCX 模块</h5>
-                  <h5 style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>PCX module</h5>
+                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>DEX模块</h5>
+                  <h5 style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>DEX module</h5>
                 </div>
               )}
             </IntlContextConsumer>
