@@ -267,7 +267,14 @@ export default function() {
       <InnerSection className="platforms">
         <Item key="amache2" className="ani2 animate__animated animate__fadeInUp">
           <PlatMain className="anishow1">
-            <PlatTit>{intl.formatMessage({ id: "Bitcoin financial platform" })}</PlatTit>
+          <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div>
+                  <PlatTit style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>BTC衍生平台</PlatTit>
+                  <PlatTit style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>Bitcoin derivative platform</PlatTit>
+                </div>
+              )}
+            </IntlContextConsumer>
             <PlatCon>{intl.formatMessage({ id: "Bitcoin, with its market value reaching 470 billion U.S. dollars, holds the key to the digital currency world and leads towards deeper blockchain breakthroughs, which indicates that Bitcoin is being re-recognized as a payment method, perhaps only a tip of the iceberg in terms of its full potential." })}</PlatCon>
             <PlatCon>{intl.formatMessage({ id: "ChainX committed to the research on the expansion of Bitcoin’s Layer2 financial platform strives to promote Bitcoin’s value flow, enrich its financial derivatives and improve the hedging tools." })}</PlatCon>
           </PlatMain>
