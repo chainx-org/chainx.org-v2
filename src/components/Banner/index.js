@@ -160,33 +160,27 @@ export default function() {
   return (
     <StyledSection>
       <InnerSection>
-        <Detail key="amache" className="ani animate__animated animate__fadeInLeft">
+        
           <IntlContextConsumer>
             {({ languages, language: currentLocale }) => (
-              <Title>
-                <div style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>
-                  <p>让比特币更具价值</p>
-                </div> 
-                <div style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>
-                  <p>Make bitcoin more valuable</p>
-                </div> 
-              </Title>
-            )}
-          </IntlContextConsumer>
-          <Contents>{intl.formatMessage({ id: "ChainX, the earliest launched project in polkadot ecosystem,ChainX is committed to the research and application of Bitcoin layer 2 expansion, digital asset gateway and Polkadot second-layer relay chain,To realize cross-chain asset exchange, leading the new direction of Bitcoin Cross-DEFi." })}</Contents>
-          <IntlContextConsumer>
-              {({ languages, language: currentLocale }) => (
+              <Detail key="amache" className="ani animate__animated animate__fadeInLeft">
+                <Title>
+                  <p style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>让比特币更具价值</p>
+                  <p style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>Make bitcoin more valuable</p>
+                </Title>
+                <Contents style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>ChainX 是波卡生态最早上线的项目，致力于 BTC Layer 2 拓展、数字资产网关及波卡二级中继链的开发研究，以实现跨链资产互通，引领比特币 Cross-Defi 新方向。</Contents>
+                <Contents style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX, the earliest launched project in polkadot ecosystem,ChainX is committed to the research and application of Bitcoin layer 2 expansion, digital asset gateway and Polkadot second-layer relay chain,To realize cross-chain asset exchange, leading the new direction of Bitcoin Cross-DEFi.</Contents>
                 <div className="paperlink">
                   <Linkbtn style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt txtzh" target="_blank" rel="noreferrer">
-                  白皮书
+                    白皮书
                   </Linkbtn>
                   <Linkbtn style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt txten" target="_blank" rel="noreferrer">
                     White Paper
                   </Linkbtn>
                 </div>
-              )}
-            </IntlContextConsumer>
-        </Detail>
+              </Detail>
+            )}
+          </IntlContextConsumer>
         <div key="amache1" className="bglogo ani1 animate__animated animate__fadeInRight" >
           <Bannerbgpic />
         </div>

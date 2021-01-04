@@ -193,8 +193,16 @@ export default function() {
           </Item>
           <Item className="ani9">
             <Img fixed={Acrosschain.childImageSharp.fixed} />
-            <div><h5>{intl.formatMessage({ id: "Inter-chain module" })}</h5></div>            
-            <p>{intl.formatMessage({ id: "an entering or exiting module for different chain assets and X-Token, it mainly includes an inter-chain transaction verification system, on-chain mintage program, trusteeship program, and deposit and withdrawal program for X-Token." })}</p>
+            <div><h5>{intl.formatMessage({ id: "Inter-chain module" })}</h5></div>         
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div>
+                  <p style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>异链资产及X-Token在进入或者转出ChainX网络时用到该模块。主要包括了跨链交易验证系统，链上铸币程序，信托程序以及X-Token充提程序等。</p>
+                  <p style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>an entering or exiting module for different chain assets and X-Token, it mainly includes an inter-chain transaction verification system, on-chain mintage program, trusteeship program, and deposit and withdrawal program for X-Token.</p>
+                </div>
+              )}
+            </IntlContextConsumer>   
+            
           </Item>
           <Item className="ani10">
             <Img fixed={Relaymodule.childImageSharp.fixed} />
