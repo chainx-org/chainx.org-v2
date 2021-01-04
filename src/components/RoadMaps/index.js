@@ -34,7 +34,7 @@ const Details = styled.div`
   }
   @media screen and (min-width: 1200px) and (max-width: 1399px) {
     width: 1060px;
-    height: 1344px;
+    height: 1360px;
   }
   @media screen and (min-width: 1024px) and (max-width: 1199px) {
     width: 954px;
@@ -77,27 +77,27 @@ const Detailss = styled.div`
   }
   @media screen and (min-width: 1024px) and (max-width: 1199px) {
     width: 900px;
-    height: 1152px;
+    height: 1208px;
   }
   @media screen and (min-width: 900px) and (max-width: 1023px) {
     width: 750px;
-    height: 854px;
+    height: 1008px;
   }
   @media screen and (min-width: 768px) and (max-width: 899px) {
-    width: 500px;
-    height: 640px;
+    width: 520px;
+    height: 698px;
   }
   @media screen and (min-width: 540px) and (max-width: 767px) {
     width: 500px;
-    height: 640px;
+    height: 672px;
   }
   @media screen and (min-width: 376px) and (max-width: 539px) {
     width: 250px;
-    height: 320px;
+    height: 336px;
   }
   @media screen and (max-width: 375px) {
     width: 250px;
-    height: 320px;
+    height: 336px;
   }
 `
 

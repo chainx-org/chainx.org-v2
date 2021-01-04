@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useIntl } from "gatsby-plugin-intl"
+import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import bitplat from './bitplat.png'
 import numplat from './numplat.png'
@@ -278,7 +278,14 @@ export default function() {
           <PlatMain className="anishow2">
             <PlatTit>{intl.formatMessage({ id: "Digital asset gateway" })}</PlatTit>
             <PlatCon>{intl.formatMessage({ id: "ChainX asset gateway is composed of two parts: decentralized Bitcoin trusteeship and inter-chain asset mirroring." })}</PlatCon>
-            <PlatCon>{intl.formatMessage({ id: "Users deposit and collateralize bitcoins for X-BTC which is used in transactions with synthetic assets of other cryptocurrencies, so that all sorts of cryptos can be exchanged and traded on the same chain." })}</PlatCon>
+            <IntlContextConsumer>
+              {({ languages, language: currentLocale }) => (
+                <div>
+                  <PlatCon style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>用户通过充值抵押BTC来获得X-BTC，再通过X-BTC获得其他加密货币的合成资产,实现所有加密货币同链交易的场景。</PlatCon>
+                  <PlatCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>Users deposit and collateralize bitcoins for X-BTC which is used in transactions with synthetic assets of other cryptocurrencies, so that all sorts of cryptos can be exchanged and traded on the same chain.</PlatCon>
+                </div>
+              )}
+            </IntlContextConsumer>
           </PlatMain>
         </Item>
         <Item className="ani4">
