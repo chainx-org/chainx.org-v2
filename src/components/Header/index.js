@@ -277,7 +277,7 @@ export default function Header() {
                 <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
                  帮助
                 </a>
-                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide/" target="_blank" rel="noreferrer" className="txt">
                  Help
                 </a>
               </li>
@@ -294,47 +294,57 @@ export default function Header() {
         </MenuToggle>
       </InnerSection>
       {showMenu && (
-        <Menu ref={refMenu}>
-        <ul>
-          <li className="tit">
-            <a href="https://dapps.chainx.org/" className="txt" target="_blank" rel="noreferrer">
-            {intl.formatMessage({ id: "wallet" })}
-            </a>
-          </li>
-          <li className="tit">
-            <a href="https://scan.chainx.org/" className="txt" target="_blank" rel="noreferrer">
-            {intl.formatMessage({ id: "browser" })}
-            </a>
-          </li>
-          <li className="tit">
-            <a href="http://telemetry.chainx.org/" className="txt" target="_blank" rel="noreferrer">
-            {intl.formatMessage({ id: "monitoring" })}
-            </a>
-          </li>
-          <li className="tit">
-            <IntlContextConsumer>
-              {({ languages, language: currentLocale }) => (
-                <a>
-                  <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
-                  白皮书
-                  </a>
-                  <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
-                    White Paper
-                  </a>
+        <IntlContextConsumer>
+        {({ languages, language: currentLocale }) => (
+          <Menu ref={refMenu}>
+            <ul>
+              <li className="tit">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://dapps.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+                钱包
                 </a>
-              )}
-            </IntlContextConsumer>
-          </li>
-          <li className="tit">
-            <a href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
-            {intl.formatMessage({ id: "help" })}
-            </a>
-          </li>
-          <li className="langtab">
-            <LanguageSwitcher />
-          </li>
-        </ul>
-        </Menu>
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://dapps.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+                Wallet
+                </a>
+              </li>
+              <li className="tit">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://scan.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+                区块浏览器
+                </a>
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://scan.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+                Browser
+                </a>
+              </li>
+              <li className="tit">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="http://telemetry.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+                监控台
+                </a>
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="http://telemetry.chainx.org/" className="txt" target="_blank" rel="noreferrer">
+                Monitoring
+                </a>
+              </li>
+              <li className="tit">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
+                  白皮书
+                </a>
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
+                  White Paper
+                </a>
+              </li>
+              <li className="tit">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
+                帮助
+                </a>
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide/" target="_blank" rel="noreferrer" className="txt">
+                Help
+                </a>
+              </li>
+              <li className="langtab">
+                <LanguageSwitcher />
+              </li>
+            </ul>
+          </Menu>
+        )}
+      </IntlContextConsumer>
       )}
     </StyledHeader>
   )
