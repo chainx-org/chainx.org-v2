@@ -274,10 +274,10 @@ export default function Header() {
                 </a>
               </li>
               <li className="tit">
-                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide-chinese/" target="_blank" rel="noreferrer" className="txt">
                  帮助
                 </a>
-                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide/" target="_blank" rel="noreferrer" className="txt">
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide-english/" target="_blank" rel="noreferrer" className="txt">
                  Help
                 </a>
               </li>
@@ -331,10 +331,10 @@ export default function Header() {
                 </a>
               </li>
               <li className="tit">
-                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-doc/" target="_blank" rel="noreferrer" className="txt">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide-chinese/" target="_blank" rel="noreferrer" className="txt">
                 帮助
                 </a>
-                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide/" target="_blank" rel="noreferrer" className="txt">
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide-english/" target="_blank" rel="noreferrer" className="txt">
                 Help
                 </a>
               </li>
