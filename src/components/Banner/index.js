@@ -169,7 +169,7 @@ export default function() {
                   <p style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>Make bitcoin more valuable</p>
                 </Title>
                 <Contents style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>ChainX 是波卡生态最早上线的项目，致力于 BTC Layer 2 拓展、数字资产网关及波卡二级中继链的开发研究，以实现跨链资产互通，引领比特币 Cross-Defi 新方向。</Contents>
-                <Contents style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX, the earliest launched project in polkadot ecosystem,ChainX is committed to the research and application of Bitcoin layer 2 expansion, digital asset gateway and Polkadot second-layer relay chain,To realize cross-chain asset exchange, leading the new direction of Bitcoin Cross-DEFi.</Contents>
+                <Contents style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX, one of the earliest projects to launch in the Polkadot ecosystem, is committed to the research and application of Bitcoin Layer 2 expansion, its growth as a digital asset gateway and becoming a Polkadot second-layer relay chain for cross-chain asset exchange. A true pioneer in the development of Bitcoin Cross-DeFi.</Contents>
                 <div className="paperlink">
                   <Linkbtn style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt txtzh" target="_blank" rel="noreferrer">
                     白皮书

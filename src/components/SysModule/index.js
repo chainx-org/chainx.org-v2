@@ -169,45 +169,23 @@ export default function() {
         <Apps>
           <Item className="ani7">
             <Img fixed={Pcxmodule.childImageSharp.fixed} />
-            <IntlContextConsumer>
-              {({ languages, language: currentLocale }) => (
-                <div>
-                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>PCX模块</h5>
-                  <h5 style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>PCX module</h5>
-                </div>
-              )}
-            </IntlContextConsumer>
-            <p>{intl.formatMessage({ id: "an operating program based on the native token PCX, it mainly includes functions performed by PCX such as staking, paying fees, on-chain governance, distributing inter-chain mining rewards, and backing Bitcoin financial derivatives. PCX is related to most programs running on ChainX." })}</p>
+            <div><h5>{intl.formatMessage({ id: "PCX module" })}</h5></div>         
+            <p>{intl.formatMessage({ id: "The module is based on the native token PCX. For the most part, it includes functions performed by PCX such as staking, paying fees, on-chain governance, distributing inter-chain mining rewards, and backing Bitcoin financial derivatives. PCX is related to most programs running on ChainX." })}</p>
           </Item>
           <Item className="ani8">
             <Img fixed={Dexmodule.childImageSharp.fixed} />
-            <IntlContextConsumer>
-              {({ languages, language: currentLocale }) => (
-                <div>
-                  <h5 style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>DEX模块</h5>
-                  <h5 style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>DEX module</h5>
-                </div>
-              )}
-            </IntlContextConsumer>
+            <div><h5>{intl.formatMessage({ id: "DEX module" })}</h5></div>         
             <p>{intl.formatMessage({ id: "A cross-asset transaction module, it promotes circulation of assets on different chains while minimizing transaction costs." })}</p>
           </Item>
           <Item className="ani9">
             <Img fixed={Acrosschain.childImageSharp.fixed} />
             <div><h5>{intl.formatMessage({ id: "Inter-chain module" })}</h5></div>         
-            <IntlContextConsumer>
-              {({ languages, language: currentLocale }) => (
-                <div>
-                  <p style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>异链资产及X-Token在进入或者转出ChainX网络时用到该模块。主要包括了跨链交易验证系统，链上铸币程序，信托程序以及X-Token充提程序等。</p>
-                  <p style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>an entering or exiting module for different chain assets and X-Token, it mainly includes an inter-chain transaction verification system, on-chain mintage program, trusteeship program, and deposit and withdrawal program for X-Token.</p>
-                </div>
-              )}
-            </IntlContextConsumer>   
-            
+            <p>{intl.formatMessage({ id: "This is an ‘entering or exiting’ module for different chain assets and the X-Tokens. It includes an inter-chain transaction verification system, on-chain mintage program, trusteeship program, and a deposit and withdrawal program for the X-Tokens." })}</p>
           </Item>
           <Item className="ani10">
             <Img fixed={Relaymodule.childImageSharp.fixed} />
             <div><h5>{intl.formatMessage({ id: "Relay module" })}</h5></div>
-            <p>{intl.formatMessage({ id: "a window of information exchange and verification between ChainX and outside chains, it mainly includes chain information update program, chain monitor program, and inter-chain information collection and transmission program." })}</p>
+            <p>{intl.formatMessage({ id: "A window for information exchange and verification between ChainX and outside chains, it is primarily comprised of a chain information update program, a chain monitor program, and an inter-chain information collection and transmission program." })}</p>
           </Item>
         </Apps>
       </InnerSection>
