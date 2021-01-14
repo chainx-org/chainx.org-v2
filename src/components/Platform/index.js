@@ -271,9 +271,9 @@ export default function() {
                 <PlatMain className="anishow1">
                 <PlatTit style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>BTC衍生平台</PlatTit>
                 <PlatTit style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>Bitcoin derivative platform</PlatTit>
-                <PlatCon>{intl.formatMessage({ id: "Bitcoin, with its market value reaching 470 billion U.S. dollars, holds the key to the digital currency world and leads towards deeper blockchain breakthroughs, which indicates that Bitcoin is being re-recognized as a payment method, perhaps only a tip of the iceberg in terms of its full potential." })}</PlatCon>
+                <PlatCon>{intl.formatMessage({ id: "Bitcoin, with a market capitalization on its way to reaching US$1 Trillion, holds the key to the digital currency world. Its value proposition is enabling further and deeper blockchain technology breakthroughs, validating Bitcoin as a payment method and a superior way of transferring and storing value; in the eyes of many, we have only seen the tip of the iceberg in terms of its full potential." })}</PlatCon>
                 <PlatCon style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>ChainX将基于比特币网络开展Layer2衍生平台的研究和拓展，旨在促进比特币价值流动、丰富比特币衍生应用及完善比特币投资对冲工具。</PlatCon>
-                <PlatCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX committed to the research on the expansion of Bitcoin’s Layer2 financial platform strives to promote Bitcoin’s value flow, enrich its financial derivatives and improve the hedging tools.</PlatCon>
+                <PlatCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX is deeply committed to researching and expanding Bitcoin’s Layer 2 financial platform, striving to promote Bitcoin’s value flow, enrich financial derivative opportunities and improve hedging tools.</PlatCon>
               </PlatMain>
             )}
           </IntlContextConsumer>
@@ -283,32 +283,15 @@ export default function() {
           <NumPic className="anihidden2" /> 
           <PlatMain className="anishow2">
             <PlatTit>{intl.formatMessage({ id: "Digital asset gateway" })}</PlatTit>
-            <PlatCon>{intl.formatMessage({ id: "ChainX asset gateway is composed of two parts: decentralized Bitcoin trusteeship and inter-chain asset mirroring." })}</PlatCon>
-            <IntlContextConsumer>
-              {({ languages, language: currentLocale }) => (
-                <div>
-                  <PlatCon style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>ChainX 加密资产网关主要由去中心化BTC资产托管和镜像资产跨链两部分组成。</PlatCon>
-                  <PlatCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX asset gateway is composed of two parts: decentralized Bitcoin trusteeship and inter-chain asset mirroring.</PlatCon>
-                  <PlatCon style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>用户通过充值抵押BTC来获得X-BTC，再通过X-BTC获得其他加密货币的合成资产,实现所有加密货币同链交易的场景。</PlatCon>
-                  <PlatCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>Users deposit and collateralize bitcoins for X-BTC which is used in transactions with synthetic assets of other cryptocurrencies, so that all sorts of cryptos can be exchanged and traded on the same chain.</PlatCon>
-                </div>
-              )}
-            </IntlContextConsumer>
+            <PlatCon>{intl.formatMessage({ id: "The ChainX asset gateway is composed of two parts: decentralized Bitcoin trusteeship and inter-chain asset mirroring." })}</PlatCon>
+            <PlatCon>{intl.formatMessage({ id: "Users deposit and collateralize bitcoins for X-BTC and use this in transactions with synthetic assets of other cryptocurrencies, growing to a wide range of cryptocurrencies that can be exchanged and traded on the same chain." })}</PlatCon>
           </PlatMain>
         </Item>
         <Item className="ani4">
           <PlatMain className="anishow3">
             <PlatTit>{intl.formatMessage({ id: "Polkadot second-layer relay chain" })}</PlatTit>
-            <PlatCon>{intl.formatMessage({ id: "Parachains are developed using different types of blockchain technology, and relay chains are responsible for safeguarding the network’s co-sharing consensus and facilitating inter-chain transactions among parachains. Relay chain itself does not deploy any applications. It is parachains that develop and deploy applications." })}</PlatCon>
-            <IntlContextConsumer>
-              {({ languages, language: currentLocale }) => (
-                <div>
-                  <PlatCon style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>Polkadot 将整个区块链世界的开发层次推进了一个维度，加速了区块链世界向 3.0 时代的跨越。Polkadot 专注于 Polkadot 生态内的新型链间的通信，其他链则交给社区进行对接。 ChainX将在Polkadot v2.0版本发布以后，拆分为多链架构，作为Polkadot的第二层运网络运行。</PlatCon>
-                  <PlatCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>Polkadot focusing on efficient inter-chain connection within its ecosystem advances the entire blockchain development to a new level and looks set to usher in blockchain 3.0. ChainX will run as the second-layer network to Polkadot after it releases the 2.0 version.</PlatCon>
-                </div>
-              )}
-            </IntlContextConsumer>
-        
+            <PlatCon>{intl.formatMessage({ id: "Parachains are developed using different types of blockchain technology. Relay chains are responsible for safeguarding the network’s co-sharing consensus and facilitating inter-chain transactions among parachains. The relay chain itself does not deploy any applications. Parachains are the ones that develop and deploy applications." })}</PlatCon>
+            <PlatCon>{intl.formatMessage({ id: "Polkadot’s focus on the efficient, inter-chain connection within its ecosystem advances all blockchain development to a new level and it looks set to usher in Blockchain 3.0. ChainX will run as the second-layer network to Polkadot after it releases version 2.0." })}</PlatCon>
           </PlatMain>
           <PadPic className="anihidden3" />
         </Item>
