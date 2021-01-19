@@ -3,8 +3,8 @@ import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 import Bannerlogo from './banner-logo.png'
 import BannerLogo from './bannerlogo.png'
-import ChainXWhitePaper from './ChainXWhitePaper.pdf'
-import ChainX from './ChainX.pdf'
+import ChainXWhitePaper from '../../assetpdf/ChainXWhitePaper.pdf'
+import ChainX from '../../assetpdf/ChainX.pdf'
 
 
 const StyledSection = styled.section`

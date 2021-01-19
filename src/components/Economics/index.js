@@ -4,8 +4,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import jquery from 'jquery'
-import ChainXWhitePaper from './ChainXWhitePaper.pdf'
-import ChainX from './ChainX.pdf'
+import ChainXWhitePaper from '../../assetpdf/ChainXWhitePaper.pdf'
+import ChainX from '../../assetpdf/ChainX.pdf'
 
 const OuterSection = styled.section`
   display: flex;
