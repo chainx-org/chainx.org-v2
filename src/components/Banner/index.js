@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { IntlContextConsumer, useIntl } from 'gatsby-plugin-intl'
 import styled from 'styled-components'
-import Bannerlogo from './banner-logo.png'
 import BannerLogo from './bannerlogo.png'
 import ChainXWhitePaper from './ChainXWhitePaper.pdf'
 import ChainX from './ChainX.pdf'
-import axios from 'axios'
-import moment from 'moment'
 import BannerCandidate from './BannerCandidate'
 const StyledSection = styled.section`
   display: flex;
