@@ -5,18 +5,29 @@ import Bannerlogo from './banner-logo.png'
 import BannerLogo from './bannerlogo.png'
 import ChainXWhitePaper from '../../assetpdf/ChainXWhitePaper.pdf'
 import ChainX from '../../assetpdf/ChainX.pdf'
+import BannerCutdown from './BannerCutdown'
 
 
 const StyledSection = styled.section`
   display: flex;
   justify-content: space-around;
   padding: 180px 0 0;
-  background-image: linear-gradient(180deg, #000000 0%, #101010 66%, #2D2D2D 81%, #000000 100%);
+  position: relative;
+  background-image: linear-gradient(
+    180deg,
+    #000000 0%,
+    #101010 66%,
+    #2d2d2d 81%,
+    #000000 100%
+  );
 `
 
 export const InnerSection = styled.main`
   display: flex;
   justify-content: space-around;
+  .bglogo {
+    mix-blend-mode: screen;
+  }
   align-items: end;
   @media screen and (min-width: 1400px) {
     align-items: end;
@@ -32,7 +43,6 @@ export const InnerSection = styled.main`
       justify-content: center;
     }
   }
-  
 `
 
 const Detail = styled.div`
@@ -49,7 +59,7 @@ const Detail = styled.div`
 
 const Title = styled.div`
   font-size: 48px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: bold;
   line-height: 70px;
   margin-bottom: 20px;
@@ -75,12 +85,11 @@ const Title = styled.div`
     font-size: 26px;
     line-height: 46px;
   }
-  
 `
 
 const Contents = styled.p`
   font-size: 18px;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 30px;
   margin: 4px 0 40px;
   @media screen and (min-width: 1024px) and (max-width: 1200px) {
@@ -95,19 +104,19 @@ const Contents = styled.p`
   @media screen and (min-width: 1200px) {
     width: 620px;
   }
-` 
+`
 
 const Linkbtn = styled.a`
   text-decoration: none;
   font-size: 16px;
   color: #282828;
-  background: rgba(246,201,74,1);
+  background: rgba(246, 201, 74, 1);
   border-radius: 6px;
   text-align: center;
   &:hover {
     text-decoration: none;
     color: #282828;
-    background: rgba(246,201,74,.8);
+    background: rgba(246, 201, 74, 0.8);
   }
   &.txtzh {
     width: 128px;
@@ -119,13 +128,18 @@ const Linkbtn = styled.a`
     height: 44px;
     line-height: 44px;
   }
-` 
+`
 
 const Bannerbgpic = styled.p`
   width: 429px;
   height: 588px;
   background: url(${BannerLogo});
   background-size: cover;
+
+  @media screen and (max-width: 539px) {
+    width: 320px;
+    height: 346px;
+  }
   @media screen and (min-width: 768px) and (max-width: 899px) {
     margin: 0 0 0 137px;
     width: 286px;
@@ -135,6 +149,9 @@ const Bannerbgpic = styled.p`
     margin: 0;
     width: 215px;
     height: 294px;
+    // changed ~~
+    position: relative;
+    bottom: 20px;
   }
   @media screen and (min-width: 1024px) and (max-width: 1199px) {
     margin: 0 0 0 30px;
@@ -147,12 +164,7 @@ const Bannerbgpic = styled.p`
   @media screen and (min-width: 1400px) {
     margin: 0 0 0 90px;
   }
-  @media screen and (max-width: 539px) {
-    width: 320px;
-    height: 346px;
-  }
 `
-
 export default function() {
 
   const intl = useIntl()
@@ -184,6 +196,7 @@ export default function() {
         <div key="amache1" className="bglogo ani1 animate__animated animate__fadeInRight" >
           <Bannerbgpic />
         </div>
+        <BannerCutdown />
       </InnerSection>
     </StyledSection>
   )
