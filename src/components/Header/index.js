@@ -7,8 +7,10 @@ import CatalogIcon from "./catalog.svg"
 import styled from 'styled-components'
 import useOutsideClick from './useClickOutside'
 import LanguageSwitcher from "./LanguageSwitcher"
-import ChainXWhitePaper from './ChainXWhitePaper.pdf'
-import ChainX from './ChainX.pdf'
+import ChainXWhitePaper from '../../assetpdf/ChainXWhitePaper.pdf'
+import ChainX from '../../assetpdf/ChainX.pdf'
+import SherpaXLightpaper from '../../assetpdf/SherpaXLightpaper.pdf'
+import SherpaX from '../../assetpdf/SherpaX.pdf'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -97,16 +99,54 @@ const NavList = styled.ul`
       color: #ffffff;
     }
   }
-  li a {
-    text-decoration: none;
-    font-size: 16px;
-    color: rgba(255,255,255,0.8);
-    text-align: center;
-    line-height: 16px;
-    &:hover {
-      color: rgba(255,255,255,1);
+  li .posselect {
+    position: relative;
+    .childselect {
+      display: none;
+      position: absolute;
+      padding: 16px 20px 0;
+      margin: 16px 0 0 -16px;
+      font-size: 14px;
+      letter-spacing: 0.12px;
+      line-height: 20px;
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.30);
+      border-radius: 4px;
+      &.selectzh {
+        width: 160px;
+      }
+      &.selecten {
+        width: 190px;
+      }
+      a {
+        color: #5C5C5C;
+        padding-bottom: 16px;
+        &:hover {
+          color: #2D2D2D;
+        }
+      }
+      
+    }
+    &:hover .childselect{
+      display: block;
     }
   }
+  li {
+    a, span {
+      text-decoration: none;
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      line-height: 16px;
+      &:hover {
+        color: rgba(255,255,255,1);
+      }
+    }
+    span {
+      padding: 20px 0;
+    }
+  }
+  
   li {
     display: inline-block;
     font-size: 16px;
@@ -266,12 +306,20 @@ export default function Header() {
                 </a>
               </li>
               <li className="tit">
-                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
-                  白皮书
-                </a>
-                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
-                  White Paper
-                </a>
+                <div style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}  className="txt posselect"  >
+                  <span >白皮书</span>
+                  <div className="childselect selectzh">
+                    <a href={ChainX} target="_blank" rel="noreferrer" >ChainX 白皮书</a>
+                    <a href={SherpaX} target="_blank" rel="noreferrer" >SherpaX 轻皮书</a>
+                  </div>
+                </div>
+                <div style={{display: ( "en" === currentLocale ) ? "block" : "none"}}  className="txt posselect" >
+                  <span >White Paper</span>
+                  <div className="childselect selecten">
+                    <a href={ChainXWhitePaper} target="_blank" rel="noreferrer" >ChainX Whitepaper</a>
+                    <a href={SherpaXLightpaper} target="_blank" rel="noreferrer" >SherpaX Lightpaper</a>
+                  </div>
+                </div>
               </li>
               <li className="tit">
                 <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href="https://chainx-doc.gitbook.io/chainx-user-guide-chinese/" target="_blank" rel="noreferrer" className="txt">
@@ -324,10 +372,18 @@ export default function Header() {
               </li>
               <li className="tit">
                 <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
-                  白皮书
+                  ChainX 白皮书
                 </a>
                 <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={ChainXWhitePaper} className="txt" target="_blank" rel="noreferrer">
-                  White Paper
+                  ChainX Whitepaper
+                </a>
+              </li>
+              <li className="tit">
+                <a style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={SherpaX} className="txt" target="_blank" rel="noreferrer">
+                  SherpaX 轻皮书
+                </a>
+                <a style={{display: ( "en" === currentLocale ) ? "block" : "none"}} href={SherpaXLightpaper} className="txt" target="_blank" rel="noreferrer">
+                  SherpaX Lightpaper
                 </a>
               </li>
               <li className="tit">

@@ -73,6 +73,10 @@ function SEO({ description, lang, meta, title }) {
           name: `keywords`,
           content: site.siteMetadata.keywords,
         },
+        {
+          name: `baidu-site-verification`,
+          content: `code-c3JfVUjhNV`,
+        },
       ].concat(meta)}
     />
   )

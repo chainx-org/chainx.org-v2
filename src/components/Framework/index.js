@@ -223,8 +223,8 @@ export default function() {
           )}
         </IntlContextConsumer>
         <Detail className="ani22">
-          <Title>{intl.formatMessage({ id: "system architecture" })}</Title>
-          <Contents>{intl.formatMessage({ id: "ChainX 2.0 combines and coordinates various functions like hybrid PoS consensus, on-chain council governance, Wasm virtual machine, native execution of smart contracts, efficient light-client protocol, Off-chain worker, and multi-signature, what’s more it is highly compatible with Polkadot." })}</Contents>
+          <Title>{intl.formatMessage({ id: "System Architecture" })}</Title>
+          <Contents>{intl.formatMessage({ id: "ChainX 2.0 combines and coordinates various functions like hybrid PoS consensus, on-chain council governance, WASM virtual machine, native execution of smart contracts, efficient light-client protocol, off-chain workers, and multi-signatures. The system architecture is highly compatible with Polkadot." })}</Contents>
         </Detail>
       </InnerSection>
     </StyledSection>

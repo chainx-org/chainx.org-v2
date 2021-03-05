@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import BannerLogo from './bannerlogo.png'
 import ChainXWhitePaper from './ChainXWhitePaper.pdf'
 import ChainX from './ChainX.pdf'
-import BannerCandidate from './BannerCandidate'
+import BannerCutdown from './BannerCutdown'
 const StyledSection = styled.section`
   display: flex;
   justify-content: space-around;
@@ -233,7 +233,7 @@ export default function () {
         >
           <Bannerbgpic />
         </div>
-        <BannerCandidate/>
+        <BannerCutdown/>
       </InnerSection>
     </StyledSection>
   )

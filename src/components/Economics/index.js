@@ -4,8 +4,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import jquery from 'jquery'
-import ChainXWhitePaper from './ChainXWhitePaper.pdf'
-import ChainX from './ChainX.pdf'
+import ChainXWhitePaper from '../../assetpdf/ChainXWhitePaper.pdf'
+import ChainX from '../../assetpdf/ChainX.pdf'
 
 const OuterSection = styled.section`
   display: flex;
@@ -330,7 +330,7 @@ export default function() {
             <ItemTit className="ani11">
               <EconTit>{intl.formatMessage({ id: "Economic system" })}</EconTit>
               <Classtit style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>ChainX 将发行加密货币 PCX（P 代表 Polkadot），总量2100万枚，前 21 万个分红周期，即初始轮分红周期，每个分红周期奖励为 50 个 PCX。次轮分红周期奖励为25个PCX，依次类推。初始轮分红周期发行量的20% 归创始团队所有，用于持续性的开发经费。之后的发行量将全部归社区所有，创始团队将只占总量的10%。</Classtit>
-              <Classtit style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>The cryptocurrency PCX (P stands for Polkadot) issued by ChainX has 21 million supply in total. In the initial dividend round or the first 210,000 cycles, 50 PCXs are distributed as rewards in each cycle, and 25 PCXs for the second round. 20% of the issuance in the initial round which accounts for 10% of the total goes to the founding team for ongoing development and all the subsequent issuance goes to the community.</Classtit>
+              <Classtit style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>The cryptocurrency PCX (Polkadot ChainX) issued by ChainX has a fixed total supply of 21 million. In the initial dividend round or the first 210,000 cycles, 50 PCX is distributed as a reward in each cycle, and 25 PCX for the second round. 20% of the issuance in the initial round (which accounts for 10% of the total) goes to the founding team for ongoing project development. All the subsequent issuance goes to the community.</Classtit>
               <div className="paperlink">
                 <Linkbtn style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
                   查看详情
@@ -345,7 +345,7 @@ export default function() {
                 <Img fixed={consensus.childImageSharp.fixed} />
                 <SysTit>{intl.formatMessage({ id: "Consensus algorithm" })}</SysTit>
                 <SysCon style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>ChainX 采用波卡全新的共识机制即“Babe+Grandpa”混合共识机制。该共识机制最显著的特点就是将确定最终性的任务从区块生产的流程中分离出来，Babe模块 6秒稳定出块，Grandpa进行最终确认。</SysCon>
-                <SysCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX adopts the 'Babe+Grandpa' hybrid consensus, Polkadot's brand-new mechanism whose most notable feature is to separate block confirmation from block generation with Babe module generating blocks every 6 seconds and Grandpa making the final confirmation.</SysCon>
+                <SysCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ChainX adopts the BABE+GRANDPA hybrid consensus, Polkadot's brand-new mechanism whose most notable feature is to separate block confirmation from block generation. The BABE (Blind Assignment for Blockchain Extension) module generates blocks every 6 seconds, with GRANDPA (GHOST-based Recursive ANcestor Deriving Prefix Agreement) making the final confirmation.</SysCon>
                 <div className="paperlinks">
                   <Linkbtns style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
                     查看详情
@@ -359,7 +359,7 @@ export default function() {
                 <Img fixed={community.childImageSharp.fixed} />
                 <SysTit>{intl.formatMessage({ id: "Community autonomy" })}</SysTit>
                 <SysCon style={{display: ( "zh" === currentLocale ) ? "block" : "none"}}>为推动社区的去中心化治理，ChainX依据波卡采用三院制（Tricameral）的治理结构，包括公投议院，理事会和技术委员会。除了链上三院制外，通过引入了 X - Association 和国库的概念完善社区自治的框架。</SysCon>
-                <SysCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>ricameral governance structure is adopted by ChainX at the advice of Polkadot for better decentralized community governance, including Referendum Chamber, Council and Technical Committee. In addition to the three, X-Association and Treasury are introduced to enrich the framework of community autonomy.</SysCon>
+                <SysCon style={{display: ( "en" === currentLocale ) ? "block" : "none"}}>A tricameral governance structure has been adopted by ChainX at the advice of Polkadot for better decentralized community governance. The three chambers are a Referendum Chamber, a Council and a Technical Committee. In addition to these, ChainX will also be introducing a Treasury (to incentivize groups and individuals that contribute to the ecological development of ChainX) and the X-Association, a non-profit organization responsible for promoting the development of both the community and technology.</SysCon>
                 <div className="paperlinks">
                   <Linkbtns style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} href={ChainX} className="txt" target="_blank" rel="noreferrer">
                     查看详情
