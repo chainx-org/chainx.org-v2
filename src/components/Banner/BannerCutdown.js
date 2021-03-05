@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import axios from 'axios'
 import moment from 'moment'
 import { IntlContextConsumer, useIntl } from 'gatsby-plugin-intl'
-import Countdown, { zeroPad } from 'react-countdown'
 const Cutdown = styled.div`
   background: #f6c94a;
   border-radius: 10px 0 0 0;
@@ -270,17 +269,17 @@ export default function BannerCutdown() {
           <div className="left">
             <p style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}>
               PCX 减半剩余区块数
-            </p>
+            </p >
             <p style={{ display: 'en' === currentLocale ? 'block' : 'none' }}>
               PCX halves remaining blocks
-            </p>
+            </p >
             <strong>{block ? block : '0000000'}</strong>
           </div>
           <div
             className="right"
             style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}
           >
-            <p>PCX 减半倒计时</p>
+            <p>PCX 减半倒计时</p >
             <strong>{state ? state?.day : '00'}</strong>
             <span>天</span>
             <strong>{state ? state?.hour : '00'}</strong>
@@ -294,87 +293,19 @@ export default function BannerCutdown() {
             className="right"
             style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
           >
-            <p>Cutdown of PCX havels</p>
-            <strong>{diff?.days}</strong>
+            <p>Cutdown of PCX havels</p >
+            <strong>{state ? state?.day : '00'}</strong>
             <span>D</span>
-            <strong>{diff?.hours}</strong>
+            <strong>{state ? state?.hour : '00'}</strong>
             <span>H</span>
-            <strong>{diff?.minutes}</strong>
+            <strong>{state ? state?.minute : '00'}</strong>
             <span>M</span>
-            <strong>{diff?.seconds}</strong>
+            <strong>{state ? state?.second : '00'}</strong>
             <span>S</span>
           </div>
           {/* <Countdown date={Date.now() + diff} /> */}
         </Cutdown>
       )}
     </IntlContextConsumer>
-
-    // <IntlContextConsumer>
-    //   {({ languages, language: currentLocale }) => (
-    //     <Cutdown>
-    //       <div className="left">
-    //         <p style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}>
-    //           PCX 减半剩余区块数
-    //         </p>
-    //         <p style={{ display: 'en' === currentLocale ? 'block' : 'none' }}>
-    //           the number of PCX halves remaining blocks
-    //         </p>
-    //         <h1>{data.block}</h1>
-    //       </div>
-    //       <div className="right">
-    //         <p style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}>
-    //           PCX 减半倒计时
-    //         </p>
-    //         <p style={{ display: 'en' === currentLocale ? 'block' : 'none' }}>
-    //           Cutdown of PCX havels
-    //         </p>
-    //         <h1>{diff?.days}</h1>
-    //         <span
-    //           style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           天
-    //         </span>
-    //         <span
-    //           style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           D
-    //         </span>
-    //         <h1>{diff?.hours}</h1>
-    //         <span
-    //           style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           时
-    //         </span>
-    //         <span
-    //           style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           H
-    //         </span>
-    //         <h1>{diff?.minutes}</h1>
-    //         <span
-    //           style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           分
-    //         </span>
-    //         <span
-    //           style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           M
-    //         </span>
-    //         <h1>{diff?.seconds}</h1>
-    //         <span
-    //           style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           秒
-    //         </span>
-    //         <span
-    //           style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
-    //         >
-    //           S
-    //         </span>
-    //       </div>
-    //     </Cutdown>
-    //   )}
-    // </IntlContextConsumer>
   )
 }
