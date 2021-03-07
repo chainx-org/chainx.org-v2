@@ -1,8 +1,8 @@
 import React from 'react'
 import { IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import styled from 'styled-components'
-import Roadmapeden from './roadmapen.png'
-import Roadmapedzh from './roadmapzh.png'
+import Roadmapeden from './roadmapen.webp'
+import Roadmapedzh from './roadmapzh.webp'
 
 const OuterSection = styled.section`
   display: flex;
