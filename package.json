@@ -21,7 +21,6 @@
     "gatsby-source-filesystem": "^2.3.31",
     "gatsby-transformer-sharp": "^2.5.16",
     "jquery": "^3.5.1",
-    "moment": "^2.29.1",
     "mozjpeg": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

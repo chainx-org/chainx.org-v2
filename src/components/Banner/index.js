@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { IntlContextConsumer, useIntl } from 'gatsby-plugin-intl'
 import styled from 'styled-components'
-import BannerLogo from './bannerlogo.png'
+import BannerLogo from './bannerlogo.webp'
 import ChainXWhitePaper from './ChainXWhitePaper.pdf'
 import ChainX from './ChainX.pdf'
 import BannerCutdown from './BannerCutdown'

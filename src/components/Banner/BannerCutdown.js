@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import moment from 'moment'
 import { IntlContextConsumer, useIntl } from 'gatsby-plugin-intl'
 const Cutdown = styled.div`
   background: #f6c94a;
@@ -197,71 +196,114 @@ const Cutdown = styled.div`
 export default function BannerCutdown() {
   const [block, setBlock] = useState()
   const [time, setTime] = useState({})
-  const [diff, setDiff] = useState()
-  const [state, setState] = useState()
-  // getBlock
-  useEffect(() => {
-    async function a() {
-      const timer1 = setInterval(async () => {
-        let result = await axios('https://api-v2.chainx.org/halving')
-        // console.log(result)
-        setBlock(result.data.block)
-      }, 1000)
-      return () => {
-        //返回一个回调函数用来清除定时器
-        clearInterval(timer1)
-      }
-    }
-    a()
-  }, [])
+  const [data, setData] = useState()
+
   let date = new Date()
-  // console.log(block)
-  // getDate
+  // getData
+  var result = 0
   useEffect(() => {
     async function a() {
       let result = await axios('https://api-v2.chainx.org/halving')
-      setTime(result.data.time)
+      await setTime(result.data.time)
+      await setBlock(result.data.block)
     }
     a()
-  }, [])
+    
+  }, [result])
   // handleDate
   useEffect(() => {
+    function timeStamp2String(time) {
+      var datetime = new Date()
+      datetime.setTime(time)
+      var year = datetime.getFullYear()
+      var month =
+        datetime.getMonth() + 1 < 10
+          ? '0' + (datetime.getMonth() + 1)
+          : datetime.getMonth() + 1
+      var date =
+        datetime.getDate() < 10 ? '0' + datetime.getDate() : datetime.getDate()
+      var hour =
+        datetime.getHours() < 10
+          ? '0' + datetime.getHours()
+          : datetime.getHours()
+      var minute =
+        datetime.getMinutes() < 10
+          ? '0' + datetime.getMinutes()
+          : datetime.getMinutes()
+      var second =
+        datetime.getSeconds() < 10
+          ? '0' + datetime.getSeconds()
+          : datetime.getSeconds()
+      return (
+        year +
+        '-' +
+        month +
+        '-' +
+        date +
+        ' ' +
+        hour +
+        ':' +
+        minute +
+        ':' +
+        second
+      )
+    }
     if (time) {
-      let tmp = new Date(new Date(time) + 8 * 3600 * 1000)
-      let timeLine = moment(tmp).format('YYYY-MM-DD HH:mm:ss')
-
+      let timeLine = timeStamp2String(time)
       let t1 = date.getTime()
       let t2 = new Date(timeLine).getTime()
       let d = t2 - t1
-      let dur = moment.duration(t2 - t1)
-      let days = parseInt((t2 - t1) / 86400000) - 0
-      setDiff({ ...dur._data, days: days })
-      let timer = setInterval(() => {
-        //防止倒计时出现负数
-          d -= 1000;
-          let day = Math.floor((d / 1000 / 3600) / 24);
-          let hour = Math.floor((d / 1000 / 3600) % 24);
-          let minute = Math.floor((d / 1000 / 60) % 60);
-          let second = Math.floor(d / 1000 % 60);
-          setState({
-            day: day,
-            hour: hour < 10 ? "0" + hour : hour,
-            minute: minute < 10 ? "0" + minute : minute,
-            second: second < 10 ? "0" + second : second
-          })
-        
-      }, 1000);
-      return () => {
-        //返回一个回调函数用来清除定时器
-        clearInterval(timer)
+      if (!d) {
+        timeLine = '2021-06-05T14:33:33.000Z'
+        t2 = new Date(timeLine).getTime()
+        d = t2 - t1
       }
-      // setDiff(t2-t1)
-      // console.log(typeof diff)
+      let timer2 = setInterval(() => {
+        d -= 1000
+        let day = Math.floor(d / 1000 / 3600 / 24)
+        let hour = Math.floor((d / 1000 / 3600) % 24)
+        let minute = Math.floor((d / 1000 / 60) % 60)
+        let second = Math.floor((d / 1000) % 60)
+        setData({
+          day: day < 10 ? '0' + day : day,
+          hour: hour < 10 ? '0' + hour : hour,
+          minute: minute < 10 ? '0' + minute : minute,
+          second: second < 10 ? '0' + second : second,
+        })
+      }, 1000)
+      return () => {
+        clearInterval(timer2)
+      }
     }
   }, [time])
-  console.log(state)
-
-  // const intl = useIntl()
+  // handleBlock
+  useEffect(() => {
+    if(block){
+      let tmp2 = block
+      let timer1 = setInterval(() => {
+        if (tmp2) {
+          tmp2 -= 1
+          setBlock(tmp2)
+        }
+      }, 6000)
+  
+      return () => {
+        clearInterval(timer1)
+      }
+    }else if (block === undefined) {
+      let timer = setInterval(() => {
+        a()
+      }, 1000);
+      return () => {
+        clearInterval(timer)
+      }
+    }
+    async function a() {
+      let result = await axios('https://api-v2.chainx.org/halving')
+      await setBlock(result.data.block)
+    }
+  }, [block])
+  const intl = useIntl()
   return (
     <IntlContextConsumer>
       {({ languages, language: currentLocale }) => (
@@ -269,41 +311,40 @@ export default function BannerCutdown() {
           <div className="left">
             <p style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}>
               PCX 减半剩余区块数
-            </p >
+            </p>
             <p style={{ display: 'en' === currentLocale ? 'block' : 'none' }}>
               PCX halves remaining blocks
-            </p >
+            </p>
             <strong>{block ? block : '0000000'}</strong>
           </div>
           <div
             className="right"
             style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}
           >
-            <p>PCX 减半倒计时</p >
-            <strong>{state ? state?.day : '00'}</strong>
+            <p>PCX 减半倒计时</p>
+            <strong>{data?.day > 0 ? data?.day : '00'}</strong>
             <span>天</span>
-            <strong>{state ? state?.hour : '00'}</strong>
+            <strong>{data?.hour > 0 ? data?.hour : '00'}</strong>
             <span>时</span>
-            <strong>{state ? state?.minute : '00'}</strong>
+            <strong>{data?.minute > 0 ? data?.minute : '00'}</strong>
             <span>分</span>
-            <strong>{state ? state?.second : '00'}</strong>
+            <strong>{data?.second > 0 ? data?.second : '00'}</strong>
             <span>秒</span>
           </div>
           <div
             className="right"
             style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
           >
-            <p>Cutdown of PCX havels</p >
-            <strong>{state ? state?.day : '00'}</strong>
+            <p>Cutdown of PCX havels</p>
+            <strong>{data?.day > 0 ? data?.day : '00'}</strong>
             <span>D</span>
-            <strong>{state ? state?.hour : '00'}</strong>
+            <strong>{data?.hour > 0 ? data?.hour : '00'}</strong>
             <span>H</span>
-            <strong>{state ? state?.minute : '00'}</strong>
+            <strong>{data?.minute > 0 ? data?.minute : '00'}</strong>
             <span>M</span>
-            <strong>{state ? state?.second : '00'}</strong>
+            <strong>{data?.second > 0 ? data?.second : '00'}</strong>
             <span>S</span>
           </div>
-          {/* <Countdown date={Date.now() + diff} /> */}
         </Cutdown>
       )}
     </IntlContextConsumer>
