@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import Logo from "./ChainXLogoWhite.svg"
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Wechats from './wechat.png'
+import { IntlContextConsumer, useIntl } from 'gatsby-plugin-intl'
 
 export const StyledFooter = styled.footer`
   display: flex;
@@ -229,7 +230,10 @@ export default function () {
               <Img fixed={github.childImageSharp.fixed} />
             </a>
           </div>
-          <div className="copytoggle">
+          <IntlContextConsumer>
+      {({ languages, language: currentLocale }) => (
+      <>
+          <div className="copytoggle" style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}>
             <CopyToClipboard text={emails} onCopy={() => setCopied(true) }>
               <div className="imgicon">
                 <Img fixed={email.childImageSharp.fixed} />
@@ -241,6 +245,21 @@ export default function () {
               </span>
             </span> : null}
           </div>
+          <div className="copytoggle" style={{ display: 'en' === currentLocale ? 'block' : 'none' }}>
+            <CopyToClipboard text={emails} onCopy={() => setCopied(true) }>
+              <div className="imgicon">
+                <Img fixed={email.childImageSharp.fixed} />
+              </div>
+            </CopyToClipboard>
+            {copied ? <span className="copyemails">
+              <span className="arrow">
+              Copied address
+              </span>
+            </span> : null}
+          </div>
+          </>
+          )}
+          </IntlContextConsumer>
           <a href="/" className="logoicon">
             <Logo />
           </a> 
