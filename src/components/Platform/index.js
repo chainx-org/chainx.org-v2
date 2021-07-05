@@ -284,7 +284,7 @@ export default function() {
           <PlatMain className="anishow2">
             <PlatTit>{intl.formatMessage({ id: "Digital asset gateway" })}</PlatTit>
             <PlatCon>{intl.formatMessage({ id: "The ChainX asset gateway is composed of two parts: decentralized Bitcoin trusteeship and inter-chain asset mirroring." })}</PlatCon>
-            <PlatCon>{intl.formatMessage({ id: "Users deposit and collateralize bitcoins for X-BTC and use this in transactions with synthetic assets of other cryptocurrencies, growing to a wide range of cryptocurrencies that can be exchanged and traded on the same chain." })}</PlatCon>
+            <PlatCon>{intl.formatMessage({ id: "Users deposit and collateralize Bitcoin for X-BTC and use this in transactions with synthetic assets of other cryptocurrencies, growing to a wide range of cryptocurrencies that can be exchanged and traded on the same chain." })}</PlatCon>
           </PlatMain>
         </Item>
         <Item className="ani4">
