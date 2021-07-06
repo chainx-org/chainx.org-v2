@@ -233,7 +233,7 @@ export default function () {
         >
           <Bannerbgpic />
         </div>
-        <BannerCutdown/>
+        {/* <BannerCutdown/> */}
       </InnerSection>
     </StyledSection>
   )
