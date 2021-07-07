@@ -311,7 +311,7 @@ export default function Header() {
                   钱包
                 </a>
                 <a
-                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
                   href="https://dapps.chainx.org/"
                   className="txt"
                   target="_blank"
@@ -331,7 +331,7 @@ export default function Header() {
                   区块浏览器
                 </a>
                 <a
-                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
                   href="https://scan.chainx.org/"
                   className="txt"
                   target="_blank"
@@ -351,7 +351,7 @@ export default function Header() {
                   监控台
                 </a>
                 <a
-                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
                   href="http://telemetry.chainx.org/"
                   className="txt"
                   target="_blank"
@@ -376,7 +376,7 @@ export default function Header() {
                   </div>
                 </div>
                 <div
-                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
                   className="txt posselect"
                 >
                   <span>White Paper</span>
@@ -405,7 +405,7 @@ export default function Header() {
                   帮助
                 </a>
                 <a
-                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
                   href="https://chainx-doc.gitbook.io/chainx-user-guide-english/"
                   target="_blank"
                   rel="noreferrer"
@@ -445,7 +445,7 @@ export default function Header() {
                   </a>
                   <a
                     style={{
-                      display: 'en' === currentLocale ? 'block' : 'none',
+                      display: 'en'|| 'tr' === currentLocale ? 'block' : 'none',
                     }}
                     href="https://dapps.chainx.org/"
                     className="txt"
@@ -469,7 +469,7 @@ export default function Header() {
                   </a>
                   <a
                     style={{
-                      display: 'en' === currentLocale ? 'block' : 'none',
+                      display: 'en'|| 'tr' === currentLocale ? 'block' : 'none',
                     }}
                     href="https://scan.chainx.org/"
                     className="txt"
@@ -493,7 +493,7 @@ export default function Header() {
                   </a>
                   <a
                     style={{
-                      display: 'en' === currentLocale ? 'block' : 'none',
+                      display: 'en'|| 'tr' === currentLocale ? 'block' : 'none',
                     }}
                     href="http://telemetry.chainx.org/"
                     className="txt"
@@ -517,7 +517,7 @@ export default function Header() {
                   </a>
                   <a
                     style={{
-                      display: 'en' === currentLocale ? 'block' : 'none',
+                      display: 'en'|| 'tr' === currentLocale ? 'block' : 'none',
                     }}
                     href={ChainXWhitePaper}
                     className="txt"
@@ -541,7 +541,7 @@ export default function Header() {
                   </a>
                   <a
                     style={{
-                      display: 'en' === currentLocale ? 'block' : 'none',
+                      display: 'en'|| 'tr' === currentLocale ? 'block' : 'none',
                     }}
                     href={SherpaXLightpaper}
                     className="txt"
@@ -565,7 +565,7 @@ export default function Header() {
                   </a>
                   <a
                     style={{
-                      display: 'en' === currentLocale ? 'block' : 'none',
+                      display: 'en'|| 'tr' === currentLocale ? 'block' : 'none',
                     }}
                     href="https://chainx-doc.gitbook.io/chainx-user-guide-english/"
                     target="_blank"

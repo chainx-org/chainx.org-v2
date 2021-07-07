@@ -312,7 +312,7 @@ export default function BannerCutdown() {
             <p style={{ display: 'zh' === currentLocale ? 'block' : 'none' }}>
               PCX 减半剩余区块数
             </p>
-            <p style={{ display: 'en' === currentLocale ? 'block' : 'none' }}>
+            <p style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}>
               PCX halves remaining blocks
             </p>
             <strong>{block ? block : '0000000'}</strong>
@@ -333,7 +333,7 @@ export default function BannerCutdown() {
           </div>
           <div
             className="right"
-            style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+            style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
           >
             <p>Cutdown of PCX havels</p>
             <strong>{data?.day > 0 ? data?.day : '00'}</strong>

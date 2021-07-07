@@ -183,7 +183,7 @@ export default function () {
                   让比特币更具价值
                 </p>
                 <p
-                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
                 >
                   Make bitcoin more valuable
                 </p>
@@ -196,7 +196,7 @@ export default function () {
                 Cross-Defi 新方向。
               </Contents>
               <Contents
-                style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
               >
                 ChainX, the earliest launched project in polkadot
                 ecosystem,ChainX is committed to the research and application of
@@ -215,7 +215,7 @@ export default function () {
                   白皮书
                 </Linkbtn>
                 <Linkbtn
-                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
                   href={ChainXWhitePaper}
                   className="txt txten"
                   target="_blank"

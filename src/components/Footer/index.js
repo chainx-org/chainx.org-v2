@@ -245,7 +245,7 @@ export default function () {
               </span>
             </span> : null}
           </div>
-          <div className="copytoggle" style={{ display: 'en' === currentLocale ? 'block' : 'none' }}>
+          <div className="copytoggle" style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}>
             <CopyToClipboard text={emails} onCopy={() => setCopied(true) }>
               <div className="imgicon">
                 <Img fixed={email.childImageSharp.fixed} />
