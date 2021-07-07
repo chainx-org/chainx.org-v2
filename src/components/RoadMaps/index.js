@@ -112,7 +112,7 @@ export default function() {
           {({ languages, language: currentLocale }) => (
             <div className="maplink">
               <Details style={{display: ( "zh" === currentLocale ) ? "block" : "none"}} />
-              <Detailss style={{display: ( "en" === currentLocale ) ? "block" : "none"}} />
+              <Detailss style={{display: ( "en"||"tr" === currentLocale ) ? "block" : "none"}} />
             </div>
           )}
         </IntlContextConsumer>

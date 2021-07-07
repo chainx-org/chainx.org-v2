@@ -163,7 +163,6 @@ const Bannerbgpic = styled.p`
   }
 `
 
-
 export default function () {
   const intl = useIntl()
 
@@ -183,9 +182,14 @@ export default function () {
                   让比特币更具价值
                 </p>
                 <p
-                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
                 >
                   Make bitcoin more valuable
+                </p>
+                <p
+                  style={{ display: 'tr' === currentLocale ? 'block' : 'none' }}
+                >
+                  Bitcoin'i daha değerli hale getirin
                 </p>
               </Title>
               <Contents
@@ -196,13 +200,23 @@ export default function () {
                 Cross-Defi 新方向。
               </Contents>
               <Contents
-                style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
+                style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
               >
                 ChainX, the earliest launched project in polkadot
                 ecosystem,ChainX is committed to the research and application of
                 Bitcoin layer 2 expansion, digital asset gateway and Polkadot
                 second-layer relay chain,To realize cross-chain asset exchange,
                 leading the new direction of Bitcoin Cross-DEFi.
+              </Contents>
+              <Contents
+                style={{ display: 'tr' === currentLocale ? 'block' : 'none' }}
+              >
+                Polkadot ekosisteminde başlatılan en eski proje olan ChainX,
+                ChainX, Bitcoin katman 2 genişletme, dijital varlık ağ geçidi ve
+                Polkadot ikinci katman röle zincirinin araştırılması ve
+                uygulanmasına kendini adamıştır, Zincirler arası varlık
+                değişimini gerçekleştirmek için Bitcoin Cross'un yeni yönüne
+                öncülük eder -DEFi.
               </Contents>
               <div className="paperlink">
                 <Linkbtn
@@ -215,13 +229,22 @@ export default function () {
                   白皮书
                 </Linkbtn>
                 <Linkbtn
-                  style={{ display: 'en'|| 'tr' === currentLocale ? 'block' : 'none' }}
+                  style={{ display: 'en' === currentLocale ? 'block' : 'none' }}
                   href={ChainXWhitePaper}
                   className="txt txten"
                   target="_blank"
                   rel="noreferrer"
                 >
                   White Paper
+                </Linkbtn>
+                <Linkbtn
+                  style={{ display: 'tr' === currentLocale ? 'block' : 'none' }}
+                  href={ChainXWhitePaper}
+                  className="txt txten"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Beyaz kağıt
                 </Linkbtn>
               </div>
             </Detail>
